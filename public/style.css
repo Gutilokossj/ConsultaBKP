@@ -1,0 +1,97 @@
+/* Estilos básicos para a página inicial e de resultados */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container, .result-container {
+    max-width: 1000px; /* Aumenta a largura máxima para usar mais espaço */
+    width: 90%; /* Define a largura em relação à largura da tela */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+    margin: 0;
+    font-size: 2.5em; /* Aumenta o tamanho do título */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+label {
+    font-size: 1.2em; /* Aumenta o tamanho da fonte do rótulo */
+}
+
+input[type="text"] {
+    margin: 10px 0;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 400px; /* Aumenta a largura máxima do campo de entrada */
+    font-size: 1em; /* Aumenta o tamanho da fonte do campo de entrada */
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em; /* Aumenta o tamanho da fonte do botão */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 1em; /* Aumenta o tamanho da fonte da mensagem de erro */
+}
+
+/* Estilos para a página de resultados */
+.result-container p {
+    margin: 15px 0;
+    color: #666;
+    font-size: 1.1em; /* Aumenta o tamanho da fonte dos dados */
+}
+
+.back-button {
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em; /* Aumenta o tamanho da fonte do botão de retorno */
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.error-icon {
+    color: red;
+    font-weight: bold;
+}

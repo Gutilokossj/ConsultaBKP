@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Consulta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="result-container">
+        <h1>Resultado da Consulta</h1>
+        <div id="result">
+            <p id="message">Carregando...</p>
+        </div>
+        <a href="index.html" class="back-button">Voltar para a página inicial</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Obter o CNPJ do parâmetro da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const cnpj = urlParams.get('cnpj');
+
+            // Verificar se o CNPJ está presente
+            if (!cnpj) {
+                document.getElementById('message').textContent = 'CNPJ não fornecido.';
+                return;
+            }
+
+            // Construir o URL para a requisição
+            const apiUrl = `http://localhost:3001/consulta/${cnpj}`;
+
+            // Fazer a requisição para o servidor
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Mostrar os dados formatados
+                    document.getElementById('result').innerHTML = `
+                        <h2>Dados do CNPJ:</h2>
+                        <p><strong>CNPJ:</strong> ${data.cnpjCpfString}</p>
+                        <p><strong>Razão Social:</strong> ${data.razaoSocial || 'Não disponível'}</p>
+                        <p><strong>Último Backup BD:</strong> ${data.ultimoBackupBd}</p>
+                        <p><strong>Data Criação:</strong> ${data.dataCriacao}</p>
+                        <p><strong>Tamanho MB:</strong> ${data.tamanhoMb}</p>
+                        <p><strong>Expiração API:</strong> ${data.expiracaoApi.join('/')}</p>
+                        <p><strong>Bloqueado:</strong> ${data.bloqueado ? 'Sim' : 'Não'}</p>
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('message').innerHTML = `
+                        <span class="error-icon">!</span> Erro ao consultar o backup: ${error.message}
+                    `;
+                });
+        });
+    </script>
+</body>
+</html>
