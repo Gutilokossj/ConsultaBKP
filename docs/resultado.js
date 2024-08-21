@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     if (cnpj) {
         try {
             // Use o URL do proxy ao invés da URL direta da API
-            const response = await fetch(`https://servidor-proxy.vercel.app/consulta/${cnpj}`);
+            const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
             if (!response.ok) {
                 document.getElementById('result').innerHTML = '<p>Erro ao consultar o backup.</p>';
                 return;
