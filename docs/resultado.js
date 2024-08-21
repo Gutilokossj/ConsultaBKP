@@ -4,10 +4,9 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 
     if (cnpj) {
         try {
-            const response = await fetch(`/api/consulta/${cnpj}`);
+            const response = await fetch(`https://www.sistemaempresarialweb.com.br/backupsoften/consulta/${cnpj}`);
             if (!response.ok) {
-                document.getElementById('result').innerHTML = '<p>Erro ao consultar o backup.</p>';
-                return;
+                throw new Error('Resposta não OK');
             }
 
             const data = await response.json();
