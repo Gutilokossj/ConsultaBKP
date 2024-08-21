@@ -4,9 +4,11 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 
     if (cnpj) {
         try {
-            const response = await fetch(`https://www.sistemaempresarialweb.com.br/backupsoften/consulta/${cnpj}`);
+            // Use o URL do proxy ao invés da URL direta da API
+            const response = await fetch(`https://servidor-proxy.vercel.app/consulta/${cnpj}`);
             if (!response.ok) {
-                throw new Error('Resposta não OK');
+                document.getElementById('result').innerHTML = '<p>Erro ao consultar o backup.</p>';
+                return;
             }
 
             const data = await response.json();
