@@ -1,0 +1,58 @@
+/* Estilo para a página de erro */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 20px;
+}
+
+.message {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-top: 5px solid #444;
+    position: fixed;
+    bottom: 0;
+    margin-top: auto;
+    width: 100%;
+}
+
+footer h3 {
+    margin: 10;
+    font-size: 1em;
+}

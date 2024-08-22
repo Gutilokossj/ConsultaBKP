@@ -5,45 +5,50 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     if (cnpj) {
         try {
             const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
+            console.log('Consultando API:', apiUrl); // Verifica a URL da API
 
             const response = await fetch(apiUrl);
+            console.log('Resposta da API:', response); // Verifica o status da resposta
 
             if (!response.ok) {
                 throw new Error('Erro ao consultar a API');
             }
 
             const data = await response.json();
-            const resultContainer = document.getElementById('result');
+            console.log('Dados recebidos da API:', data); // Verifica os dados recebidos
 
-            // Formata os dados
-            resultContainer.innerHTML = `
-            <div class="section">
-            <h3> DADOS CLIENTE </h3>
-                <p><strong>CNPJ:</strong> ${data.cnpjCpfString || 'Não disponível'}</p>
-                <p><strong>DATA CRIAÇÃO:</strong> ${data.dataCriacao ? new Date(data.dataCriacao).toLocaleString('pt-BR') : 'Não disponível'}</p>
-                <p><strong>TAMANHO BKP:</strong> ${data.tamanhoMb || 'Não disponível'} MB</p>
-                <h3> VERIFICAR BACKUP </h3>
-                <p><strong>DATA/HORA ÚLTIMO BACKUP:</strong> ${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}</p>
-                <p><strong>ÚLTIMA VALIDAÇÃO BKP:</strong> ${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}</p>
-                <p><strong>EXPIRAÇÃO API:</strong> ${data.expiracaoApi ? `${data.expiracaoApi[2]}/${data.expiracaoApi[1]}/${data.expiracaoApi[0]}` : 'Não disponível'}</p>
-            `;
+            if (data.mensagem === 'Empresa não localizada') {
+                window.location.href = 'erro.html';
+            } else {
+                // Atualize os dados no HTML com a resposta da API
+                document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
+                document.getElementById('cnpj').textContent = data.cnpjCpf || 'Não disponível'; // Ajustado para cnpjCpf
+                document.getElementById('dataCriacao').textContent = data.dataCriacao || 'Não disponível';
+                document.getElementById('tamanhoBKP').textContent = data.tamanhoMb || 'Não disponível'; // Verifique se esse campo existe na API
+                document.getElementById('emailCopia').textContent = data.copiasemail || 'Não disponível'; // Verifique se esse campo existe na API
+                document.getElementById('ultimoEnvio').textContent = data.ultimoEnvioContador || 'Não disponível'; // Ajustado para ultimoEnvioContador
+                document.getElementById('emailContador').textContent = data.emailContador || 'Não disponível'; // Verifique se esse campo existe na API
+                document.getElementById('ultimoBackup').textContent = data.ultimoBackupBd || 'Não disponível'; // Ajustado para ultimoBackupBd
+                document.getElementById('ultimaValidacao').textContent = data.ultimaValidacaoApi || 'Não disponível'; // Verifique se esse campo existe na API
 
-            // Chama a função para atualizar o status do backup
-            if (data.ultimoBackupBd) {
-                updateBackupStatus(data.ultimoBackupBd);
+                // Verifique se a data de backup está disponível e atualize o status
+                if (data.ultimoBackupBd) {
+                    updateBackupStatus(data.ultimoBackupBd);
+                }
             }
-            
         } catch (error) {
-            console.error('Erro:', error);
-            document.getElementById('result').innerHTML = '<p>Erro ao consultar o backup.</p>';
+            console.error('Erro ao consultar a API:', error);
+            window.location.href = 'erro.html';
         }
     } else {
-        document.getElementById('result').innerHTML = '<p>Não foram encontrados resultados.</p>';
+        window.location.href = 'erro.html';
     }
 });
 
 // Função que atualiza o status do backup
 function updateBackupStatus(backupDateStr) {
+    console.log('Data do Backup:', backupDateStr); // Verifica a data do backup recebida
+
     const backupDate = new Date(backupDateStr);
     const currentDate = new Date();
 
@@ -68,4 +73,3 @@ function updateBackupStatus(backupDateStr) {
 
     backupStatusDiv.classList.remove("hidden");
 }
-

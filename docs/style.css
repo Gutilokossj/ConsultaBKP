@@ -18,7 +18,18 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
 }
+
+.result-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Espaçamento entre as colunas */
+    width: 100%;
+}
+
 
 h1, h2 {
     color: #333;
@@ -167,17 +178,34 @@ button:hover {
     background-color: #1976D2;
 }
 
+.dados-cliente h3 {
+    color: #007bff;
+}
+
+.verificar-envio h3 {
+    color: #28a745;
+}
+
+.verificar-backup h3 {
+    color: #dc3545;
+}
 
 
 footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-top: 5px solid #444;
+    position: fixed;
+    bottom: 0;
+    margin-top: auto;
     width: 100%;
-    background-color: #333; /* Cor de fundo do rodapé */
-    color: white; /* Cor do texto */
-    padding: 10px 0; /* Espaçamento interno (topo/baixo, esquerda/direita) */
-    border-top: 5px solid #444; /* Borda superior */
-    text-align: center; /* Centralizar o texto */
-    position: fixed; /* Fixar o rodapé na parte inferior da página */
-    bottom: 0; /* Coloca o rodapé no final da página */
+}
+
+footer h3 {
+    margin: 10;
+    font-size: 1em;
 }
 
 .container_footer{
