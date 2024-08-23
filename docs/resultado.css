@@ -55,7 +55,7 @@ p {
 
 /* Estilo para a seção "VERIFICAR BACKUP" */
 .verificar-backup {
-    background-color: #f9f9f9;
+    background-color: #c4e1ec;
     padding: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -151,4 +151,19 @@ footer h3 {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
     100% { opacity: 1; }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .notification {
+        position: static; /* Remove o posicionamento absoluto */
+        margin: 10px auto; /* Centraliza a notificação */
+        width: 60px; /* Ajusta a largura para telas menores */
+        height: 60px; /* Ajusta a altura para telas menores */
+        font-size: 10px; /* Ajusta o tamanho da fonte */
+    }
+
+    .back-button {
+        margin-bottom: 20px; /* Adiciona espaço abaixo do botão de voltar */
+    }
 }
