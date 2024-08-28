@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 document.getElementById('emailContador').textContent = data.emailContador || 'Não configurado'; // Verifique se esse campo existe na API
                 document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('ultimaValidacao').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
-                document.getElementById('diasSemBKP').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
+                document.getElementById('diasSemBKP');
 
                 // Atualize o campo de dias sem backup
                 if (data.ultimoBackupBd) {
