@@ -12,11 +12,11 @@ h1, h2{
     color: #333;
     text-align: center;
     margin: 0;
-    font-size: 2em; /* Aumenta o tamanho do título */
+    font-size: 2em;
 }
 
 p {
-    font-size: 0.9em; /* Diminuir o tamanho do texto dos parágrafos */
+    font-size: 0.9em;
 }
 
 /* Container principal para o conteúdo */
@@ -27,12 +27,18 @@ p {
     margin: 0 auto;
 }
 
-/* Contêiner para as seções lado a lado */
-.sections-container {
+/* Flexbox para organizar as seções lado a lado */
+.result-content {
     display: flex;
     justify-content: space-between;
     gap: 15px;
-    margin-bottom: 15px;
+}
+
+/* Seções para dados do cliente e verificar envio */
+.sections-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 /* Estilo para cada seção */
@@ -41,34 +47,19 @@ p {
     padding: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1;
+    margin-bottom: 15px;
 }
 
-/* Estilo específico para as seções */
-.dados-cliente {
-    margin-right: 5px;
-}
-
-.verificar-envio {
-    margin-left: 5px;
-}
-
-/* Estilo para a seção "VERIFICAR BACKUP" */
+/* Seção verificar backup */
 .verificar-backup {
     background-color: #c4e1ec;
     padding: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 15px;
     text-align: center;
-    position: relative;
+    flex: 0.4;
 }
 
-head{
-    position: fixed;
-    top: 0;
-
-}
 /* Estilo para o rodapé */
 footer {
     background-color: #333;
@@ -83,7 +74,7 @@ footer {
 }
 
 footer h3 {
-    margin: 10;
+    margin: 0;
     font-size: 1em;
 }
 
@@ -109,24 +100,23 @@ footer h3 {
 
 /* Estilo para a notificação do backup */
 .notification {
-    width: 75px; /* Largura menor */
-    height: 75px; /* Altura menor */
-    border-radius: 50%; /* Forma circular */
-    position: absolute; /* Posiciona de forma absoluta */
-    top: 15px; /* Ajusta a posição vertical */
-    right: 15px; /* Ajusta a posição horizontal */
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    right: 15px;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px; /* Tamanho da fonte menor */
+    font-size: 12px;
     color: white;
     text-align: center;
 }
 
 .notification.on-time {
     background-color: #28a745;
-    color: white;
 }
 
 .notification.late {
@@ -136,7 +126,6 @@ footer h3 {
 
 .notification.very-late {
     background-color: #dc3545;
-    color: white;
 }
 
 .hidden {
@@ -155,15 +144,23 @@ footer h3 {
 
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
+    .result-content {
+        flex-direction: column;
+    }
+
+    .verificar-backup {
+        margin-top: 15px;
+    }
+
     .notification {
-        position: static; /* Remove o posicionamento absoluto */
-        margin: 10px auto; /* Centraliza a notificação */
-        width: 60px; /* Ajusta a largura para telas menores */
-        height: 60px; /* Ajusta a altura para telas menores */
-        font-size: 10px; /* Ajusta o tamanho da fonte */
+        position: static;
+        margin: 10px auto;
+        width: 60px;
+        height: 60px;
+        font-size: 10px;
     }
 
     .back-button {
-        margin-bottom: 20px; /* Adiciona espaço abaixo do botão de voltar */
+        margin-bottom: 20px;
     }
 }

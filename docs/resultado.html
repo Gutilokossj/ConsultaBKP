@@ -12,6 +12,7 @@
         <h1>Resultado da Consulta</h1>
         <div class="result-content">
            
+            <!-- Seção para Dados do Cliente e Verificação de Backup -->
             <div class="sections-container">
                 <div class="section dados-cliente">
                     <h3>DADOS CLIENTE</h3>
@@ -36,6 +37,22 @@
                     <p id="backupMessage"></p>
                 </div>
             </div>
+
+            <!-- Seção para Módulos -->
+            <div class="modules-container">
+                <h3>MÓDULOS CONTRATADOS</h3>
+                <div class="module" id="estoque">
+                    <p><strong>Estoque:</strong> <span id="moduloEstoque">Não disponível</span></p>
+                </div>
+                <div class="module" id="financeiro">
+                    <p><strong>Financeiro:</strong> <span id="moduloFinanceiro">Não disponível</span></p>
+                </div>
+                <div class="module" id="comercial">
+                    <p><strong>Comercial:</strong> <span id="moduloComercial">Não disponível</span></p>
+                </div>
+                <!-- Adicione mais módulos aqui conforme necessário -->
+            </div>
+            
 
         </div>
         <a href="index.html" class="back-button">Voltar para a página inicial</a>
