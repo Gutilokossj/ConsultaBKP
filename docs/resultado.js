@@ -30,6 +30,15 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 document.getElementById('emailContador').textContent = data.emailContador || 'Não configurado'; // Verifique se esse campo existe na API
                 document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('ultimaValidacao').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
+                document.getElementById('diasSemBKP').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
+
+                // Atualize o campo de dias sem backup
+                if (data.ultimoBackupBd) {
+                    const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
+                    document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
+                } else {
+                    document.getElementById('diasSemBKP').textContent = 'Não disponível';
+                }
 
                 // Verifique se a data de backup está disponível e atualize o status
                 if (data.ultimoBackupBd) {
@@ -44,6 +53,18 @@ window.addEventListener('DOMContentLoaded', async (event) => {
         window.location.href = 'erro.html';
     }
 });
+
+
+// Função para calcular a diferença de dias desde o último backup
+function calcularDiasSemBackup(backupDateStr) {
+    const backupDate = new Date(backupDateStr);
+    const currentDate = new Date();
+
+    const differenceInTime = currentDate.getTime() - backupDate.getTime();
+    const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
+
+    return differenceInDays >= 0 ? differenceInDays : 0;
+}
 
 // Função que atualiza o status do backup
 function updateBackupStatus(backupDateStr) {
