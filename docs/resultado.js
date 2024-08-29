@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
             } else {
                 // Atualize os dados no HTML com a resposta da API
                 document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
-                document.getElementById('cnpj').textContent = data.cnpjCpf || 'Não disponível'; // Ajustado para cnpjCpf
+                document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || 'Não disponível';
                 document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`; // Ajustado para ultimoEnvioContador
                 document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('ultimaValidacao').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
@@ -50,6 +50,14 @@ window.addEventListener('DOMContentLoaded', async (event) => {
     }
 });
 
+
+function formatCNPJ(cnpj) {
+    // Remove qualquer caractere que não seja número
+    cnpj = cnpj.replace(/\D/g, '');
+
+    // Formata o CNPJ conforme o padrão XX.XXX.XXX/XXXX-XX
+    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
+}
 
 // Função para calcular a diferença de dias desde o último backup
 function calcularDiasSemBackup(backupDateStr) {
