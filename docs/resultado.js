@@ -23,11 +23,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 // Atualize os dados no HTML com a resposta da API
                 document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
                 document.getElementById('cnpj').textContent = data.cnpjCpf || 'Não disponível'; // Ajustado para cnpjCpf
-                document.getElementById('dataCriacao').textContent = `${data.dataCriacao ? new Date(data.dataCriacao).toLocaleString('pt-BR') : 'Não disponível'}`;
-                document.getElementById('tamanhoBKP').textContent = data.tamanhoMb || 'Não disponível'; // Verifique se esse campo existe na API
-                document.getElementById('emailCopia').textContent = data.copiasemail || 'Não configurado'; // Verifique se esse campo existe na API
                 document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`; // Ajustado para ultimoEnvioContador
-                document.getElementById('emailContador').textContent = data.emailContador || 'Não configurado'; // Verifique se esse campo existe na API
                 document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('ultimaValidacao').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('diasSemBKP');
