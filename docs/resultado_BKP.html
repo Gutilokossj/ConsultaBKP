@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado da Consulta</title>
-    <link rel="stylesheet" href="resultado.css">
+    <link rel="stylesheet" href="resultado_BKP.css">
 </head>
 <body>
 
@@ -12,15 +12,19 @@
         <h1>Resultado da Consulta</h1>
         <div class="result-content">
            
-            <!-- Seção para Dados do Cliente e Verificação de Backup -->
             <div class="sections-container">
                 <div class="section dados-cliente">
                     <h3>DADOS CLIENTE</h3>
                     <p><strong>Razão Social:</strong> <span id="razaoSocial">Não disponível</span></p>
                     <p><strong>CNPJ:</strong> <span id="cnpj">Não disponível</span></p>
+                    <p><strong>Data Criação:</strong> <span id="dataCriacao">Não disponível</span></p>
+                    <p><strong>Tamanho BKP:</strong> <span id="tamanhoBKP">Não disponível</span> MB</p>
+                    <p><strong>Email de cópia (CONFIG2):</strong> <span id="emailCopia">Não disponível</span></p>
                 </div>
                 <div class="section verificar-envio">
+                    <h3>VERIFICAR ENVIO CONTADOR</h3>
                     <p><strong>Data/Hora Último Envio:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+                    <p><strong>Email Contador:</strong> <span id="emailContador">Não disponível</span></p>
                 </div>
             </div>
             <div class="verificar-backup">
@@ -33,34 +37,18 @@
                 </div>
             </div>
 
-            <!-- Seção para Módulos -->
-            <div class="modules-container">
-                <h3>MÓDULOS CONTRATADOS</h3>
-                <div class="module" id="estoque">
-                    <p><strong>Estoque:</strong> <span id="moduloEstoque">Não disponível</span></p>
-                </div>
-                <div class="module" id="financeiro">
-                    <p><strong>Financeiro:</strong> <span id="moduloFinanceiro">Não disponível</span></p>
-                </div>
-                <div class="module" id="comercial">
-                    <p><strong>Comercial:</strong> <span id="moduloComercial">Não disponível</span></p>
-                </div>
-                
-            </div>
-            
-
         </div>
         <a href="index.html" class="back-button">Voltar para a página inicial</a>
     </div>
 
+    <!-- Adicione o script do resultado.js -->
+    <script src="resultado_BKP.js"></script>
 </body>
 
 <footer>
     <div id="footer-placeholder"></div>
 </footer>
 
-<!-- Adicione o script do resultado.js -->
-<script src="resultado.js"></script>
 <script src="footer.js"></script>
 
 </html>
