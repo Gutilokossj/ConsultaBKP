@@ -99,11 +99,12 @@ footer h3 {
     background-color: #007bff;
     color: white; /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
-    padding: 8% 16%; /* Espaçamento interno do botão */
-    border-radius: 4px; /* Bordas arredondadas */
-    cursor: pointer; /* Muda o cursor para uma mãozinha ao passar sobre o botão */
+    padding: 5% 5% 5% 5%; /* Espaçamento interno do botão */
+    border-radius: 12px; /* Bordas arredondadas */
+    cursor: pointer; 
     font-size: 0.9em; /* Tamanho da fonte do botão */
     transition: background-color 0.3s; /* Transição suave para mudança de cor */
+    margin-right: 15px;
 }
 
 #exibeDetalhes:hover {

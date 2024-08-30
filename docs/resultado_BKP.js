@@ -90,7 +90,7 @@ function updateBackupStatus(backupDateStr) {
     backupStatusDiv.className = 'notification';
 
     if (differenceInDays === 0) {
-        backupMessage.textContent = "BACKUP EM DIA";
+        backupMessage.textContent = "EM DIA";
         backupStatusDiv.classList.add("on-time", "blinking");
     } else if (differenceInDays === 1 || differenceInDays === 2) {
         backupMessage.textContent = "ATRASADO";

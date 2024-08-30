@@ -1,5 +1,5 @@
 document.getElementById('footer-placeholder').innerHTML = `
     <div class="container_footer">
-        <h3>Soften Sistemas LTDA - ver. 1.1.2 - by Gustavo Fernandes</h3>
+        <h3>Soften Sistemas LTDA - ver. 1.1.3 - by Gustavo Fernandes</h3>
     </div>
 `;
