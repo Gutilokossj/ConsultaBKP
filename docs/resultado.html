@@ -19,19 +19,25 @@
                     <p><strong>Razão Social:</strong> <span id="razaoSocial">Não disponível</span></p>
                     <p><strong>CNPJ:</strong> <span id="cnpj">Não disponível</span></p>
                 </div>
-                <div class="section verificar-envio">
-                    <p><strong>Data/Hora Último Envio:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+
+                <div class="verificar-backup">
+                    <div class="verificar-backup-header">
+                        <h3>VERIFICAR BACKUP</h3>
+                        <a href="resultado_BKP.html" class="button-container">
+                            <button type="button" id="exibeDetalhes">Exibir Detalhes</button>
+                        </a>
+                    </div>  
+                        <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
+                        <p><strong>Último Envio Contador:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+                    <div class="verificar-backup-footer">
+                        <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
+                        <div id="backupStatus" class="notification hidden">
+                            <p id="backupMessage"></p>
+                    </div>
                 </div>
-            </div>
-            <div class="verificar-backup">
-                <h3>VERIFICAR BACKUP</h3>
-                <p><strong>Data/Hora Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
-                <p><strong>Última Validação BKP:</strong> <span id="ultimaValidacao">Não disponível</span></p>
-                <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
-                <div id="backupStatus" class="notification hidden">
-                    <p id="backupMessage"></p>
-                </div>
-            </div>
+         </div>
+
+    </div>
 
             <!-- Seção para Módulos -->
             <div class="modules-container">

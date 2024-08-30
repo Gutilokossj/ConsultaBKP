@@ -50,16 +50,6 @@ p {
     margin-bottom: 15px;
 }
 
-/* Seção verificar backup */
-.verificar-backup {
-    background-color: #c4e1ec;
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    flex: 0.4;
-}
-
 /* Estilo para o rodapé */
 footer {
     background-color: #333;
@@ -98,14 +88,64 @@ footer h3 {
     background-color: #0056b3;
 }
 
-/* Estilo para a notificação do backup */
+.verificar-backup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Adiciona um espaçamento abaixo do cabeçalho */
+}
+
+#exibeDetalhes {
+    background-color: #007bff;
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    padding: 8% 16%; /* Espaçamento interno do botão */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Muda o cursor para uma mãozinha ao passar sobre o botão */
+    font-size: 0.9em; /* Tamanho da fonte do botão */
+    transition: background-color 0.3s; /* Transição suave para mudança de cor */
+}
+
+#exibeDetalhes:hover {
+    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+}
+
+/* Estilo para o botão "Exibir Detalhes" */
+.button-container {
+    margin-left: auto; /* Alinha o botão à direita */
+}
+
+
+/* Estilo para a seção "VERIFICAR BACKUP" */
+.verificar-backup {
+    background-color: #c4e1ec;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    position: relative;
+}
+
+.verificar-backup-footer {
+    display: flex;
+    align-items: center;
+    margin-right: 5%; 
+}
+
+.verificar-backup-footer p {
+    margin: 0; /* Remove o espaço padrão dos parágrafos */
+}
+
+head{
+    position: fixed;
+    top: 0;
+
+}
+
 .notification {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    width: 30%;
+    height: 10%;
+    border-radius: 25%;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -113,7 +153,9 @@ footer h3 {
     font-size: 12px;
     color: white;
     text-align: center;
+    margin-left: auto; /* Alinha à direita */
 }
+
 
 .notification.on-time {
     background-color: #28a745;
