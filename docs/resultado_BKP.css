@@ -12,11 +12,11 @@ h1, h2{
     color: #333;
     text-align: center;
     margin: 0;
-    font-size: 2em;
+    font-size: 2em; /* Aumenta o tamanho do título */
 }
 
 p {
-    font-size: 0.9em;
+    font-size: 0.9em; /* Diminuir o tamanho do texto dos parágrafos */
 }
 
 /* Container principal para o conteúdo */
@@ -27,18 +27,12 @@ p {
     margin: 0 auto;
 }
 
-/* Flexbox para organizar as seções lado a lado */
-.result-content {
+/* Contêiner para as seções lado a lado */
+.sections-container {
     display: flex;
     justify-content: space-between;
     gap: 15px;
-}
-
-/* Seções para dados do cliente e verificar envio */
-.sections-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+    margin-bottom: 15px;
 }
 
 /* Estilo para cada seção */
@@ -47,19 +41,34 @@ p {
     padding: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    flex: 1;
 }
 
-/* Seção verificar backup */
+/* Estilo específico para as seções */
+.dados-cliente {
+    margin-right: 5px;
+}
+
+.verificar-envio {
+    margin-left: 5px;
+}
+
+/* Estilo para a seção "VERIFICAR BACKUP" */
 .verificar-backup {
     background-color: #c4e1ec;
     padding: 10px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
     text-align: center;
-    flex: 0.4;
+    position: relative;
 }
 
+head{
+    position: fixed;
+    top: 0;
+
+}
 /* Estilo para o rodapé */
 footer {
     background-color: #333;
@@ -74,7 +83,7 @@ footer {
 }
 
 footer h3 {
-    margin: 0;
+    margin: 10;
     font-size: 1em;
 }
 
@@ -100,23 +109,24 @@ footer h3 {
 
 /* Estilo para a notificação do backup */
 .notification {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    position: absolute;
-    top: 15px;
-    right: 15px;
+    width: 75px; /* Largura menor */
+    height: 75px; /* Altura menor */
+    border-radius: 50%; /* Forma circular */
+    position: absolute; /* Posiciona de forma absoluta */
+    top: 15px; /* Ajusta a posição vertical */
+    right: 15px; /* Ajusta a posição horizontal */
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
+    font-size: 12px; /* Tamanho da fonte menor */
     color: white;
     text-align: center;
 }
 
 .notification.on-time {
     background-color: #28a745;
+    color: white;
 }
 
 .notification.late {
@@ -126,6 +136,7 @@ footer h3 {
 
 .notification.very-late {
     background-color: #dc3545;
+    color: white;
 }
 
 .hidden {
@@ -144,23 +155,15 @@ footer h3 {
 
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
-    .result-content {
-        flex-direction: column;
-    }
-
-    .verificar-backup {
-        margin-top: 15px;
-    }
-
     .notification {
-        position: static;
-        margin: 10px auto;
-        width: 60px;
-        height: 60px;
-        font-size: 10px;
+        position: static; /* Remove o posicionamento absoluto */
+        margin: 10px auto; /* Centraliza a notificação */
+        width: 60px; /* Ajusta a largura para telas menores */
+        height: 60px; /* Ajusta a altura para telas menores */
+        font-size: 10px; /* Ajusta o tamanho da fonte */
     }
 
     .back-button {
-        margin-bottom: 20px;
+        margin-bottom: 20px; /* Adiciona espaço abaixo do botão de voltar */
     }
 }

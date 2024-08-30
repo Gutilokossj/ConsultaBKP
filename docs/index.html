@@ -8,11 +8,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>Consultar Módulos (TESTE) </h1>
+        <h1>Consultar Módulos   </h1>
         <form id="consultForm">
             <label for="cnpj">Digite o CNPJ:</label>
             <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" required>
-            <button type="submit">Consultar</button>
+            
+            <div class="button-container">
+                <button type="button" id="consultarBackupBtn">Consultar Backup</button>
+                <button type="button" id="consultarModulosBtn">Consultar Módulos <br> (EM TESTE)</button>
+            </div>            
+
             <p id="errorMessage" class="error-message"></p>
         </form>
     </div>

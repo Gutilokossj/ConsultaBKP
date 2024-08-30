@@ -21,6 +21,16 @@ body {
     margin-bottom: 60px;
 }
 
+/* Estilos para o contêiner dos botões */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    margin-top: 20px; /* Espaçamento acima dos botões */
+}
+
+
 .result-content {
     display: flex;
     flex-direction: row;
