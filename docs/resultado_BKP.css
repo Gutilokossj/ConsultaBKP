@@ -6,17 +6,23 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(to right, #f0f4f8, #e0e6ed);
+    font-family: 'Roboto', sans-serif;
 }
 
-h1, h2{
-    color: #333;
-    text-align: center;
-    margin: 0;
-    font-size: 2em; /* Aumenta o tamanho do título */
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 600;
 }
 
 p {
-    font-size: 0.9em; /* Diminuir o tamanho do texto dos parágrafos */
+    font-size: 1em;
+    line-height: 1.6;
 }
 
 /* Container principal para o conteúdo */
@@ -155,15 +161,25 @@ footer h3 {
 
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
+    .result-content {
+        flex-direction: column;
+        padding: 10px; /* Adiciona um pouco de padding para evitar que o conteúdo fique colado às bordas */
+        flex-wrap: wrap;
+    }
+
+    .verificar-backup {
+        margin-top: 10px; /* Ajusta a margem superior */
+        padding: 10px; /* Adiciona padding para melhorar a aparência em telas pequenas */
+    }
+
     .notification {
-        position: static; /* Remove o posicionamento absoluto */
-        margin: 10px auto; /* Centraliza a notificação */
-        width: 60px; /* Ajusta a largura para telas menores */
-        height: 60px; /* Ajusta a altura para telas menores */
-        font-size: 10px; /* Ajusta o tamanho da fonte */
+        width: 50px; /* Ajusta o tamanho para garantir que se ajuste bem */
+        height: 50px;
+        font-size: 12px; /* Aumenta um pouco o tamanho da fonte */
     }
 
     .back-button {
-        margin-bottom: 20px; /* Adiciona espaço abaixo do botão de voltar */
+        margin-bottom: 15px; /* Ajusta a margem inferior */
+        padding: 10px; /* Aumenta o padding para melhorar a usabilidade em dispositivos móveis */
     }
 }

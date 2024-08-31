@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(to right, #f0f4f8, #e0e6ed);
+    font-family: 'Roboto', sans-serif;
 }
 
 .aviso {
@@ -17,21 +19,26 @@ body {
 }
 
 
-h1, h2{
-    color: #333;
-    text-align: center;
-    margin: 0;
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+h2 {
     font-size: 2em;
+    font-weight: 600;
 }
 
 p {
-    font-size: 0.9em;
+    font-size: 1em;
+    line-height: 1.6;
 }
 
 /* Container principal para o conteúdo */
 .result-container {
     flex: 1;
-    padding: 15px;
+    padding: 20px;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -50,16 +57,15 @@ p {
     flex: 1;
 }
 
-/* Estilo para cada seção */
 .section {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-/* Estilo para o rodapé */
+
 footer {
     background-color: #333;
     color: white;
@@ -73,9 +79,10 @@ footer {
 }
 
 footer h3 {
-    margin: 0;
+    margin: 10;
     font-size: 1em;
 }
+
 
 /* Estilo para o botão de voltar */
 .back-button {
@@ -91,6 +98,7 @@ footer h3 {
     display: block;
     width: 100%;
     font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .back-button:hover {
@@ -112,18 +120,23 @@ footer h3 {
     border-radius: 12px; /* Bordas arredondadas */
     cursor: pointer; 
     font-size: 0.9em; /* Tamanho da fonte do botão */
-    transition: background-color 0.3s; /* Transição suave para mudança de cor */
+    transition: background-color 0.3s, transform 0.2s;
     margin-right: 15px;
 }
 
 #exibeDetalhes:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 
 .button-container {
     margin-left: auto; /* Alinha o botão à direita */
     width: 25%
+}
+
+.back-button:active, #exibeDetalhes:active {
+    transform: scale(0.98);
 }
 
 
@@ -165,6 +178,8 @@ head{
     color: white;
     text-align: center;
     margin-left: auto; /* Alinha à direita */
+    font-family: 'Roboto', sans-serif; /* Adiciona a fonte Roboto */
+    font-weight: 300; /* Usa o peso leve da fonte */
 }
 
 
