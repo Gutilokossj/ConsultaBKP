@@ -8,6 +8,15 @@ body {
     min-height: 100vh;
 }
 
+.aviso {
+    color: #F44336; /* Cor do texto vermelha */
+    border: 2px solid #000; /* Borda preta com 2px de largura */
+    padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
+    border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
+    background-color: #fff; /* Cor de fundo branca (opcional, para melhorar a visibilidade) */
+}
+
+
 h1, h2{
     color: #333;
     text-align: center;
@@ -111,9 +120,10 @@ footer h3 {
     background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
 }
 
-/* Estilo para o botão "Exibir Detalhes" */
+
 .button-container {
     margin-left: auto; /* Alinha o botão à direita */
+    width: 25%
 }
 
 

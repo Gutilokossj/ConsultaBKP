@@ -30,10 +30,10 @@ document.getElementById('consultarModulosBtn').addEventListener('click', functio
 });
 
 // Event listener para o botão "Consultar Backup"
-document.getElementById('consultarBackupBtn').addEventListener('click', function() {
-    const cnpj = document.getElementById('cnpj').value;
-    redirectToPage(cnpj, 'resultado_BKP.html');
-});
+// document.getElementById('consultarBackupBtn').addEventListener('click', function() {
+//    const cnpj = document.getElementById('cnpj').value;
+//   redirectToPage(cnpj, 'resultado_BKP.html');
+//});
 
 // Event listener para o formulário (mantém a compatibilidade com o submit do formulário)
 document.getElementById('consultForm').addEventListener('submit', function(event) {

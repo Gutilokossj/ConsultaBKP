@@ -50,11 +50,35 @@ window.addEventListener('DOMContentLoaded', async (event) => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    const exibeDetalhesButton = document.getElementById('exibeDetalhes');
+
+    if (exibeDetalhesButton) {
+        exibeDetalhesButton.addEventListener('click', () => {
+            const cnpj = getQueryParam('cnpj');
+            console.log('CNPJ obtido:', cnpj); // Adicione este log para verificar o valor do CNPJ
+            if (cnpj) {
+                const backupUrl = `resultado_BKP.html?cnpj=${encodeURIComponent(cnpj)}`;
+                console.log('Redirecionando para:', backupUrl); // Adicione este log para verificar a URL
+                window.location.href = backupUrl;
+            } else {
+                console.error('CNPJ não encontrado na URL.');
+                window.location.href = 'erro.html';
+            }
+        });
+    }
+});
+
+// Função para obter o parâmetro 'cnpj' da URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+
 function formatCNPJ(cnpj) {
-    // Remove qualquer caractere que não seja número
     cnpj = cnpj.replace(/\D/g, '');
 
-    // Formata o CNPJ conforme o padrão XX.XXX.XXX/XXXX-XX
     return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
 }
 

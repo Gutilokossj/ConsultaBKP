@@ -12,7 +12,7 @@
         <h1>Resultado da Consulta</h1>
         <div class="result-content">
            
-            <!-- Seção para Dados do Cliente e Verificação de Backup -->
+            
             <div class="sections-container">
                 <div class="section dados-cliente">
                     <h3>DADOS CLIENTE</h3>
@@ -23,9 +23,9 @@
                 <div class="verificar-backup">
                     <div class="verificar-backup-header">
                         <h3>VERIFICAR BACKUP</h3>
-                        <a href="index.html" class="button-container">
-                            <button type="button" id="exibeDetalhes">Não clique</button>
-                        </a>
+                        <div class="button-container">
+                            <button type="button" id="exibeDetalhes">Exibir Detalhes</button>
+                        </div>
                     </div>  
                         <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
                         <p><strong>Último Envio Contador:</strong> <span id="ultimoEnvio">Não disponível</span></p>
@@ -40,15 +40,15 @@
     </div>
 
             <div class="modules-container">
-                <h3>MÓDULOS CONTRATADOS</h3>
+                <h3>MÓDULOS CONTRATADOS <div class="aviso"> AINDA NÃO FUNCIONA </div></h3>
                 <div class="module" id="estoque">
-                    <p><strong>Estoque:</strong> <span id="moduloEstoque">Não disponível</span></p>
+                    <p><strong>Estoque:</strong> <span id="moduloEstoque">Em teste</span></p>
                 </div>
                 <div class="module" id="financeiro">
-                    <p><strong>Financeiro:</strong> <span id="moduloFinanceiro">Não disponível</span></p>
+                    <p><strong>Financeiro:</strong> <span id="moduloFinanceiro">Em teste</span></p>
                 </div>
                 <div class="module" id="comercial">
-                    <p><strong>Comercial:</strong> <span id="moduloComercial">Não disponível</span></p>
+                    <p><strong>Comercial:</strong> <span id="moduloComercial">Em teste</span></p>
                 </div>
                 
             </div>
@@ -60,11 +60,13 @@
 
 </body>
 
+
+
 <footer>
     <div id="footer-placeholder"></div>
 </footer>
 
-<!-- Adicione o script do resultado.js -->
+
 <script src="resultado.js"></script>
 <script src="footer.js"></script>
 
