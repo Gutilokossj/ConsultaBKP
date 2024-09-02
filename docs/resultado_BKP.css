@@ -82,9 +82,7 @@ footer {
     text-align: center;
     padding: 8px;
     border-top: 5px solid #444;
-    position: fixed;
-    bottom: 0;
-    margin-top: auto;
+    position: relative;
     width: 100%;
 }
 
