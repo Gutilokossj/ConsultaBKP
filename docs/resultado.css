@@ -10,9 +10,14 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.modules-container{
+    padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
+    border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
+    background-color: #fff;
+}
+
 .aviso {
     color: #F44336; /* Cor do texto vermelha */
-    border: 2px solid #000; /* Borda preta com 2px de largura */
     padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
     border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
     background-color: #fff; /* Cor de fundo branca (opcional, para melhorar a visibilidade) */
