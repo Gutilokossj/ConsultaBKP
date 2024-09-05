@@ -209,6 +209,19 @@ head{
     animation: blinkingText 1.5s infinite;
 }
 
+.avisoTempo {
+    color: red; /* Cor do texto em vermelho */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 14px; /* Tamanho da fonte */
+    text-align: left; /* Centraliza o texto */
+    animation: blink 2s infinite; /* Define a animação blink */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; } /* O texto aparece */
+    50% { opacity: 0; } /* O texto some */
+}
+
 @keyframes blinkingText {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
