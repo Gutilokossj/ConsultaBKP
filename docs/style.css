@@ -1,7 +1,7 @@
 /* Estilos básicos para a página inicial e de resultados */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #f4f4f4, #eaeaea);
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #f0f0f0, #e0e0e0);
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,17 +9,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Roboto', sans-serif;
+    color: #333;
 }
 
 .container, .result-container {
-    max-width: 1000px; /* Aumenta a largura máxima para usar mais espaço */
-    width: 90%; /* Define a largura em relação à largura da tela */
-    padding: 30px;
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 60px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
 }
 
 /* Estilos para o contêiner dos botões */
@@ -67,26 +67,26 @@ input[type="text"] {
     margin: 10px 0;
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 100%;
-    max-width: 400px; /* Aumenta a largura máxima do campo de entrada */
-    font-size: 1em; /* Aumenta o tamanho da fonte do campo de entrada */
-    font-family: 'Roboto', sans-serif;
+    max-width: 500px;
+    font-size: 1em;
 }
 
 button {
-    padding: 12px 24px;
-    background: linear-gradient(to bottom, #007bff, #0056b3);
+    padding: 15px 30px;
+    background: linear-gradient(to bottom, #6200ea, #3700b3);
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1.1em; /* Aumenta o tamanho da fonte do botão */
+    font-size: 1.2em;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background: linear-gradient(to bottom, #0056b3, #003d7a);
+    background: linear-gradient(to bottom, #3700b3, #6200ea);
 }
 
 .error-message {
