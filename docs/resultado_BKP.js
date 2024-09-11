@@ -55,6 +55,31 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const exibeModulosButton = document.getElementById('exibeModulos');
+
+    if (exibeModulosButton) {
+        exibeModulosButton.addEventListener('click', () => {
+            const cnpj = getQueryParam('cnpj');
+            console.log('CNPJ obtido:', cnpj);
+            if (cnpj) {
+                const backupUrl = `resultado.html?cnpj=${encodeURIComponent(cnpj)}`;
+                console.log('Redirecionando para:', backupUrl);
+                window.location.href = backupUrl;
+            } else {
+                console.error('CNPJ não encontrado na URL.');
+                window.location.href = 'erro.html';
+            }
+        });
+    }
+});
+
+// Função para obter o parâmetro 'cnpj' da URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
 function formatCNPJ(cnpj) {
     if (!cnpj) return 'Não disponível';
 

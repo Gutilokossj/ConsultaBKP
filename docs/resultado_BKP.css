@@ -91,24 +91,54 @@ footer h3 {
     font-size: 1em;
 }
 
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Coloca os itens em lados opostos */
+    align-items: center; /* Alinha verticalmente */
+    margin-top: 8px;
+    width: 100%; /* Garante que o contêiner ocupe a largura completa */
+}
+
 /* Estilo para o botão de voltar */
 .back-button {
     background-color: #007bff;
     color: white;
     text-decoration: none;
-    padding: 8px;
-    border-radius: 4px;
-    border: none;
+    padding: 10px;
+    border-radius: 8px;
     cursor: pointer;
-    text-align: center;
-    margin-top: 8px;
-    display: block;
-    width: 100%;
     font-size: 0.9em;
+    transition: background-color 0.3s;
+    width: 45%; /* Define a largura do link e botão para serem iguais */
+    text-align: center; /* Centraliza o texto */
 }
 
 .back-button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.back-button:active, #exibeModulos:active {
+    transform: scale(0.98);
+}
+
+#exibeModulos {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 45%; /* Define a largura do botão */
+    text-align: center; /* Centraliza o texto */
+}
+
+#exibeModulos:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
 /* Estilo para a notificação do backup */
@@ -172,25 +202,80 @@ footer h3 {
 
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
-    .result-content {
-        flex-direction: column;
-        padding: 10px; /* Adiciona um pouco de padding para evitar que o conteúdo fique colado às bordas */
-        flex-wrap: wrap;
+    body {
+        padding: 10px;
+    }
+
+    .result-container {
+        padding: 10px;
+        max-width: 100%; /* Permitir que o container ocupe toda a largura */
+    }
+
+    .sections-container {
+        flex-direction: column; /* Alinha as seções verticalmente */
+        gap: 10px; /* Reduz o espaçamento entre as seções */
+    }
+
+    .section {
+        margin-bottom: 15px; /* Adiciona espaço entre as seções */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Diminui o tamanho do título em telas menores */
+    }
+
+    h2 {
+        font-size: 1.5em; /* Ajusta o subtítulo */
+    }
+
+    p {
+        font-size: 0.9em; /* Diminui o texto para não ocupar muito espaço */
     }
 
     .verificar-backup {
-        margin-top: 10px; /* Ajusta a margem superior */
-        padding: 10px; /* Adiciona padding para melhorar a aparência em telas pequenas */
+        margin-top: 10px;
+        padding: 8px;
     }
 
     .notification {
-        width: 50px; /* Ajusta o tamanho para garantir que se ajuste bem */
-        height: 50px;
-        font-size: 12px; /* Aumenta um pouco o tamanho da fonte */
+        position: static; /* Remove o posicionamento absoluto para centralizar melhor */
+        margin: 10px auto; /* Centraliza a notificação no meio */
+        width: 60px;
+        height: 60px;
+        font-size: 10px; /* Reduz o tamanho da fonte */
     }
 
-    .back-button {
-        margin-bottom: 15px; /* Ajusta a margem inferior */
-        padding: 10px; /* Aumenta o padding para melhorar a usabilidade em dispositivos móveis */
+    .back-button, #exibeModulos {
+        width: 100%; /* Garante que os botões ocupem toda a largura em telas pequenas */
+        margin-bottom: 10px;
+    }
+
+    footer {
+        padding: 10px;
+        font-size: 0.8em; /* Ajusta o texto do rodapé */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Reduz ainda mais o tamanho do título em telas muito pequenas */
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .section {
+        padding: 8px;
+    }
+
+    .notification {
+        width: 50px;
+        height: 50px;
+        font-size: 8px; /* Reduz o texto para garantir melhor visualização em telas pequenas */
+    }
+
+    .back-button, #exibeModulos {
+        font-size: 0.8em; /* Ajusta o tamanho da fonte nos botões */
     }
 }
