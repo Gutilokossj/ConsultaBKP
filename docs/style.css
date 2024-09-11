@@ -82,11 +82,12 @@ button {
     cursor: pointer;
     font-size: 1.2em;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
 }
 
 button:hover {
     background: linear-gradient(to bottom, #3700b3, #6200ea);
+    transform: scale(1.03);
 }
 
 .error-message {

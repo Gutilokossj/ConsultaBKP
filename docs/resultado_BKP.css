@@ -8,6 +8,7 @@ body {
     min-height: 100vh;
     background: linear-gradient(to right, #f0f4f8, #e0e6ed);
     font-family: 'Roboto', sans-serif;
+    color:#333;
 }
 
 h1 {
@@ -46,7 +47,7 @@ p {
     background-color: #f9f9f9;
     padding: 10px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     flex: 1;
 }
 
@@ -64,7 +65,7 @@ p {
     background-color: #c4e1ec;
     padding: 10px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     margin-top: 15px;
     text-align: center;
     position: relative;
@@ -102,21 +103,22 @@ footer h3 {
 
 /* Estilo para o botão de voltar */
 .back-button {
-    background-color: #007bff;
+    background: linear-gradient(to bottom, #6200ea, #3700b3);
     color: white;
     text-decoration: none;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.9em;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     width: 45%; /* Define a largura do link e botão para serem iguais */
     text-align: center; /* Centraliza o texto */
+    margin-top: 10px;
 }
 
 .back-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background: linear-gradient(to bottom, #3700b3, #6200ea);
+    transform: scale(1.03);
 }
 
 .back-button:active, #exibeModulos:active {
@@ -124,7 +126,7 @@ footer h3 {
 }
 
 #exibeModulos {
-    background-color: #007bff;
+    background: linear-gradient(to bottom, #6200ea, #3700b3);
     color: white;
     border: none;
     padding: 10px;
@@ -134,11 +136,12 @@ footer h3 {
     transition: background-color 0.3s, transform 0.2s;
     width: 45%; /* Define a largura do botão */
     text-align: center; /* Centraliza o texto */
+    margin-top: 10px;
 }
 
 #exibeModulos:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background: linear-gradient(to bottom, #3700b3, #6200ea);
+    transform: scale(1.03);
 }
 
 /* Estilo para a notificação do backup */

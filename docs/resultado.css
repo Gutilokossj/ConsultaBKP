@@ -8,12 +8,14 @@ body {
     min-height: 100vh;
     background: linear-gradient(to right, #f0f4f8, #e0e6ed);
     font-family: 'Roboto', sans-serif;
+    color:#333;
 }
 
 .modules-container{
     padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
     border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
     background-color: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .aviso {
@@ -66,7 +68,7 @@ p {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
 }
 
@@ -91,24 +93,25 @@ footer h3 {
 
 /* Estilo para o botão de voltar */
 .back-button {
-    background-color: #007bff;
+    background: linear-gradient(to bottom, #6200ea, #3700b3);
     color: white;
     text-decoration: none;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
     text-align: center;
-    margin-top: 8px;
-    display: block;
-    width: 100%;
+    align-items: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
     font-size: 0.9em;
     transition: background-color 0.3s, transform 0.2s;
 }
 
 .back-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background: linear-gradient(to bottom, #3700b3, #6200ea);
+    transform: scale(1.03);
 }
 
 .verificar-backup-header {
@@ -119,7 +122,7 @@ footer h3 {
 }
 
 #exibeDetalhes {
-    background-color: #007bff;
+    background: linear-gradient(to bottom, #6200ea, #3700b3);
     color: white; /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
     padding: 5% 5% 5% 5%; /* Espaçamento interno do botão */
@@ -131,8 +134,8 @@ footer h3 {
 }
 
 #exibeDetalhes:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+    background: linear-gradient(to bottom, #3700b3, #6200ea);
+    transform: scale(1.20);
 }
 
 
@@ -151,7 +154,7 @@ footer h3 {
     background-color: #c4e1ec;
     padding: 5px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     margin-top: 15px;
     position: relative;
 }
