@@ -83,9 +83,10 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                     if (moduleId) {
                         const moduleElement = document.getElementById(moduleId);
                         if (moduleElement) {
-                            const statusElement = moduleElement.querySelector('span');
+                            const statusElement = moduleElement.querySelector('.status');
                             if (statusElement) {
-                                statusElement.textContent = 'Disponível';
+                                statusElement.classList.add('status-available');
+                                statusElement.textContent = '✔'; // Símbolo de verificado
                             }
                         }
                     }
@@ -94,9 +95,10 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                     Object.values(moduleElements).forEach(moduleId => {
                         const moduleElement = document.getElementById(moduleId);
                         if (moduleElement) {
-                            const statusElement = moduleElement.querySelector('span');
+                            const statusElement = moduleElement.querySelector('.status');
                             if (statusElement && statusElement.textContent === '') {
-                                statusElement.textContent = 'Não disponível';
+                                statusElement.classList.add('status-unavailable');
+                                statusElement.textContent = '✘'; // Símbolo de não disponível
                             }
                         }
                     });

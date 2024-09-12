@@ -1,32 +1,79 @@
 /* Estilos gerais para o resultado.html */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
     background: linear-gradient(to right, #f0f4f8, #e0e6ed);
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
     color:#333;
 }
 
-.modules-container{
+.modules-container {
     padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
     border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-.aviso {
-    color: #79e44f; /* Cor do texto vermelha */
-    padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
-    border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
-    background-color: #fff;
-    text-align: center; /* Cor de fundo branca (opcional, para melhorar a visibilidade) */
+.modules-container h3 {
+    text-align: left; /* Alinhamento do título */
+    font-size: 22px; /* Tamanho da fonte */
+    margin-bottom: 2%; /* Espaçamento entre o título e os módulos */
+    position: relative; /* Necessário para posicionar o aviso */
 }
 
+.aviso {
+    background-color: #f0b681; /* Cor de fundo do aviso */
+    color: #c0790f; /* Cor do texto do aviso */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+}
 
+.modules-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
+    gap: 20px; /* Espaçamento entre as caixas de módulo */
+}
+
+.modulosFiscais, .modulosGerenciais, .modulosEspeciais {
+    border: 3px solid #dddddd;
+    border-radius: 10px;
+    padding: 5%;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modulosFiscais {
+    grid-column: 1; /* Ocupa a primeira coluna */
+}
+
+.modulosGerenciais {
+    grid-column: 2; /* Ocupa a segunda coluna */
+}
+
+.modulosEspeciais {
+    grid-column: 3; /* Ocupa a terceira coluna */
+}
+
+/* Adicional para garantir que os módulos sejam ajustáveis */
+.module {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura */
+    overflow: hidden; /* Garante que o conteúdo não ultrapasse o container */
+}
+
+.status {
+    font-weight: bold; /* Estiliza o texto de status */
+}
 
 h1 {
     font-size: 2.5em;
@@ -36,6 +83,10 @@ h1 {
 h2 {
     font-size: 2em;
     font-weight: 600;
+}
+
+h3 {
+    font-size: 1em;
 }
 
 p {
@@ -65,32 +116,21 @@ p {
     flex: 1;
 }
 
-.section {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    margin-bottom: 20px;
-}
-
-
 footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 8px;
     border-top: 5px solid #444;
-    position: relative;
-    bottom: 0;
-    margin-top: auto;
     width: 100%;
+    position: sticky;
+    bottom: 0;
 }
 
 footer h3 {
     margin: 10;
     font-size: 1em;
 }
-
 
 /* Estilo para o botão de voltar */
 .back-button {
@@ -139,7 +179,6 @@ footer h3 {
     transform: scale(1.20);
 }
 
-
 .button-container {
     margin-left: auto; /* Alinha o botão à direita */
     width: 25%
@@ -149,10 +188,17 @@ footer h3 {
     transform: scale(0.98);
 }
 
-
 /* Estilo para a seção "VERIFICAR BACKUP" */
 .verificar-backup {
     background-color: #c4e1ec;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    margin-top: 15px;
+    position: relative;
+}
+
+.verificar-cliente {
     padding: 5px;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -173,7 +219,6 @@ footer h3 {
 head{
     position: fixed;
     top: 0;
-
 }
 
 .notification {
@@ -188,10 +233,7 @@ head{
     color: white;
     text-align: center;
     margin-left: auto; /* Alinha à direita */
-    font-family: 'Roboto', sans-serif; /* Adiciona a fonte Roboto */
-    font-weight: 300; /* Usa o peso leve da fonte */
 }
-
 
 .notification.on-time {
     background-color: #28a745;
@@ -220,6 +262,30 @@ head{
     font-size: 14px; /* Tamanho da fonte */
     text-align: left; /* Centraliza o texto */
     animation: blink 2s infinite; /* Define a animação blink */
+}
+
+
+.module p {
+    margin: 0; /* Remove margens do parágrafo */
+    display: flex;
+    align-items: left; /* Alinha verticalmente o texto e o ícone */
+    gap: 10px; /* Espaço entre o texto e o ícone */
+}
+
+.status {
+    font-size: 1.5em; /* Ajuste o tamanho do ícone conforme necessário */
+    display: inline-block;
+    width: 2.5em; /* Largura do ícone */
+    text-align: right;
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura do ícone */
+}
+
+.status-available {
+    color: green;
+}
+
+.status-unavailable {
+    color: red;
 }
 
 @keyframes blink {
