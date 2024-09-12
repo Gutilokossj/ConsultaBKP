@@ -19,10 +19,11 @@ body {
 }
 
 .aviso {
-    color: #F44336; /* Cor do texto vermelha */
+    color: #79e44f; /* Cor do texto vermelha */
     padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
     border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
-    background-color: #fff; /* Cor de fundo branca (opcional, para melhorar a visibilidade) */
+    background-color: #fff;
+    text-align: center; /* Cor de fundo branca (opcional, para melhorar a visibilidade) */
 }
 
 

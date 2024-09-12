@@ -25,7 +25,6 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || 'Não disponível';
                 document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
                 document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
-                document.getElementById('diasSemBKP');
 
                 // Atualize o campo de dias sem backup
                 if (data.ultimoBackupBd) {
@@ -39,16 +38,77 @@ window.addEventListener('DOMContentLoaded', async (event) => {
                 if (data.ultimoBackupBd) {
                     updateBackupStatus(data.ultimoBackupBd);
                 }
-            }
-        } catch (error) {
-            console.error('Erro ao consultar a API:', error);
-            window.location.href = 'erro.html';
-        }
-    } else {
-        window.location.href = 'erro.html';
-    }
-});
 
+                 // Consulta à API de módulos
+                 const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;
+                 const responseModules = await fetch(apiModulesUrl, {
+                     method: 'POST',
+                     headers: {
+                         'Content-Type': 'application/json',
+                     },
+                     body: JSON.stringify({
+                         document: cnpj,
+                         origin: 'SIEM',
+                     }),
+                 });
+ 
+                 if (!responseModules.ok) {
+                     throw new Error('Erro ao consultar a API de módulos');
+                 }
+ 
+                 const modulesData = await responseModules.json();
+                 console.log('Dados dos módulos recebidos da API:', modulesData);
+ 
+                  // Verifique e atualize o status dos módulos no HTML
+                const moduleElements = {
+                    'nfe': 'moduloNFe',
+                    'nfse': 'moduloNFSe',
+                    'nfce': 'moduloNFce',
+                    'sat': 'moduloSAT',
+                    'cte': 'moduloCTe',
+                    'mdfe': 'moduloMDFe',
+                    'financeiro': 'moduloFinanceiro',
+                    'comercial': 'moduloComercial',
+                    'sped': 'moduloSPED',
+                    'pdv': 'moduloPDV',
+                    'estoque': 'moduloEstoque',
+                    'qtlicenca': 'moduloQtlicenca'
+                };
+
+                console.log('Módulos recebidos:', modulesData.benefits);
+                console.log('Elementos de módulo:', moduleElements);
+
+                modulesData.benefits.forEach(benefit => {
+                    const moduleId = moduleElements[benefit.name];
+                    if (moduleId) {
+                        const moduleElement = document.getElementById(moduleId);
+                        if (moduleElement) {
+                            const statusElement = moduleElement.querySelector('span');
+                            if (statusElement) {
+                                statusElement.textContent = 'Disponível';
+                            }
+                        }
+                    }
+                });
+                    // Exibir mensagem para módulos não contratados
+                    Object.values(moduleElements).forEach(moduleId => {
+                        const moduleElement = document.getElementById(moduleId);
+                        if (moduleElement) {
+                            const statusElement = moduleElement.querySelector('span');
+                            if (statusElement && statusElement.textContent === '') {
+                                statusElement.textContent = 'Não disponível';
+                            }
+                        }
+                    });
+                }
+             } catch (error) {
+                console.error('Erro ao consultar a API:', error);
+                window.location.href = 'erro.html';
+                }
+                    } else {
+                    window.location.href = 'erro.html';
+        }
+    });
 
 document.addEventListener('DOMContentLoaded', () => {
     const exibeDetalhesButton = document.getElementById('exibeDetalhes');
