@@ -208,6 +208,17 @@ button:hover {
     color: #dc3545;
 }
 
+.aviso {
+    background-color: #d1cdfa; /* Cor de fundo do aviso */
+    color: #070202; /* Cor do texto do aviso */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    font: bold;
+    font-weight: 900;
+}
+
 
 footer {
     background-color: #333;
