@@ -3,73 +3,39 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    background: linear-gradient(to right, #f0f4f8, #e0e6ed);
+    background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
     font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
     color:#333;
+}
+
+.aviso {
+    background-color: #f5bc87; /* Cor de fundo do aviso */
+    color: #72120b; /* Cor do texto do aviso */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center; 
+    margin-bottom: 10px;
 }
 
 .modules-container {
     padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
-    border-radius: 4px; /* Arredondar os cantos da borda (opcional) */
+    border-radius: 10px; /* Arredondar os cantos da borda (opcional) */
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-}
-
-.modules-container h3 {
-    text-align: left; /* Alinhamento do título */
-    font-size: 22px; /* Tamanho da fonte */
-    margin-bottom: 2%; /* Espaçamento entre o título e os módulos */
-    position: relative; /* Necessário para posicionar o aviso */
-}
-
-.aviso {
-    background-color: #f0b681; /* Cor de fundo do aviso */
-    color: #c0790f; /* Cor do texto do aviso */
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    text-align: center;
-}
-
-.modules-group {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Três colunas de largura igual */
-    gap: 20px; /* Espaçamento entre as caixas de módulo */
-}
-
-.modulosFiscais, .modulosGerenciais, .modulosEspeciais {
-    border: 3px solid #dddddd;
-    border-radius: 10px;
-    padding: 5%;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.modulosFiscais {
-    grid-column: 1; /* Ocupa a primeira coluna */
-}
-
-.modulosGerenciais {
-    grid-column: 2; /* Ocupa a segunda coluna */
-}
-
-.modulosEspeciais {
-    grid-column: 3; /* Ocupa a terceira coluna */
 }
 
 /* Adicional para garantir que os módulos sejam ajustáveis */
 .module {
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 15px;
     background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura */
-    overflow: hidden; /* Garante que o conteúdo não ultrapasse o container */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+
 }
+
 
 .status {
     font-weight: bold; /* Estiliza o texto de status */
@@ -78,6 +44,7 @@ body {
 h1 {
     font-size: 2.5em;
     font-weight: 700;
+    text-align: center;
 }
 
 h2 {
@@ -86,7 +53,8 @@ h2 {
 }
 
 h3 {
-    font-size: 1em;
+    font-size: 1.2em;
+    text-align: center;
 }
 
 p {
@@ -96,24 +64,25 @@ p {
 
 /* Container principal para o conteúdo */
 .result-container {
-    flex: 1;
-    padding: 20px;
-    max-width: 900px;
+    padding: auto;
+    max-width: 80%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Flexbox para organizar as seções lado a lado */
 .result-content {
     display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    gap: 2%;
 }
 
 /* Seções para dados do cliente e verificar envio */
 .sections-container {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    justify-content: space-between;
 }
 
 footer {
@@ -122,9 +91,8 @@ footer {
     text-align: center;
     padding: 8px;
     border-top: 5px solid #444;
+    position: relative;
     width: 100%;
-    position: sticky;
-    bottom: 0;
 }
 
 footer h3 {
@@ -132,22 +100,21 @@ footer h3 {
     font-size: 1em;
 }
 
+
 /* Estilo para o botão de voltar */
 .back-button {
     background: linear-gradient(to bottom, #6200ea, #3700b3);
     color: white;
     text-decoration: none;
-    padding: 8px;
+    padding: 1%;
     border-radius: 8px;
-    border: none;
     cursor: pointer;
     text-align: center;
-    align-items: center;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    font-size: 0.9em;
+    margin: 2% auto; /* Centraliza o botão horizontalmente */
+    width: 50%; /* Largura do botão */
+    font-size: 1em;
     transition: background-color 0.3s, transform 0.2s;
+    display: block; /* Garante que o margin auto funcione */
 }
 
 .back-button:hover {
@@ -193,15 +160,16 @@ footer h3 {
     background-color: #c4e1ec;
     padding: 5px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     margin-top: 15px;
     position: relative;
 }
 
 .verificar-cliente {
+    background-color: #fff;
     padding: 5px;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     margin-top: 15px;
     position: relative;
 }

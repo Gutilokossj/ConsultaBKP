@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: linear-gradient(to right, #f0f4f8, #e0e6ed);
+    background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
     font-family: 'Roboto', sans-serif;
     color:#333;
 }
