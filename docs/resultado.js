@@ -1,116 +1,109 @@
-window.addEventListener('DOMContentLoaded', async (event) => {
+window.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const cnpj = urlParams.get('cnpj');
 
     if (cnpj) {
         try {
-            const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
-            console.log('Consultando API:', apiUrl); // Verifica a URL da API
+            // Consulta à API de módulos primeiro para verificar se o CNPJ está ativo
+            const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;
+            const responseModules = await fetch(apiModulesUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    document: cnpj,
+                    origin: 'SIEM',
+                }),
+            });
 
-            const response = await fetch(apiUrl);
-            console.log('Resposta da API:', response); // Verifica o status da resposta
-
-            if (!response.ok) {
-                throw new Error('Erro ao consultar a API');
+            if (!responseModules.ok) {
+                throw new Error('Erro ao consultar a API de módulos');
             }
 
-            const data = await response.json();
-            console.log('Dados recebidos da API:', data); // Verifica os dados recebidos
+            const modulesData = await responseModules.json();
+            console.log('Dados dos módulos recebidos da API:', modulesData);
 
-            if (data.mensagem === 'Empresa não localizada') {
-                window.location.href = 'erro.html';
-            } else {
-                // Atualize os dados no HTML com a resposta da API
-                document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
-                document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || 'Não disponível';
-                document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
-                document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
+            // Verifica se o CNPJ está ativo
+            if (!modulesData.active) {
+                console.error('CNPJ inativo, redirecionando para erroCancelado.html');
+                window.location.href = 'erroCancelado.html';
+                return; // Para a execução caso o CNPJ esteja inativo
+            }
 
-                // Atualize o campo de dias sem backup
-                if (data.ultimoBackupBd) {
-                    const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
-                    document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
-                } else {
-                    document.getElementById('diasSemBKP').textContent = 'Não disponível';
-                }
+            // Se o CNPJ estiver ativo, continua para exibir os dados dos módulos
+            const moduleElements = {
+                'nfe': 'moduloNFe',
+                'nfse': 'moduloNFSe',
+                'nfce': 'moduloNFce',
+                'sat': 'moduloSAT',
+                'cte': 'moduloCTe',
+                'mdfe': 'moduloMDFe',
+                'financeiro': 'moduloFinanceiro',
+                'comercial': 'moduloComercial',
+                'sped': 'moduloSPED',
+                'pdv': 'moduloPDV',
+                'estoque': 'moduloEstoque',
+                'qtlicenca': 'moduloQtlicenca'
+            };
 
-                // Verifique se a data de backup está disponível e atualize o status
-                if (data.ultimoBackupBd) {
-                    updateBackupStatus(data.ultimoBackupBd);
-                }
-
-                 // Consulta à API de módulos
-                 const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;
-                 const responseModules = await fetch(apiModulesUrl, {
-                     method: 'POST',
-                     headers: {
-                         'Content-Type': 'application/json',
-                     },
-                     body: JSON.stringify({
-                         document: cnpj,
-                         origin: 'SIEM',
-                     }),
-                 });
- 
-                 if (!responseModules.ok) {
-                     throw new Error('Erro ao consultar a API de módulos');
-                 }
- 
-                 const modulesData = await responseModules.json();
-                 console.log('Dados dos módulos recebidos da API:', modulesData);
- 
-                  // Verifique e atualize o status dos módulos no HTML
-                const moduleElements = {
-                    'nfe': 'moduloNFe',
-                    'nfse': 'moduloNFSe',
-                    'nfce': 'moduloNFce',
-                    'sat': 'moduloSAT',
-                    'cte': 'moduloCTe',
-                    'mdfe': 'moduloMDFe',
-                    'financeiro': 'moduloFinanceiro',
-                    'comercial': 'moduloComercial',
-                    'sped': 'moduloSPED',
-                    'pdv': 'moduloPDV',
-                    'estoque': 'moduloEstoque',
-                    'qtlicenca': 'moduloQtlicenca'
-                };
-
-                console.log('Módulos recebidos:', modulesData.benefits);
-                console.log('Elementos de módulo:', moduleElements);
-
-                modulesData.benefits.forEach(benefit => {
-                    const moduleId = moduleElements[benefit.name];
-                    if (moduleId) {
-                        const moduleElement = document.getElementById(moduleId);
-                        if (moduleElement) {
-                            const statusElement = moduleElement.querySelector('.status');
-                            if (statusElement) {
-                                statusElement.classList.add('status-available');
-                                statusElement.textContent = '✔'; // Símbolo de verificado
-                            }
+            modulesData.benefits.forEach(benefit => {
+                const moduleId = moduleElements[benefit.name];
+                if (moduleId) {
+                    const moduleElement = document.getElementById(moduleId);
+                    if (moduleElement) {
+                        const statusElement = moduleElement.querySelector('.status');
+                        if (statusElement) {
+                            statusElement.classList.add('status-available');
+                            statusElement.textContent = '✔'; // Símbolo de verificado
                         }
                     }
-                });
-                    // Exibir mensagem para módulos não contratados
-                    Object.values(moduleElements).forEach(moduleId => {
-                        const moduleElement = document.getElementById(moduleId);
-                        if (moduleElement) {
-                            const statusElement = moduleElement.querySelector('.status');
-                            if (statusElement && statusElement.textContent === '') {
-                                statusElement.classList.add('status-unavailable');
-                                statusElement.textContent = '✘'; // Símbolo de não disponível
-                            }
-                        }
-                    });
                 }
-             } catch (error) {
-                console.error('Erro ao consultar a API:', error);
-                window.location.href = 'erro.html';
+            });
+
+            // Exibir mensagem para módulos não contratados
+            Object.values(moduleElements).forEach(moduleId => {
+                const moduleElement = document.getElementById(moduleId);
+                if (moduleElement) {
+                    const statusElement = moduleElement.querySelector('.status');
+                    if (statusElement && statusElement.textContent === '') {
+                        statusElement.classList.add('status-unavailable');
+                        statusElement.textContent = '✘'; // Símbolo de não disponível
+                    }
                 }
-                    } else {
-                    window.location.href = 'erro.html';
-        }
-    });
+            });
+
+            // Agora, consulta os dados de backup
+            const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
+            const responseBackup = await fetch(apiUrl);
+
+            if (!responseBackup.ok) {
+                throw new Error('Erro ao consultar a API de backup');
+            }
+
+            const data = await responseBackup.json();
+            console.log('Dados de backup recebidos da API:', data);
+
+            // Atualiza os dados de backup no HTML, ou deixa "Não disponível" caso não existam
+            document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
+            document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || 'Não disponível';
+            document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
+            document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
+
+            // Atualize o campo de dias sem backup
+            if (data.ultimoBackupBd) {
+                const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
+                document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
+            } else {
+                document.getElementById('diasSemBKP').textContent = 'Não disponível';
+            }
+
+        } catch (error) {
+            console.error('Cliente não possuí BKP em Nuvem', error);
+        } 
+    } 
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const exibeDetalhesButton = document.getElementById('exibeDetalhes');
