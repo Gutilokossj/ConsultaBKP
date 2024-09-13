@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado da Consulta</title>
     <link rel="stylesheet" href="resultado.css">
-    
 </head>
 
 <body>
@@ -14,14 +13,12 @@
     <div class="result-container">
         <h1>Resultado da Consulta</h1>
         <div class="avisoTempo">Atualização automática em 1 minuto</div> <br>
-        <div class="aviso">(Ainda existem muitas melhorias a serem feitas, principalmente no estilo) </div>
+        <div class="aviso">(Ainda existem muitas melhorias a serem feitas, principalmente no estilo)</div>
         <div class="result-content">
-           
-            
             <div class="sections-container">
                 <div class="verificar-cliente">
                     <h3>DADOS CLIENTE</h3>
-                    <p><strong>Razão Social: <br> </strong> <span id="razaoSocial">Não disponível</span></p>
+                    <p><strong>Razão Social: <br></strong> <span id="razaoSocial">Não disponível</span></p>
                     <p><strong>CNPJ:</strong> <span id="cnpj">Não disponível</span></p>
                 </div>
 
@@ -32,83 +29,75 @@
                             <button type="button" id="exibeDetalhes">Exibir Detalhes</button>
                         </div>
                     </div>  
-                        <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
-                        <p><strong>Último Envio Contador:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+                    <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
+                    <p><strong>Último Envio Contador:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+
                     <div class="verificar-backup-footer">
                         <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
                         <div id="backupStatus" class="notification hidden">
                             <p id="backupMessage"></p>
+                        </div>
                     </div>
                 </div>
-         </div>
-
-    </div>
-            
-    <div class="modules-container">
-        <h3>MÓDULOS CONTRATADOS</h3>
-
-        <div class="modules-group">
-            <div class="modulosFiscais">
-                <h3>FISCAL</h3>
-                <div class="module" id="moduloNFe">
-                    <p><strong>NFe</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloNFSe">
-                    <p><strong>NFSe</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloNFce">
-                    <p><strong>NFce</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloSAT">
-                    <p><strong>SAT</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloCTe">
-                    <p><strong>Cte</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloMDFe">
-                    <p><strong>MDFe</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloSPED">
-                    <p><strong>SPED</strong> <span class="status"></span></p>
-                </div>
-
             </div>
 
-            <div class="modulosGerenciais">
-                <h3>GERENCIAL</h3>
+            <div class="modules-container">
+                <h3>MÓDULOS CONTRATADOS</h3>
+                <div>
 
-                <div class="module" id="moduloComercial">
-                    <p><strong>Comercial</strong> <span class="status"></span></p>
+                    <h3 class="module-group-title">FISCAL</h3>
+
+                    <div class="modulosFiscais">
+                        <div class="module" id="moduloNFe">
+                            <strong>NFe</strong> <span class="status"></span>
+                        </div>
+                        <div class="module" id="moduloNFSe">
+                            <strong>NFSe</strong> <span class="status"></span>
+                        </div>
+                        <div class="module" id="moduloNFce">
+                            <strong>NFce</strong> <span class="status"></span>
+                        </div>
+                        <div class="module" id="moduloSAT">
+                            <strong>SAT</strong> <span class="status"></span>
+                        </div>
+                        <div class="module" id="moduloCTe">
+                            <strong>Cte</strong> <span class="status"></span>
+                        </div>
+                        <div class="module" id="moduloMDFe">
+                            <strong>MDFe</strong> <span class="status"></span>
+                        </div>
+                        <div class="module" id="moduloSPED">
+                            <strong>SPED</strong> <span class="status"></span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="module-group-title">GERENCIAL</h3>
+
+                    <div class="modulosGerenciais">
+                        <div class="module" id="moduloComercial">
+                            <p><strong>Comercial</strong> <span class="status"></span></p>
+                        </div>
+                        <div class="module" id="moduloFinanceiro">
+                            <p><strong>Financeiro</strong> <span class="status"></span></p>
+                        </div>
+                        <div class="module" id="moduloEstoque">
+                            <p><strong>Estoque</strong> <span class="status"></span></p>
+                        </div>
+                    </div>
+                    
+                    <h3 class="module-group-title">ESPECIAL</h3>
+                    
+                    <div class="modulosEspeciais">
+                        <div class="module" id="moduloEstoque"> 
+                            <p><strong>TESTE</strong> <span class="status"></span></p>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="module" id="moduloFinanceiro">
-                    <p><strong>Financeiro</strong> <span class="status"></span></p>
-                </div>
-
-                <div class="module" id="moduloEstoque"></div>
-                    <p><strong>Estoque</strong> <span class="status"></span></p>
-                </div>
-
-            </div>
-
-            <div class="modulosEspeciais">
-                <h3>ESPECIAL</h3>
-
-                <div class="module" id="moduloEstoque"></div>
-                <p><strong>Estoque</strong> <span class="status"></span></p>
-                </div>
-                
             </div>
 
         </div>
 
-    </div>
+</div>
 
     <a href="index.html" class="back-button">Voltar para a página inicial</a>
 
@@ -116,12 +105,8 @@
         <div id="footer-placeholder"></div>
     </footer>
 
-    
-
     <script src="resultado.js"></script>
     <script src="footer.js"></script>
 
 </body>
-
-
 </html>

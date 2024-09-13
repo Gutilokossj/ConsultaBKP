@@ -19,25 +19,46 @@ body {
 }
 
 .modules-container {
-    padding: 2px 4px; /* Espaçamento interno para que o texto não fique colado na borda */
-    border-radius: 10px; /* Arredondar os cantos da borda (opcional) */
-    background-color: #fff;
+    background-color: #eaecec;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    padding: 20px; /* Adiciona um pouco de preenchimento ao redor dos módulos */
+    display: flex;
+    flex-direction: column;
+    gap: 1px; /* Espaçamento entre os grupos de módulos */
+    flex-grow: 1; /* Faz o contêiner crescer conforme o conteúdo */
+}
+
+
+.module-group-title {
+    font-size: 1.2em;
+    text-align: center;
+   
+}
+
+.modulosFiscais, .modulosGerenciais, .modulosEspeciais{
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px solid #ccc;
+    border-radius: 15px;
+    padding: 0;
 }
 
 /* Adicional para garantir que os módulos sejam ajustáveis */
 .module {
     border: 1px solid #ccc;
-    border-radius: 15px;
-    background-color: #fff;
+    border-radius: 20px;
+    background-color: #f1f2f8;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     display: flex;
-    flex-direction: row;
-
+    align-items: center; /* Alinha verticalmente o conteúdo dos módulos */
+    padding: 1%; /* Espaçamento interno dos módulos */
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura do módulo */
+    margin: 1%;
 }
 
 
-.status {
+.status {   
     font-weight: bold; /* Estiliza o texto de status */
 }
 
@@ -69,20 +90,18 @@ p {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 /* Flexbox para organizar as seções lado a lado */
 .result-content {
     display: flex;
-    gap: 2%;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 /* Seções para dados do cliente e verificar envio */
 .sections-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin-right: 20px; /* Espaço entre as seções e os módulos */
 }
 
 footer {
@@ -233,28 +252,27 @@ head{
 }
 
 
-.module p {
-    margin: 0; /* Remove margens do parágrafo */
-    display: flex;
-    align-items: left; /* Alinha verticalmente o texto e o ícone */
-    gap: 10px; /* Espaço entre o texto e o ícone */
-}
-
 .status {
-    font-size: 1.5em; /* Ajuste o tamanho do ícone conforme necessário */
+    font-size: 1em;
     display: inline-block;
-    width: 2.5em; /* Largura do ícone */
-    text-align: right;
-    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura do ícone */
+    width: 0.5em; /* Largura do ícone */
 }
 
 .status-available {
-    color: green;
+    background-color: lightgreen; /* Cor de fundo verde claro */
+    color: black; /* Cor do texto */
+    padding: 5px; /* Adiciona algum preenchimento para melhor visualização */
+    border-radius: 3px; /* Opcional: bordas arredondadas */
+
 }
 
 .status-unavailable {
-    color: red;
+    background-color: lightcoral; /* Cor de fundo vermelho claro */
+    color: black; /* Cor do texto */
+    padding: 5px; /* Adiciona algum preenchimento para melhor visualização */
+    border-radius: 3px; /* Opcional: bordas arredondadas */
 }
+
 
 @keyframes blink {
     0%, 100% { opacity: 1; } /* O texto aparece */
