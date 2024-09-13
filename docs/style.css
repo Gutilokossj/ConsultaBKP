@@ -1,3 +1,9 @@
+.image{
+    width: 30%;
+    display: flex;
+    margin-bottom: 3%;
+}
+
 /* Estilos básicos para a página inicial e de resultados */
 body {
     font-family: 'Roboto', sans-serif;
@@ -20,6 +26,37 @@ body {
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.55);
     margin-bottom: 40px;
+}
+
+.botão_trocar_sistema {
+    position: absolute;
+    background-color: #ccc;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.botão_trocar_sistema::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2.5px;
+    left: 5px;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo do botão quando estiver no modo 'ligado' */
+.botão_trocar_sistema.active {
+    background-color: #4CAF50;
+}
+
+.botão_trocar_sistema.active::before {
+    transform: translateX(30px);
 }
 
 /* Estilos para o contêiner dos botões */
@@ -223,8 +260,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 8px;
-    position: fixed;
-    bottom: 0;
+    position: relative;
     margin-top: auto;
     width: 100%;
     font-family: 'Roboto', sans-serif; /* Adiciona a fonte Roboto */
@@ -234,7 +270,6 @@ footer {
     text-align: center;
     padding: 8px;
     border-top: 5px solid #444;
-    position: fixed;
     width: 100%;
 }
 
@@ -244,7 +279,7 @@ footer h3 {
 }
 
 .container_footer{
-    width: 100%;
+    width: 50%;
     max-width: 1200px; /* Largura máxima do conteúdo dentro do rodapé */
     margin: 0 auto; /* Centraliza o conteúdo do rodapé */
 }

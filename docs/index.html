@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta Backup</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <img src="assets/SIEM.png" alt="Imagem Soften SIEM" class="image" id="toggleImage">
+
     <div class="container">
         <h1>Consultar Módulos</h1>
+        <strong>Selecionar Sistema</strong> <br>
+        <button class="botão_trocar_sistema" id="toggleButton" type="button"></button>
+
         <form id="consultForm">
             <label for="cnpj">Digite o CNPJ:</label>
             <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" required>

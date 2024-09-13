@@ -41,3 +41,24 @@ document.getElementById('consultForm').addEventListener('submit', function(event
     const cnpj = document.getElementById('cnpj').value;
     redirectToPage(cnpj, 'resultado.html'); // Pode alterar para um dos botões se necessário
 });
+
+// Seleciona o botão, a imagem e o texto
+const toggleButton = document.getElementById('toggleButton');
+const toggleText = document.getElementById('toggleText');
+const toggleImage = document.getElementById('toggleImage');
+
+// Adiciona o evento de clique para alternar o estado 'ativo'
+toggleButton.addEventListener('click', function() {
+    this.classList.toggle('active'); // Alterna a classe 'active'
+
+    // Verifica se o botão está "ligado"
+    if (this.classList.contains('active')) {
+        // Altera a imagem para 'gerencieaqui.png' quando ligado
+        toggleImage.src = 'assets/GA.png'; // Caminho da nova imagem
+        toggleText.textContent = 'Gerencie Aqui'; // Texto quando o sistema é trocado
+    } else {
+        // Retorna a imagem original 'SIEM Colorido.png' quando desligado
+        toggleImage.src = 'assets/SIEM.png'; // Caminho da imagem original
+        toggleText.textContent = 'SIEM'; // Texto quando retorna para o sistema SIEM
+    }
+});
