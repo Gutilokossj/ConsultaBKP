@@ -44,7 +44,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'sped': 'moduloSPED',
                 'pdv': 'moduloPDV',
                 'estoque': 'moduloEstoque',
-                'qtlicenca': 'moduloQtlicenca'
+                'qtlicenca': 'moduloQtlicenca',
+                'backup' : 'moduloBackup'
             };
 
             modulesData.benefits.forEach(benefit => {
