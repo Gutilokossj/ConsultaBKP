@@ -47,18 +47,36 @@ const toggleButton = document.getElementById('toggleButton');
 const toggleText = document.getElementById('toggleText');
 const toggleImage = document.getElementById('toggleImage');
 
+// Função para atualizar a UI com base no estado do botão
+function updateButtonState(isActive) {
+    if (isActive) {
+        // Altera a imagem para 'gerencieaqui.png' e o texto quando ligado
+        toggleImage.src = 'assets/GA.png'; // Caminho da nova imagem
+        
+    } else {
+        // Retorna a imagem original 'SIEM Colorido.png' e o texto quando desligado
+        toggleImage.src = 'assets/SIEM.png'; // Caminho da imagem original
+        
+    }
+}
+
+// Carrega o estado do botão do localStorage quando a página é carregada
+window.addEventListener('DOMContentLoaded', () => {
+    const savedState = localStorage.getItem('toggleState');
+    const isActive = savedState === 'active'; // Estado ativo se o valor for 'active'
+    updateButtonState(isActive);
+    if (isActive) {
+        toggleButton.classList.add('active'); // Aplica a classe 'active'
+    }
+});
+
 // Adiciona o evento de clique para alternar o estado 'ativo'
 toggleButton.addEventListener('click', function() {
-    this.classList.toggle('active'); // Alterna a classe 'active'
+    const isActive = this.classList.toggle('active'); // Alterna a classe 'active'
+    
+    // Atualiza a UI com base no estado atual
+    updateButtonState(isActive);
 
-    // Verifica se o botão está "ligado"
-    if (this.classList.contains('active')) {
-        // Altera a imagem para 'gerencieaqui.png' quando ligado
-        toggleImage.src = 'assets/GA.png'; // Caminho da nova imagem
-        toggleText.textContent = 'Gerencie Aqui'; // Texto quando o sistema é trocado
-    } else {
-        // Retorna a imagem original 'SIEM Colorido.png' quando desligado
-        toggleImage.src = 'assets/SIEM.png'; // Caminho da imagem original
-        toggleText.textContent = 'SIEM'; // Texto quando retorna para o sistema SIEM
-    }
+    // Salva o estado atual no localStorage
+    localStorage.setItem('toggleState', isActive ? 'active' : 'inactive');
 });

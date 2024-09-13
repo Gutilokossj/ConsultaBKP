@@ -3,6 +3,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     const cnpj = urlParams.get('cnpj');
 
     if (cnpj) {
+
+         // Recupera o estado do botão de alternância
+         const toggleState = localStorage.getItem('toggleState');
+         const isActive = toggleState === 'active';
+         
+         // Define a origem com base no estado do botão
+         const origin = isActive ? 'GerencieAqui' : 'SIEM';
+
         try {
             // Consulta à API de módulos primeiro para verificar se o CNPJ está ativo
             const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;
@@ -13,7 +21,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 },
                 body: JSON.stringify({
                     document: cnpj,
-                    origin: 'SIEM',
+                    origin: origin,
                 }),
             });
 
