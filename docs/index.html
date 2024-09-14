@@ -1,37 +1,40 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta Módulos</title>
+    <title>Consulta de Módulos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="assets/iconSoften.png">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-
-    <img src="assets/SIEM.png" alt="Imagem Soften SIEM" class="image" id="toggleImage">
-
     <div class="container">
-        <h1>Consultar Módulos</h1>
-        <strong>Selecionar Sistema</strong> <br>
-        <button class="botão_trocar_sistema" id="toggleButton" type="button"></button>
-        <span id="toggleText"></span>
         
+        <div class="image">
+            <img src="assets/SIEM.png" alt="Imagem Soften SIEM" class="image" id="toggleImage">
+        </div>
+        
+        <!-- Formulário de Consulta -->
         <form id="consultForm">
-            <label for="cnpj">Digite o CNPJ:</label>
-            <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" required>
+            <h2>Consultar módulos</h2>
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ">
+            <button type="submit" id="consultarModulosBtn">Consultar</button>
             
-            <div class="button-container">
-                <button type="button" id="consultarModulosBtn">Consultar Módulos</button>
-            </div> <br>
-             <span class="aviso">Estou aberto a sugestões de melhorias</span>
-
             <p id="errorMessage" class="error-message"></p>
+
+            <!-- Botão de Alternar Sistema -->
+            <div class="toggle-container">
+                <button class="botão_trocar_sistema" id="toggleButton" type="button"></button>
+                <span id="toggleText">Alternar sistema</span>
+            </div>
         </form>
     </div>
 
     <footer>
+        <div class="imagem_footer"> <img src="assets/iconSoften.png" alt="Logo SIEM colorida"/> </div>
         <div id="footer-placeholder"></div>
     </footer>
     

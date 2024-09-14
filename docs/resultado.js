@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'mdfe': 'moduloMDFe',
                 'financeiro': 'moduloFinanceiro',
                 'comercial': 'moduloComercial',
+                'farmacia' :'moduloFarmacia',
                 'sped': 'moduloSPED',
                 'pdv': 'moduloPDV',
                 'estoque': 'moduloEstoque',
@@ -82,36 +83,48 @@ window.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
-            // Agora, consulta os dados de backup
-            const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
-            const responseBackup = await fetch(apiUrl);
+                // Recupera o CNPJ do LocalStorage
+                const cnpjDigitado = localStorage.getItem('cnpjDigitado');
 
-            if (!responseBackup.ok) {
-                throw new Error('Erro ao consultar a API de backup');
-            }
+                // Se o CNPJ foi encontrado, exibe no campo de CNPJ com formatação
+                if (cnpjDigitado) {
+                    document.getElementById('cnpj').textContent = formatCNPJ(cnpjDigitado);
+                        } else {
+                                document.getElementById('cnpj').textContent = 'CNPJ não disponível';
+                                }
 
-            const data = await responseBackup.json();
-            console.log('Dados de backup recebidos da API:', data);
+                // Agora, consulta os dados de backup
+                const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
+                const responseBackup = await fetch(apiUrl);
 
-            // Atualiza os dados de backup no HTML, ou deixa "Não disponível" caso não existam
-            document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
-            document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || 'Não disponível';
-            document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
-            document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
+                if (!responseBackup.ok) {
+                    throw new Error('Erro ao consultar a API de backup');
+                }
 
-            // Atualize o campo de dias sem backup
-            if (data.ultimoBackupBd) {
-                const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
-                document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
-            } else {
-                document.getElementById('diasSemBKP').textContent = 'Não disponível';
-            }
+                const data = await responseBackup.json();
+                console.log('Dados de backup recebidos da API:', data);
 
-        } catch (error) {
-            console.error('Cliente não possuí BKP em Nuvem', error);
+                // Atualiza os dados de backup no HTML, ou deixa "Não disponível" caso não existam
+                document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
+                if (data.cnpjCpfString) {
+                    document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString);
+                }
+                document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
+                document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
+
+                // Atualize o campo de dias sem backup
+                if (data.ultimoBackupBd) {
+                    const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
+                    document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
+                } else {
+                    document.getElementById('diasSemBKP').textContent = 'Não disponível';
+                }
+
+            } catch (error) {
+                console.error('Cliente não possuí BKP em Nuvem', error);
+            } 
         } 
-    } 
-});
+    });
 
 
 document.addEventListener('DOMContentLoaded', () => {

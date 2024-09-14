@@ -1,3 +1,4 @@
+// Event listener para o formulário
 document.getElementById('consultForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -5,41 +6,14 @@ document.getElementById('consultForm').addEventListener('submit', function(event
     const cleanedCNPJ = cnpjInput.replace(/\D/g, ''); // Remove tudo que não for número
 
     if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
-        // Redireciona para a página de resultado passando o CNPJ via URL
+        // Salva o CNPJ no LocalStorage (ou SessionStorage)
+        localStorage.setItem('cnpjDigitado', cleanedCNPJ);
+
+        // Redireciona para a página de resultados
         window.location.href = `resultado.html?cnpj=${cleanedCNPJ}`;
     } else {
         document.getElementById('errorMessage').textContent = 'CNPJ inválido. Verifique e tente novamente.';
     }
-});
-
-function redirectToPage(cnpj, targetPage) {
-    const cleanedCNPJ = cnpj.replace(/\D/g, ''); // Remove tudo que não for número
-
-    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
-        // Redireciona para a página de resultado passando o CNPJ via URL
-        window.location.href = `${targetPage}?cnpj=${cleanedCNPJ}`;
-    } else {
-        document.getElementById('errorMessage').textContent = 'CNPJ inválido. Verifique e tente novamente.';
-    }
-}
-
-// Event listener para o botão "Consultar Módulos"
-document.getElementById('consultarModulosBtn').addEventListener('click', function() {
-    const cnpj = document.getElementById('cnpj').value;
-    redirectToPage(cnpj, 'resultado.html');
-});
-
-// Event listener para o botão "Consultar Backup"
-// document.getElementById('consultarBackupBtn').addEventListener('click', function() {
-//    const cnpj = document.getElementById('cnpj').value;
-//   redirectToPage(cnpj, 'resultado_BKP.html');
-//});
-
-// Event listener para o formulário (mantém a compatibilidade com o submit do formulário)
-document.getElementById('consultForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const cnpj = document.getElementById('cnpj').value;
-    redirectToPage(cnpj, 'resultado.html'); // Pode alterar para um dos botões se necessário
 });
 
 // Seleciona o botão, a imagem e o texto
@@ -52,12 +26,25 @@ function updateButtonState(isActive) {
     if (isActive) {
         // Altera a imagem para 'gerencieaqui.png' e o texto quando ligado
         toggleImage.src = 'assets/GA.png'; // Caminho da nova imagem
-        
+        toggleText.textContent = 'Alternar sistema';
     } else {
         // Retorna a imagem original 'SIEM Colorido.png' e o texto quando desligado
         toggleImage.src = 'assets/SIEM.png'; // Caminho da imagem original
-        
+        toggleText.textContent = 'Alternar sistema';
     }
+}
+
+// Função para exibir a mensagem de erro
+function showError(message) {
+    var errorElement = document.getElementById('errorMessage');
+    errorElement.textContent = message; // Define a mensagem de erro
+    errorElement.classList.add('visible'); // Adiciona a classe para mostrar a mensagem
+}
+
+// Função para ocultar a mensagem de erro
+function hideError() {
+    var errorElement = document.getElementById('errorMessage');
+    errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
 }
 
 // Carrega o estado do botão do localStorage quando a página é carregada
