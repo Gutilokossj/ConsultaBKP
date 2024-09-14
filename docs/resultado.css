@@ -1,11 +1,13 @@
 /* Estilos gerais para o resultado.html */
 body {
+    font-family: 'Comfortaa', sans-serif;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh; /* Garante que o footer fique sempre no fim */
     background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
-    font-family: 'Roboto', sans-serif;
-    color:#333;
 }
 
 .aviso {
@@ -104,25 +106,28 @@ p {
     margin-right: 20px; /* Espaço entre as seções e os módulos */
 }
 
+/* Footer centralizado no fim da página */
 footer {
-    background-color: #333;
-    color: white;
+    padding: 10px;
     text-align: center;
-    padding: 8px;
-    border-top: 5px solid #444;
-    position: relative;
     width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
 }
 
-footer h3 {
-    margin: 10;
-    font-size: 1em;
+/* Estilo para a imagem */
+footer .imagem_footer img {
+    height: 20px; /* Ajusta o tamanho da imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
+
 
 
 /* Estilo para o botão de voltar */
 .back-button {
-    background: linear-gradient(to bottom, #6200ea, #3700b3);
+    background-color: #2197f0;
     color: white;
     text-decoration: none;
     padding: 1%;
@@ -137,8 +142,8 @@ footer h3 {
 }
 
 .back-button:hover {
-    background: linear-gradient(to bottom, #3700b3, #6200ea);
-    transform: scale(1.03);
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
 .verificar-backup-header {
@@ -149,7 +154,7 @@ footer h3 {
 }
 
 #exibeDetalhes {
-    background: linear-gradient(to bottom, #6200ea, #3700b3);
+    background-color: #2197f0;
     color: white; /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
     padding: 5% 5% 5% 5%; /* Espaçamento interno do botão */
@@ -161,8 +166,8 @@ footer h3 {
 }
 
 #exibeDetalhes:hover {
-    background: linear-gradient(to bottom, #3700b3, #6200ea);
-    transform: scale(1.20);
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
 .button-container {

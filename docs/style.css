@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100vh; /* Garante que o footer fique sempre no fim */
-    background-color: #f4f4f9;
+    background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
     overflow: hidden; /* Remove a rolagem */
 }
 
@@ -159,7 +159,6 @@ button#consultarModulosBtn:hover {
 
 /* Footer centralizado no fim da página */
 footer {
-    background-color: #fff;
     padding: 10px;
     text-align: center;
     width: 100%;

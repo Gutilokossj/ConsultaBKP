@@ -7,6 +7,7 @@
     <title>Resultado da Consulta</title>
     <link rel="stylesheet" href="resultado.css">
     <link rel="icon" type="image/png" href="assets/iconSoften.png">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta http-equiv="refresh" content="120">
 </head>
 
@@ -15,12 +16,12 @@
     <div class="result-container">
         <h1>Resultado da Consulta</h1>
         <div class="avisoTempo">Atualização automática em 2 minutos</div> <br>
-        <div class="aviso">(Ainda existem muitas melhorias a serem feitas, principalmente no estilo)</div>
+
         <div class="result-content">
             <div class="sections-container">
                 <div class="verificar-cliente">
                     <h3>DADOS CLIENTE</h3>
-                    <p><strong>Razão Social: <br></strong> <span id="razaoSocial">Não disponível</span></p>
+                    <p><strong>Razão social: <br></strong> <span id="razaoSocial">Não disponível</span></p>
                     <p><strong>CNPJ:</strong> <span id="cnpj">Não disponível</span></p>
                 </div>
 
@@ -28,11 +29,11 @@
                     <div class="verificar-backup-header">
                         <h3>VERIFICAR BACKUP</h3>
                         <div class="button-container">
-                            <button type="button" id="exibeDetalhes">Exibir Detalhes</button>
+                            <button type="button" id="exibeDetalhes">Detalhes</button>
                         </div>
                     </div>  
                     <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
-                    <p><strong>Último Envio Contador:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+                    <p><strong>Último envio XML:</strong> <span id="ultimoEnvio">Não disponível</span></p>
 
                     <div class="verificar-backup-footer">
                         <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
@@ -85,6 +86,9 @@
                         <div class="module" id="moduloEstoque">
                             <p><strong>Estoque</strong> <span class="status"></span></p>
                         </div>
+                        <div class="module" id="moduloFarmacia"> 
+                            <p><strong>Farmácia</strong> <span class="status"></span></p>
+                        </div>
                     </div>
                     
                     <h3 class="module-group-title">ESPECIAL</h3>
@@ -103,12 +107,14 @@
 
     <a href="index.html" class="back-button">Voltar para a página inicial</a>
 
-    <footer>
-        <div id="footer-placeholder"></div>
+    <footer> 
+            <div class="imagem_footer"> <img src="assets/iconSoften.png" alt="Logo SIEM colorida"/> </div>
+            <div id="footer-placeholder"></div>
     </footer>
 
     <script src="resultado.js"></script>
     <script src="footer.js"></script>
 
 </body>
+
 </html>
