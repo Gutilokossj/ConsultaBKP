@@ -12,28 +12,11 @@ document.getElementById('consultForm').addEventListener('submit', function(event
     }
 });
 
-function redirectToPage(cnpj, targetPage) {
-    const cleanedCNPJ = cnpj.replace(/\D/g, ''); // Remove tudo que não for número
-
-    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
-        // Redireciona para a página de resultado passando o CNPJ via URL
-        window.location.href = `${targetPage}?cnpj=${cleanedCNPJ}`;
-    } else {
-        document.getElementById('errorMessage').textContent = 'CNPJ inválido. Verifique e tente novamente.';
-    }
-}
-
 // Event listener para o botão "Consultar Módulos"
 document.getElementById('consultarModulosBtn').addEventListener('click', function() {
     const cnpj = document.getElementById('cnpj').value;
     redirectToPage(cnpj, 'resultado.html');
 });
-
-// Event listener para o botão "Consultar Backup"
-// document.getElementById('consultarBackupBtn').addEventListener('click', function() {
-//    const cnpj = document.getElementById('cnpj').value;
-//   redirectToPage(cnpj, 'resultado_BKP.html');
-//});
 
 // Event listener para o formulário (mantém a compatibilidade com o submit do formulário)
 document.getElementById('consultForm').addEventListener('submit', function(event) {
@@ -59,6 +42,33 @@ function updateButtonState(isActive) {
         
     }
 }
+
+// Função para redirecionar para a página e exibir mensagens de erro
+function redirectToPage(cnpj, targetPage) {
+    const cleanedCNPJ = cnpj.replace(/\D/g, ''); // Remove tudo que não for número
+
+    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
+        // Redireciona para a página de resultado passando o CNPJ via URL
+        window.location.href = `${targetPage}?cnpj=${cleanedCNPJ}`;
+    } else {
+        // Exibe a mensagem de erro se o CNPJ não for válido
+        showError('CNPJ inválido. Certifique-se de que o CNPJ tenha todos os digitos');
+    }
+}
+
+// Função para exibir a mensagem de erro
+function showError(message) {
+    var errorElement = document.getElementById('errorMessage');
+    errorElement.textContent = message; // Define a mensagem de erro
+    errorElement.classList.add('visible'); // Adiciona a classe para mostrar a mensagem
+}
+
+// Função para ocultar a mensagem de erro
+function hideError() {
+    var errorElement = document.getElementById('errorMessage');
+    errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
+}
+
 
 // Carrega o estado do botão do localStorage quando a página é carregada
 window.addEventListener('DOMContentLoaded', () => {

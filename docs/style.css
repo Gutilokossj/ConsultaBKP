@@ -17,9 +17,9 @@ body {
     justify-content: space-around; /* Espaçamento entre a imagem e o formulário */
     align-items: center;
     flex-grow: 1; /* Ocupa o espaço disponível */
-    background: linear-gradient(to right, #ffffff 40%, #ffffff 30%, #9ac0f5);
+    background: white;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 5);
     margin: 30px auto;
     width: 65%;
     max-width: 1200px; /* Define um limite máximo para o tamanho do container */
@@ -75,6 +75,11 @@ button#consultarModulosBtn {
     margin-bottom: 20px;
 }
 
+button#consultarModulosBtn:hover {
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
 /* Estilo do botão de alternância */
 .toggle-container {
     display: flex;
@@ -86,12 +91,17 @@ button#consultarModulosBtn {
     width: 50px;
     height: 25px;
     background-color: #2197f0;
-    border-radius: 15px;
+    border-radius: 12px;
+    border:none;
     position: relative;
     cursor: pointer;
-    border: none;
     outline: none;
     transition: background-color 0.3s ease;
+}
+
+.botão_trocar_sistema:hover{
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
 .botão_trocar_sistema::before {
@@ -108,7 +118,7 @@ button#consultarModulosBtn {
 }
 
 .botão_trocar_sistema.active {
-    background-color: #4CAF50;
+    background-color: #135588;
 }
 
 .botão_trocar_sistema.active::before {
@@ -121,6 +131,30 @@ button#consultarModulosBtn {
     font-size: 1em;
     color: #000000;
     font-weight: 800; /* Comfortaa-Regular */
+}
+
+/* Estilo para a mensagem de erro */
+#errorMessage {
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #fddede; /* Cor de fundo suave para erros */
+    color: #d8000c; /* Cor do texto para destacar a mensagem de erro */
+    border: 1px solid #d8000c; /* Borda para reforçar a mensagem */
+    border-radius: 4px; /* Bordas arredondadas para um visual mais suave */
+    font-family: 'Arial', sans-serif; /* Fonte padrão e legível */
+    font-size: 1em; /* Tamanho da fonte */
+    line-height: 1.4; /* Espaçamento entre linhas */
+    text-align: center; /* Centraliza o texto */
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateY(-20px); /* Começa um pouco acima */
+    transition: opacity 0.3s ease-in, transform 0.3s ease-in; /* Transições suaves para opacidade e transformação */
+}
+
+/* Animação de aparecer com deslizar para cima */
+#errorMessage.visible {
+    opacity: 1; /* Torna visível */
+    transform: translateY(0); /* Move para a posição original */
 }
 
 /* Footer centralizado no fim da página */
