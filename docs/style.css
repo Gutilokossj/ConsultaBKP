@@ -133,7 +133,6 @@ button#consultarModulosBtn:hover {
     font-weight: 800; /* Comfortaa-Regular */
 }
 
-/* Estilo para a mensagem de erro */
 #errorMessage {
     display: block;
     padding: 10px;
@@ -147,15 +146,19 @@ button#consultarModulosBtn:hover {
     line-height: 1.4; /* Espaçamento entre linhas */
     text-align: center; /* Centraliza o texto */
     opacity: 0; /* Inicialmente invisível */
-    transform: translateY(-20px); /* Começa um pouco acima */
-    transition: opacity 0.3s ease-in, transform 0.3s ease-in; /* Transições suaves para opacidade e transformação */
+    transform: translateY(-10px); /* Ajuste na posição inicial para suavizar a animação */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Ajuste na transição */
+    visibility: hidden; /* Tornar o elemento não interativo enquanto oculto */
 }
 
 /* Animação de aparecer com deslizar para cima */
 #errorMessage.visible {
     opacity: 1; /* Torna visível */
     transform: translateY(0); /* Move para a posição original */
+    visibility: visible; /* Exibe o elemento */
 }
+
+
 
 /* Footer centralizado no fim da página */
 footer {
