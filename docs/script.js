@@ -6,13 +6,32 @@ document.getElementById('consultForm').addEventListener('submit', function(event
     const cleanedCNPJ = cnpjInput.replace(/\D/g, ''); // Remove tudo que não for número
 
     if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
+
+        // Oculta a mensagem de erro se o CNPJ for válido
+        hideError();
+
         // Salva o CNPJ no LocalStorage (ou SessionStorage)
         localStorage.setItem('cnpjDigitado', cleanedCNPJ);
 
         // Redireciona para a página de resultados
         window.location.href = `resultado.html?cnpj=${cleanedCNPJ}`;
     } else {
-        document.getElementById('errorMessage').textContent = 'CNPJ inválido. Verifique e tente novamente.';
+        // Exibe a mensagem de erro se o CNPJ for inválido
+        showError('CNPJ inválido. Verifique e tente novamente.');
+    }
+});
+
+// Adiciona um evento de input ao campo de CNPJ para ocultar a mensagem de erro quando o valor é alterado
+document.getElementById('cnpj').addEventListener('input', function() {
+    // Verifica o valor do CNPJ e oculta a mensagem se for válido
+    const cnpjInput = this.value;
+    const cleanedCNPJ = cnpjInput.replace(/\D/g, '');
+
+    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
+        hideError(); // Oculta a mensagem se o valor for válido
+    } else {
+        // Caso o valor ainda seja inválido, não faz nada
+        // A mensagem de erro será exibida novamente quando o formulário for submetido
     }
 });
 
@@ -34,6 +53,21 @@ function updateButtonState(isActive) {
     }
 }
 
+// Função para redirecionar para a página e exibir mensagens de erro
+function redirectToPage(cnpj, targetPage) {
+    const cleanedCNPJ = cnpj.replace(/\D/g, ''); // Remove tudo que não for número
+
+    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
+        // Oculta a mensagem de erro se o CNPJ for válido
+        hideError();
+        // Redireciona para a página de resultado passando o CNPJ via URL
+        window.location.href = `${targetPage}?cnpj=${cleanedCNPJ}`;
+    } else {
+        // Exibe a mensagem de erro se o CNPJ não for válido
+        showError('CNPJ inválido. Certifique-se de que o CNPJ tenha todos os dígitos');
+    }
+}
+
 // Função para exibir a mensagem de erro
 function showError(message) {
     var errorElement = document.getElementById('errorMessage');
@@ -46,6 +80,7 @@ function hideError() {
     var errorElement = document.getElementById('errorMessage');
     errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
 }
+
 
 // Carrega o estado do botão do localStorage quando a página é carregada
 window.addEventListener('DOMContentLoaded', () => {
