@@ -1,65 +1,73 @@
 /* Estilo para a página de erro */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f8d7da;
-    color: #721c24;
+    background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
 }
 
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 40px;
     background: #fff;
-    border: 1px solid #f5c6cb;
-    border-radius: 5px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
+    width: 90%;
     margin: 20px;
 }
 
-.message {
+.error-icon {
     margin-bottom: 20px;
-    font-size: 1.2em;
+}
+
+.error-icon img {
+    width: 100px; /* ajuste o tamanho da imagem de erro */
+}
+
+.message {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .back-button {
-    background: linear-gradient(to bottom, #6200ea, #3700b3);
+    background-color: #2197f0;
     color: white;
     text-decoration: none;
-    padding: 8px;
+    padding: 12px 20px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    text-align: center;
-    align-items: center;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    font-size: 0.9em;
-    transition: background-color 0.3s, transform 0.2s;
+    font-size: 1.2em;
+    display: inline-block; /* Garante que o botão se comporte como um bloco em linha */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
 }
 
 .back-button:hover {
-    background: linear-gradient(to bottom, #3700b3, #6200ea);
-    transform: scale(1.03);
+    background-color: #1879d3;
+    transform: scale(1.1); /* Crescimento do botão */
 }
 
+
+/* Footer centralizado no fim da página */
 footer {
-    background-color: #333;
-    color: white;
+    padding: 10px;
     text-align: center;
-    padding: 8px;
-    border-top: 5px solid #444;
+    width: 100%;
     position: fixed;
     bottom: 0;
-    margin-top: auto;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
 }
 
-footer h3 {
-    margin: 10;
-    font-size: 1em;
+/* Estilo para a imagem */
+footer .imagem_footer img {
+    height: 20px; /* Ajusta o tamanho da imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
