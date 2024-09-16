@@ -1,13 +1,12 @@
 /* Estilos gerais para o resultado.html */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
-    font-family: 'Roboto', sans-serif;
     color:#333;
 }
 
@@ -104,7 +103,7 @@ footer h3 {
 
 /* Estilo para o botão de voltar */
 .back-button {
-    background: linear-gradient(to bottom, #6200ea, #3700b3);
+    background-color: #2197f0;
     color: white;
     text-decoration: none;
     padding: 10px;
@@ -118,8 +117,8 @@ footer h3 {
 }
 
 .back-button:hover {
-    background: linear-gradient(to bottom, #3700b3, #6200ea);
-    transform: scale(1.03);
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
 .back-button:active, #exibeModulos:active {
@@ -127,7 +126,7 @@ footer h3 {
 }
 
 #exibeModulos {
-    background: linear-gradient(to bottom, #6200ea, #3700b3);
+    background-color: #2197f0;
     color: white;
     border: none;
     padding: 10px;
@@ -141,8 +140,8 @@ footer h3 {
 }
 
 #exibeModulos:hover {
-    background: linear-gradient(to bottom, #3700b3, #6200ea);
-    transform: scale(1.03);
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
 /* Estilo para a notificação do backup */
