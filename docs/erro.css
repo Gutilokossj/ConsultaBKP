@@ -35,6 +35,15 @@ body {
     margin-bottom: 30px;
 }
 
+/* Adiciona estilos para a data de expiração */
+.expiration-date {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #333;
+    text-align: center;
+}
+
+
 .back-button {
     background-color: #2197f0;
     color: white;

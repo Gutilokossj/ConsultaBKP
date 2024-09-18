@@ -32,11 +32,24 @@ window.addEventListener('DOMContentLoaded', async () => {
             const modulesData = await responseModules.json();
             console.log('Dados dos módulos recebidos da API:', modulesData);
 
-            // Verifica se o CNPJ está ativo
+            // Verifica se o CNPJ está ativo ou devendo
             if (!modulesData.active) {
-                console.error('CNPJ inativo, redirecionando para erroCancelado.html');
-                window.location.href = 'erroCancelado.html';
-                return; // Para a execução caso o CNPJ esteja inativo
+                // Se não estiver ativo, mas houver benefícios, o cliente está devendo
+                if (modulesData.benefits && modulesData.benefits.length > 0) {
+                    console.warn('CNPJ está devendo, redirecionando para erroDevendo.html');
+            
+                    // Converte a data de expiração da API para o formato desejado
+                    const expirationDate = modulesData.expirationDate;
+                    const formattedExpirationDate = expirationDate ? formatDate(expirationDate) : 'Não disponível';
+            
+                    // Redireciona para erroDevendo.html com a data formatada
+                    window.location.href = `erroDevendo.html?expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
+                    return; // Para a execução caso o cliente esteja devendo
+                } else {
+                    console.error('CNPJ cancelado, redirecionando para erroCancelado.html');
+                    window.location.href = 'erroCancelado.html';
+                    return; // Para a execução caso o CNPJ esteja cancelado
+                }
             }
 
             // Se o CNPJ estiver ativo, continua para exibir os dados dos módulos
@@ -197,4 +210,10 @@ function updateBackupStatus(backupDateStr) {
     }
 
     backupStatusDiv.classList.remove("hidden");
+}
+
+// Função para formatar a data no formato dd/MM/yyyy
+function formatDate(dateString) {
+    const [year, month, day] = dateString.split('-');
+    return `${day}/${month}/${year}`;
 }

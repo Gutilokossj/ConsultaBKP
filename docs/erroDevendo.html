@@ -12,21 +12,26 @@
 <body>
     <div class="container">
         <div class="error-icon">
-            <img src="assets/naoCliente.png" alt="Erro" />
+            <img src="assets/devendo.png" alt="Erro" />
         </div>
         <div class="message">
-            Vish, acho que esse cliente está <strong>CANCELADO ou INATIVO</strong>, caso não seja cliente, essa é a hora de apresentar o sistema!
+            Eita! parece que este cliente esta <strong>DEVENDO</strong>, favor verificar com o setor financeiro!
         </div>
+        <div id="expirationDate" class="expiration-date"></div> <br>
         <a href="index.html" class="back-button">Voltar à página inicial</a>
+        </div>
     </div>
 
     <footer>
         <div class="imagem_footer"> <img src="assets/iconSoften.png" alt="Logo SIEM colorida"/> </div>
         <div id="footer-placeholder"></div>
     </footer>
-    
 </body>
 
+
 <script src="footer.js"></script>
+<script src="resultado.js"></script> <!-- Novo arquivo JavaScript para atualizar a data de expiração -->
+<script src="erroDevendo.js"></script>
+
 
 </html>
