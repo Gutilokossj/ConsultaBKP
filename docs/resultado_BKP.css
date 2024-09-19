@@ -76,20 +76,22 @@ head{
     top: 0;
 
 }
-/* Estilo para o rodapé */
+
+/* Footer centralizado no fim da página */
 footer {
-    background-color: #333;
-    color: white;
+    padding: 10px;
     text-align: center;
-    padding: 8px;
-    border-top: 5px solid #444;
-    position: relative;
     width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
 }
 
-footer h3 {
-    margin: 10;
-    font-size: 1em;
+/* Estilo para a imagem */
+footer .imagem_footer img {
+    height: 20px; /* Ajusta o tamanho da imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
 
 
