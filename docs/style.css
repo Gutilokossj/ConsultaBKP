@@ -30,7 +30,7 @@ body {
 /* Estilo da Imagem */
 .image {
     width: 100%; /* Para garantir que a imagem ocupe 100% da largura disponível em telas menores */
-    max-width: 300px; /* Limita o tamanho da imagem */
+    max-width: 250px; /* Limita o tamanho da imagem */
     margin-bottom: 20px; /* Espaçamento entre a imagem e o formulário */
 }
 
