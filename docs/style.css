@@ -12,18 +12,18 @@ body {
 
 /* Container centralizado */
 .container {
+    background-color: white;
     display: flex;
     gap: 3%;
     align-items: center;
-    background: white;
     margin: 0 auto;
     margin-top: 7%;
     border-radius: 30px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     max-width: 70%;
-    width: 900px;
-    padding: 4% 5% 3% 5%;
+    width: 700px;
+    padding: 4% 3% 3% 5%;
     box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilo da Imagem */
