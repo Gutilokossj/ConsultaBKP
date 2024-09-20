@@ -8,44 +8,43 @@
     <link rel="stylesheet" href="resultado_BKP.css">
     <link rel="icon" type="image/png" href="assets/iconSoften.png">
     <meta http-equiv="refresh" content="60">
+    
 </head>
 <body>
-
+    
     <div class="result-container">
-        <h1>Resultado da Consulta</h1>
+    
         <div class="avisoTempo">Atualização automática em 60 segundos</div>
         <div class="result-content">
-           
             <div class="sections-container">
                 <div class="section dados-cliente">
-                    <h3>CLIENTE</h3>
-                    <p><strong>Razão Social:</strong> <span id="razaoSocial">Não disponível</span></p>
-                    <p><strong>CNPJ:</strong> <span id="cnpj">Não disponível</span></p>
-                    <p><strong>Criação:</strong> <span id="dataCriacao">Não disponível</span></p>
-                    <p><strong>Tamanho</strong> <span id="tamanhoBKP">Não disponível</span> MB</p>
-                    <p><strong>email:</strong> <span id="emailCopia">Não disponível</span></p>
+                    <h3>CLIENTE -  <span id="cnpj">Não disponível</span></p> </h3>
+                    <p><strong>Razão Social:</strong> <br> <span id="razaoSocial">Não disponível</span></p>
+                    <p><strong>Criação:</strong> <span id="dataCriacao"> Não disponível</span> <br> <strong>Tamanho:</strong> <span id="tamanhoBKP">Não disponível</span> MB</p></p>
+                    <p><strong>E-mail:</strong> <br> <span id="emailCopia">Não disponível</span></p>
                 </div>
                 <div class="section verificar-envio">
-                    <h3>VERIFICAR ENVIO CONTADOR</h3>
+                    <h3>ENVIO XML</h3>
                     <p><strong>Último Envio:</strong> <span id="ultimoEnvio">Não disponível</span></p>
-                    <p><strong>email contador:</strong> <span id="emailContador">Não disponível</span></p>
-                </div>
-            </div>
-            <div class="verificar-backup">
-                <h3>DETALHES BACKUP</h3>
-                <p><strong>Último Backup</strong> <span id="ultimoBackup">Não disponível</span></p>
-                <p><strong>Última Validação</strong> <span id="ultimaValidacao">Não disponível</span></p>
-                <p><strong>Dias sem backup</strong> <span id="diasSemBKP">Não disponível</span></p>
-                <div id="backupStatus" class="notification hidden">
-                    <p id="backupMessage"></p>
+                    <p><strong>E-mail contador:</strong> <br> <span id="emailContador">Não disponível</span></p>
                 </div>
             </div>
 
+            <div class="verificar-backup">
+                <div class="backup-header">
+                    <h3 class="detalhesBkp">DETALHES DO BACKUP</h3>
+                </div> 
+                <div class="detalhes">
+                    <p><strong>Último Backup</strong> <br> <span id="ultimoBackup">Não disponível</span></p>
+                    <p><strong>Última Validação</strong> <br> <span id="ultimaValidacao">Não disponível</span></p>
+                    <p><strong>Dias sem backup</strong> <br> <span id="diasSemBKP">Não disponível</span></p>
+                    <div id="backupStatus" class="backup-status"></div>
+            </div>
         </div>
         
             <div class="button-container">
-                <a href="index.html" class="back-button" >Voltar para a página inicial</a>
-                <button type="button" id="exibeModulos">Voltar consulta módulos</button> 
+                <a href="index.html" class="back-button" >Página inicial</a>
+                <button type="button" id="exibeModulos" class="back-button">Consulta módulos</button> 
             </div>   
 
     </div>

@@ -115,6 +115,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
+    font-size: 0.8em;
 }
 
 /* Estilo para a imagem */

@@ -22,13 +22,13 @@ window.addEventListener('DOMContentLoaded', async () => {
                 window.location.href = 'erro.html';
             } else {
                 // Atualize os dados no HTML com a resposta da API
-                document.getElementById('razaoSocial').textContent = data.razaoSocial || 'Não disponível';
-                document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || 'Não disponível';
+                document.getElementById('razaoSocial').textContent = data.razaoSocial || ' Não disponível';
+                document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || ' Não disponível';
                 document.getElementById('dataCriacao').textContent = `${data.dataCriacao ? new Date(data.dataCriacao).toLocaleString('pt-BR') : 'Não disponível'}`;
-                document.getElementById('tamanhoBKP').textContent = data.tamanhoMb || 'Não disponível'; // Verifique se esse campo existe na API
-                document.getElementById('emailCopia').textContent = data.copiasemail || 'Não configurado'; // Verifique se esse campo existe na API
+                document.getElementById('tamanhoBKP').textContent = data.tamanhoMb || ' Não disponível'; // Verifique se esse campo existe na API
+                document.getElementById('emailCopia').textContent = data.copiasemail || ' Não configurado'; // Verifique se esse campo existe na API
                 document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
-                document.getElementById('emailContador').textContent = data.emailContador || 'Não configurado'; // Verifique se esse campo existe na API
+                document.getElementById('emailContador').textContent = data.emailContador || ' Não configurado'; // Verifique se esse campo existe na API
                 document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('ultimaValidacao').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
 
@@ -103,7 +103,7 @@ function calcularDiasSemBackup(backupDateStr) {
     return differenceInDays >= 0 ? differenceInDays : 0;
 }
 
-// Função que atualiza o status do backup
+// Função que atualiza o status do backup com base na data
 function updateBackupStatus(backupDateStr) {
     console.log('Data do Backup:', backupDateStr);
 
@@ -114,22 +114,25 @@ function updateBackupStatus(backupDateStr) {
     const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
 
     const backupStatusDiv = document.getElementById("backupStatus");
-    const backupMessage = document.getElementById("backupMessage");
 
     if (backupStatusDiv) {
-        backupStatusDiv.className = 'notification';
+        let statusHTML = ''; // Variável para armazenar o HTML da imagem de status
+        let statusText = ''; // Variável para o texto
 
+        // Atualizando a imagem do status com base na diferença de dias
         if (differenceInDays === 0) {
-            backupMessage.textContent = "EM DIA";
-            backupStatusDiv.classList.add("on-time", "blinking");
+            statusHTML = '<img src="assets/backupemdia.png" alt="Status Em Dia">';
+            
         } else if (differenceInDays === 1 || differenceInDays === 2) {
-            backupMessage.textContent = "ATRASADO";
-            backupStatusDiv.classList.add("late", "blinking");
+            statusHTML = '<img src="assets/atrasadobackup.png" alt="Status Atrasado">';
         } else {
-            backupMessage.textContent = "MUITO ATRASADO";
-            backupStatusDiv.classList.add("very-late", "blinking");
+            statusHTML = '<img src="assets/alertabackup.png" alt="Status Atenção">';
         }
 
+        // Inserir o HTML da imagem e o texto no div de status
+        backupStatusDiv.innerHTML = `${statusHTML}<p>${statusText}</p>`;
+        
+        // Exibir o div de status (remover classe 'hidden', caso exista)
         backupStatusDiv.classList.remove("hidden");
     }
 }

@@ -5,9 +5,10 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100%;
     background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
     color:#333;
+    overflow: auto;
 }
 
 h1 {
@@ -21,6 +22,10 @@ h2 {
     font-weight: 600;
 }
 
+h3 {
+    font-size: 1.2em;
+}
+
 p {
     font-size: 1em;
     line-height: 1.6;
@@ -28,10 +33,13 @@ p {
 
 /* Container principal para o conteúdo */
 .result-container {
-    flex: 1;
-    padding: 15px;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
     margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Contêiner para as seções lado a lado */
@@ -60,15 +68,35 @@ p {
     margin-left: 5px;
 }
 
+.detalhesBkp{
+    text-align: center;      /* Centraliza o texto dentro do H3 */
+}
+
+.detalhes {
+    display: flex;           /* Mantém os detalhes em linha */
+    justify-content: center; /* Centraliza os detalhes */
+    gap: 10vh;              /* Espaçamento entre os elementos */
+}
+
 /* Estilo para a seção "VERIFICAR BACKUP" */
 .verificar-backup {
-    background-color: #c4e1ec;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
     border-radius: 6px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     margin-top: 15px;
     text-align: center;
     position: relative;
+}
+
+.backup-header {
+    display: flex;
+    align-items: center;
+    gap: 10vh;
+    justify-content: center; /* Alinha o título e a imagem verticalmente */
+    width: 100%; /* Usa a largura total disponível */
 }
 
 head{
@@ -82,10 +110,13 @@ footer {
     padding: 10px;
     text-align: center;
     width: 100%;
-    position: relative;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
+    font-size: 0.8em;
 }
 
 /* Estilo para a imagem */
@@ -97,9 +128,10 @@ footer .imagem_footer img {
 
 .button-container {
     display: flex;
-    justify-content: space-between; /* Coloca os itens em lados opostos */
     align-items: center; /* Alinha verticalmente */
-    margin-top: 8px;
+    justify-content: center;
+    gap: 15vh;
+    margin-top: 3vh;
     width: 100%; /* Garante que o contêiner ocupe a largura completa */
 }
 
@@ -108,12 +140,13 @@ footer .imagem_footer img {
     background-color: #2197f0;
     color: white;
     text-decoration: none;
+    border: none;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 0.9em;
     transition: background-color 0.3s, transform 0.2s;
-    width: 45%; /* Define a largura do link e botão para serem iguais */
+    width: 20%; /* Define a largura do link e botão para serem iguais */
     text-align: center; /* Centraliza o texto */
     margin-top: 10px;
 }
@@ -127,55 +160,14 @@ footer .imagem_footer img {
     transform: scale(0.98);
 }
 
-#exibeModulos {
-    background-color: #2197f0;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s, transform 0.2s;
-    width: 45%; /* Define a largura do botão */
-    text-align: center; /* Centraliza o texto */
-    margin-top: 10px;
-}
-
-#exibeModulos:hover {
-    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
-    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
-}
-
-/* Estilo para a notificação do backup */
-.notification {
-    width: 75px; /* Largura menor */
-    height: 75px; /* Altura menor */
-    border-radius: 50%; /* Forma circular */
-    position: absolute; /* Posiciona de forma absoluta */
-    top: 15px; /* Ajusta a posição vertical */
-    right: 10px; /* Ajusta a posição horizontal */
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px; /* Tamanho da fonte menor */
-    color: white;
+.backup-status p {
     text-align: center;
-}
-
-.notification.on-time {
-    background-color: #28a745;
-    color: white;
-}
-
-.notification.late {
-    background-color: #ffc107;
-    color: black;
-}
-
-.notification.very-late {
-    background-color: #dc3545;
-    color: white;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    color: #333; /* Altere a cor conforme o design */
 }
 
 .hidden {
@@ -192,6 +184,7 @@ footer .imagem_footer img {
     font-size: 14px; /* Tamanho da fonte */
     text-align: left; /* Centraliza o texto */
     animation: blink 2s infinite; /* Define a animação blink */
+    margin-bottom: 10px;
 }
 
 @keyframes blink {
