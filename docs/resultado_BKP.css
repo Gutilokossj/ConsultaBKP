@@ -110,7 +110,7 @@ footer {
     padding: 10px;
     text-align: center;
     width: 100%;
-    position: relative;
+    position: fixed;
     bottom: 0;
     left: 0;
     display: flex;

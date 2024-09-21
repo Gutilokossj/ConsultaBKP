@@ -56,7 +56,6 @@ body {
     align-items: center; /* Alinha verticalmente o conteúdo dos módulos */
     padding: 1%; /* Espaçamento interno dos módulos */
     box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura do módulo */
-    margin: 1%;
 }
 
 
@@ -136,10 +135,9 @@ footer .imagem_footer img {
     cursor: pointer;
     text-align: center;
     margin: 2% auto; /* Centraliza o botão horizontalmente */
-    width: 50%; /* Largura do botão */
+    width: 30%; /* Largura do botão */
     font-size: 1em;
     transition: background-color 0.3s, transform 0.2s;
-    display: block; /* Garante que o margin auto funcione */
 }
 
 .back-button:hover {
@@ -161,7 +159,7 @@ footer .imagem_footer img {
     padding: 5% 5% 5% 5%; /* Espaçamento interno do botão */
     border-radius: 12px; /* Bordas arredondadas */
     cursor: pointer; 
-    font-size: 0.9em; /* Tamanho da fonte do botão */
+    font-size: 1em; /* Tamanho da fonte do botão */
     transition: background-color 0.3s, transform 0.2s;
     margin-right: 15px;
 }
