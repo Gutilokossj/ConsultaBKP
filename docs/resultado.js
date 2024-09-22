@@ -70,28 +70,21 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'backup' : 'moduloBackup'
             };
 
+            // Esconder todos os módulos inicialmente
+            Object.values(moduleElements).forEach(moduleId => {
+                const moduleElement = document.getElementById(moduleId);
+                if (moduleElement) {
+                    moduleElement.style.display = 'none'; // Esconde todos os módulos
+                }
+            });
+
+            // Exibir apenas os módulos retornados pela API
             modulesData.benefits.forEach(benefit => {
                 const moduleId = moduleElements[benefit.name];
                 if (moduleId) {
                     const moduleElement = document.getElementById(moduleId);
                     if (moduleElement) {
-                        const statusElement = moduleElement.querySelector('.status');
-                        if (statusElement) {
-                            statusElement.classList.add('status-available');
-                            statusElement.textContent = '✔'; // Símbolo de verificado
-                        }
-                    }
-                }
-            });
-
-            // Exibir mensagem para módulos não contratados
-            Object.values(moduleElements).forEach(moduleId => {
-                const moduleElement = document.getElementById(moduleId);
-                if (moduleElement) {
-                    const statusElement = moduleElement.querySelector('.status');
-                    if (statusElement && statusElement.textContent === '') {
-                        statusElement.classList.add('status-unavailable');
-                        statusElement.textContent = '✘'; // Símbolo de não disponível
+                        moduleElement.style.display = 'block'; // Exibe os módulos contratados
                     }
                 }
             });

@@ -45,6 +45,12 @@ body {
     width: 55px;
 }
 
+.module-text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 /* Adicional para garantir que os módulos sejam ajustáveis */
 .module {
     display: flex;
@@ -231,30 +237,62 @@ head{
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
     .result-content {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Empilha as seções verticalmente */
+        align-items: center; /* Centraliza os itens */
+        gap: 20px;
     }
 
-    .verificar-backup {
-        margin-top: 15px;
+    .sections-container {
+        width: 100%; /* As seções ocupam toda a largura */
+        margin: 0 0 20px 0; /* Espaço entre seções */
+    }
+
+    .modules-container {
+        flex-direction: column; /* Organiza os módulos em coluna */
+        padding: 5%; /* Padding reduzido */
+        width: 100%; /* Largura total */
+    }
+
+    .modulosFiscais, .modulosGerenciais, .modulosEspeciais {
+        flex-direction: column; /* Módulos em coluna */
+        gap: 10px; /* Espaçamento entre os módulos */
+    }
+
+    .module {
+        width: 100%; /* Módulos ocupam a largura total */
+        padding: 10px; /* Padding para cada módulo */
+    }
+
+    .module-imagem {
+        width: 70px; /* Ajusta o tamanho da imagem */
+    }
+
+    .module-text{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
     }
 
     .notification {
-        position: static;
-        margin: 10px auto;
-        width: 60px;
-        height: 60px;
-        font-size: 10px;
+        width: 90%; /* Ajusta a largura da notificação */
+        font-size: 12px; /* Tamanho da fonte da notificação */
     }
 
-    .back-button {
-        margin-bottom: 20px;
+    .back-button, #exibeDetalhes {
+        width: 100%; /* Botões ocupam a largura total */
+        padding: 10px; /* Aumenta o padding */
     }
-
 }
+
 
 /* Estilos para telas a partir de 1024px de largura */
 @media (min-width: 1160px) {
-    .module-imagem{
-        width: 90px;
+    .module-imagem {
+        width: 90px; /* Tamanho maior para telas grandes */
     }
-  }
+
+    h1 {
+        font-size: 2.5em; /* Mantém o tamanho grande para telas grandes */
+    }
+}
+

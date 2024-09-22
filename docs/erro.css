@@ -86,3 +86,13 @@ footer .imagem_footer img {
     height: 20px; /* Ajusta o tamanho da imagem */
     margin-right: 10px; /* Espaço entre a imagem e o texto */
 }
+
+
+@media (max-width: 768px) {
+
+    .container {
+
+        width: 40%
+    }
+
+}

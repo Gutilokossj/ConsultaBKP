@@ -189,33 +189,27 @@ footer .imagem_footer img {
     .container {
         flex-direction: column; /* Empilha os elementos em vez de colocá-los lado a lado */
         padding: 10px;
-        width: 80%; /* Garante que o container ocupe 100% da largura da tela */
+        width: 90%; /* Garante que o container ocupe 90% da largura da tela */
         box-sizing: border-box; /* Impede que o padding aumente o tamanho do container */
+        margin-top: 100px; /* Menos espaço em cima */
     }
 
     form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 75%;
-        max-width: 600px; /* Limita o tamanho em telas grandes */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-        padding: 4%;
+        width: 90%; /* Aumenta a largura do formulário para ocupar mais espaço */
+        max-width: none; /* Remove o limite de largura máxima */
+        padding: 10px; /* Ajusta o padding */
     }
 
     input[type="text"] {
-        width: 70%; /* O campo de texto ocupa 100% da largura disponível */
-        box-sizing: border-box; /* Garante que o padding não ultrapasse a largura */
+        width: 90%; /* O campo de texto ocupa 90% da largura disponível */
     }
 
     button#consultarModulosBtn {
-        width: 70%; /* O botão também ocupa 100% da largura disponível */
-        box-sizing: border-box; /* Garante que o padding não ultrapasse a largura */
+        width: 90%; /* O botão também ocupa 90% da largura disponível */
     }
 
     .image {
-        width: 80%; /* A imagem vai ocupar 100% da largura da tela em telas menores */
+        width: 100%; /* A imagem vai ocupar 100% da largura da tela em telas menores */
     }
 
     footer .imagem_footer img {
@@ -223,6 +217,5 @@ footer .imagem_footer img {
         position: relative;
         bottom: 0;
         left: 0;
-
     }
 }

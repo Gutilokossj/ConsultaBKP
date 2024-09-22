@@ -86,6 +86,7 @@ p {
     margin-top: 15px;
     text-align: center;
     position: relative;
+    padding: 15px;
 }
 
 .backup-header {
@@ -184,6 +185,16 @@ footer .imagem_footer img {
     margin-bottom: 10px;
 }
 
+.aviso {
+    background-color: #f5bc87; /* Cor de fundo do aviso */
+    color: #72120b; /* Cor do texto do aviso */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center; 
+    margin-bottom: 10px;
+}
+
 @keyframes blink {
     0%, 100% { opacity: 1; } /* O texto aparece */
     50% { opacity: 0; } /* O texto some */
@@ -209,6 +220,12 @@ footer .imagem_footer img {
     .sections-container {
         flex-direction: column; /* Alinha as seções verticalmente */
         gap: 10px; /* Reduz o espaçamento entre as seções */
+    }
+
+    .detalhes{
+        flex-direction: column;
+        padding: auto;
+        gap: 1px;
     }
 
     .section {
