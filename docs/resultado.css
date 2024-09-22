@@ -1,13 +1,11 @@
 /* Estilos gerais para o resultado.html */
 body {
     font-family: 'Comfortaa', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 100vh; /* Garante que o footer fique sempre no fim */
-    background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
+    background-image: url('assets/ImagemBackground/teste.jpg');
+    background-size: cover; /* A imagem cobre toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
 }
 
 .aviso {
@@ -21,14 +19,12 @@ body {
 }
 
 .modules-container {
-    background-color: #eaecec;
+    background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    position: relative;
-    padding: 20px; /* Adiciona um pouco de preenchimento ao redor dos módulos */
-    display: flex;
-    flex-direction: column;
-    gap: 1px; /* Espaçamento entre os grupos de módulos */
-    flex-grow: 1; /* Faz o contêiner crescer conforme o conteúdo */
+    width: auto; /* Largura ajustada ao conteúdo */
+    height: auto; /* Altura ajustada ao conteúdo */
+    padding: 10px;
+    gap: 1%; /* Espaçamento entre os grupos de módulos */
 }
 
 
@@ -39,23 +35,22 @@ body {
 }
 
 .modulosFiscais, .modulosGerenciais, .modulosEspeciais{
-    display: flex;
-    flex-wrap: wrap;
     border: 3px solid #ccc;
-    border-radius: 15px;
-    padding: 0;
+    display: flex;
+    border-radius: 19px;
+    box-sizing: border-box; /* Garante que padding e border sejam inclusos no tamanho total */
+}
+
+.module-imagem{
+    width: 55px;
 }
 
 /* Adicional para garantir que os módulos sejam ajustáveis */
 .module {
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    background-color: #f1f2f8;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
     display: flex;
+    flex-direction: column;
     align-items: center; /* Alinha verticalmente o conteúdo dos módulos */
-    padding: 1%; /* Espaçamento interno dos módulos */
-    box-sizing: border-box; /* Inclui bordas e padding no cálculo da largura e altura do módulo */
+    padding: 10px;
 }
 
 
@@ -76,7 +71,6 @@ h2 {
 
 h3 {
     font-size: 1.2em;
-    text-align: center;
 }
 
 p {
@@ -86,23 +80,21 @@ p {
 
 /* Container principal para o conteúdo */
 .result-container {
-    padding: auto;
-    max-width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    margin-top: 10px;
+    display: flex;           /* Define como Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
 }
 
 /* Flexbox para organizar as seções lado a lado */
 .result-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+ display: flex;
 }
 
 /* Seções para dados do cliente e verificar envio */
 .sections-container {
-    margin-right: 20px; /* Espaço entre as seções e os módulos */
+    margin-right: 2%; /* Espaço entre as seções e os módulos */
+    width: 30%;
 }
 
 /* Footer centralizado no fim da página */
@@ -130,13 +122,15 @@ footer .imagem_footer img {
     background-color: #2197f0;
     color: white;
     text-decoration: none;
-    padding: 1%;
+    padding: 4%;
+    display: flex;
+    justify-content: center;
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    margin: 2% auto; /* Centraliza o botão horizontalmente */
-    width: 30%; /* Largura do botão */
-    font-size: 1em;
+    margin: 15% auto; /* Centraliza o botão horizontalmente */
+    width: 50%; /* Largura do botão */
+    font-size: 1.3em;
     transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -145,23 +139,15 @@ footer .imagem_footer img {
     transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
-.verificar-backup-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px; /* Adiciona um espaçamento abaixo do cabeçalho */
-}
-
 #exibeDetalhes {
     background-color: #2197f0;
     color: white; /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
     padding: 5% 5% 5% 5%; /* Espaçamento interno do botão */
     border-radius: 12px; /* Bordas arredondadas */
-    cursor: pointer; 
+    cursor: pointer;
     font-size: 1em; /* Tamanho da fonte do botão */
     transition: background-color 0.3s, transform 0.2s;
-    margin-right: 15px;
 }
 
 #exibeDetalhes:hover {
@@ -170,8 +156,7 @@ footer .imagem_footer img {
 }
 
 .button-container {
-    margin-left: auto; /* Alinha o botão à direita */
-    width: 25%
+    width: 90%
 }
 
 .back-button:active, #exibeDetalhes:active {
@@ -180,31 +165,18 @@ footer .imagem_footer img {
 
 /* Estilo para a seção "VERIFICAR BACKUP" */
 .verificar-backup {
-    background-color: #c4e1ec;
-    padding: 5px;
+    background-color: #fff;
+    padding: 10px;
     border-radius: 6px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    margin-top: 15px;
-    position: relative;
 }
 
 .verificar-cliente {
     background-color: #fff;
-    padding: 5px;
     border-radius: 6px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    margin-top: 15px;
-    position: relative;
-}
-
-.verificar-backup-footer {
-    display: flex;
-    align-items: center;
-    margin-right: 5%; 
-}
-
-.verificar-backup-footer p {
-    margin: 0; /* Remove o espaço padrão dos parágrafos */
+    padding: 10px;
+    margin-bottom: 10%;
 }
 
 head{
@@ -226,18 +198,6 @@ head{
     margin-left: auto; /* Alinha à direita */
 }
 
-.notification.on-time {
-    background-color: #28a745;
-}
-
-.notification.late {
-    background-color: #ffc107;
-    color: black;
-}
-
-.notification.very-late {
-    background-color: #dc3545;
-}
 
 .hidden {
     display: none;
@@ -255,27 +215,6 @@ head{
     animation: blink 2s infinite; /* Define a animação blink */
 }
 
-
-.status {
-    font-size: 1em;
-    display: inline-block;
-    width: 0.5em; /* Largura do ícone */
-}
-
-.status-available {
-    background-color: lightgreen; /* Cor de fundo verde claro */
-    color: black; /* Cor do texto */
-    padding: 5px; /* Adiciona algum preenchimento para melhor visualização */
-    border-radius: 3px; /* Opcional: bordas arredondadas */
-
-}
-
-.status-unavailable {
-    background-color: lightcoral; /* Cor de fundo vermelho claro */
-    color: black; /* Cor do texto */
-    padding: 5px; /* Adiciona algum preenchimento para melhor visualização */
-    border-radius: 3px; /* Opcional: bordas arredondadas */
-}
 
 
 @keyframes blink {
@@ -310,4 +249,12 @@ head{
     .back-button {
         margin-bottom: 20px;
     }
+
 }
+
+/* Estilos para telas a partir de 1024px de largura */
+@media (min-width: 1160px) {
+    .module-imagem{
+        width: 90px;
+    }
+  }

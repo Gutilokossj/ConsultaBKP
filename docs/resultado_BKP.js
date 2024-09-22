@@ -121,12 +121,12 @@ function updateBackupStatus(backupDateStr) {
 
         // Atualizando a imagem do status com base na diferença de dias
         if (differenceInDays === 0) {
-            statusHTML = '<img src="assets/backupemdia.png" alt="Status Em Dia">';
+            statusHTML = '<img src="assets/IconeBackup/backupemdia.png" alt="Status Em Dia">';
             
         } else if (differenceInDays === 1 || differenceInDays === 2) {
-            statusHTML = '<img src="assets/atrasadobackup.png" alt="Status Atrasado">';
+            statusHTML = '<img src="assets/IconeBackup/atrasadobackup.png" alt="Status Atrasado">';
         } else {
-            statusHTML = '<img src="assets/alertabackup.png" alt="Status Atenção">';
+            statusHTML = '<img src="assets/IconeBackup/alertabackup.png" alt="Status Atenção">';
         }
 
         // Inserir o HTML da imagem e o texto no div de status

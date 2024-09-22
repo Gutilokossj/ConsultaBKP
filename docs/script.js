@@ -44,11 +44,11 @@ const toggleImage = document.getElementById('toggleImage');
 function updateButtonState(isActive) {
     if (isActive) {
         // Altera a imagem para 'gerencieaqui.png' e o texto quando ligado
-        toggleImage.src = 'assets/GA.png'; // Caminho da nova imagem
+        toggleImage.src = 'assets/IconeSistema/GA.png'; // Caminho da nova imagem
         toggleText.textContent = 'Alternar sistema';
     } else {
         // Retorna a imagem original 'SIEM Colorido.png' e o texto quando desligado
-        toggleImage.src = 'assets/SIEM.png'; // Caminho da imagem original
+        toggleImage.src = 'assets/IconeSistema/SIEM.png'; // Caminho da imagem original
         toggleText.textContent = 'Alternar sistema';
     }
 }

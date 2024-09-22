@@ -7,7 +7,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to left, #acc5e0, #dbe2eb, #acc5e0 );
+    background-image: url('assets/ImagemBackground/teste.jpg');
+    background-size: cover; /* A imagem cobre toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
 }
 
 .container {
@@ -15,7 +19,7 @@ body {
     padding: 40px;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     max-width: 600px;
     width: 90%;
     margin: 20px;
@@ -68,7 +72,7 @@ footer {
     padding: 10px;
     text-align: center;
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     display: flex;
