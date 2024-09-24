@@ -6,6 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centraliza verticalmente os elementos */
+    align-items: center;
+    min-height: 100vh;
     background-image: url('assets/ImagemBackground/teste.jpg');
     background-size: cover; /* A imagem cobre toda a tela */
     background-position: center; /* Centraliza a imagem */
@@ -19,11 +21,12 @@ body {
     display: flex;
     gap: 3%;
     align-items: center;
+    justify-content: center;
     margin: 0 auto;
-    margin-top: 200px;
     border-radius: 30px;
-    max-width: 70%;
-    width: 700px;
+    max-width: 600px;
+    min-width: 300px;
+    width: 100%;
     padding: 4% 3% 3% 5%;
     box-sizing: border-box;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
