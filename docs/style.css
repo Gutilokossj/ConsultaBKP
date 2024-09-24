@@ -17,7 +17,6 @@ body {
 
 /* Container centralizado */
 .container {
-    background-color: white;
     display: flex;
     gap: 3%;
     align-items: center;
