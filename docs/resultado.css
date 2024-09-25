@@ -21,12 +21,14 @@ body {
 .modules-container {
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
     width: 80vw; /* A largura será 80% da largura da tela */
     height: 95vh; /* A altura será 60% da altura da tela */
     padding: 10px;
     gap: 1%; /* Espaçamento entre os grupos de módulos */
     max-width: 900px; /* Define um limite máximo para a largura */
     max-height: 800px; /* Define um limite máximo para a altura */
+    margin: 0;
 }
 
 
@@ -45,6 +47,7 @@ body {
 
 .module-imagem{
     width: 55px;
+    user-select: none;
 }
 
 .module-text{
@@ -67,10 +70,15 @@ body {
 }
 
 h1 {
-    font-size: 2.5em;
-    font-weight: 700;
-    text-align: center;
-    margin: 0;
+    font-size: 1.5em; /* Tamanho fixo em pixels */
+    text-align: left; /* Centraliza o texto dentro do h1 */
+    display: block; /* Garante que o elemento ocupe toda a largura disponível */
+    margin-top: auto;
+    margin-left: auto; /* Margens automáticas para centralização */
+    margin-right: auto; /* Margens automáticas para centralização */
+    width: 50%; /* A largura será 80% da largura da tela */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    padding: 15px;
 }
 
 h2 {
@@ -89,7 +97,6 @@ p {
 
 /* Container principal para o conteúdo */
 .result-container {
-    margin-top: 10px;
     display: flex;           /* Define como Flexbox */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center;     /* Centraliza verticalmente */
@@ -176,13 +183,13 @@ footer .imagem_footer img {
 .verificar-backup {
     background-color: #fff;
     padding: 10px;
-    border-radius: 6px;
+    border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .verificar-cliente {
     background-color: #fff;
-    border-radius: 6px;
+    border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     padding: 10px;
     margin-bottom: 10%;
@@ -295,7 +302,7 @@ head{
     }
 
     h1 {
-        font-size: 2.5em; /* Mantém o tamanho grande para telas grandes */
+        font-size: 1.8em; /* Mantém o tamanho grande para telas grandes */
     }
 }
 

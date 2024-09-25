@@ -121,6 +121,7 @@ footer {
 footer .imagem_footer img {
     height: 20px; /* Ajusta o tamanho da imagem */
     margin-right: 10px; /* Espaço entre a imagem e o texto */
+    user-select: none;
 }
 
 

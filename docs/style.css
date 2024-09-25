@@ -36,6 +36,7 @@ body {
     width: 80%; /* Para garantir que a imagem ocupe 100% da largura disponível em telas menores */
     max-width: 250px; /* Limita o tamanho da imagem */
     margin-bottom: 20px; /* Espaçamento entre a imagem e o formulário */
+    user-select: none;
 }
 
 .image img {
@@ -185,6 +186,7 @@ footer {
 footer .imagem_footer img {
     height: 20px; /* Ajusta o tamanho da imagem */
     margin-right: 10px; /* Espaço entre a imagem e o texto */
+    user-select: none;
 }
 
 /* Media Queries para telas menores */
