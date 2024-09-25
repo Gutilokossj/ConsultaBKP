@@ -11,10 +11,8 @@
     
 </head>
 <body>
-    
+    <div id="responseMessage" class="response-message"></div>
     <div class="result-container">
-    
-       
         <div class="result-content">
             <div class="avisoTempo">Atualização automática em 60 segundos</div>
             <div class="sections-container">
@@ -29,6 +27,14 @@
                     <p><strong>Último Envio:</strong> <span id="ultimoEnvio">Não disponível</span></p>
                     <p><strong>E-mail contador:</strong> <br> <span id="emailContador">Não disponível</span></p>
                     <button type="button" id="resetaXML" class="resetar-button">Resetar envio XML</button>
+                    <div id="customPopup" class="popup">
+                        <div class="popup-content">
+                            <h3>ATENÇÃO!</h3>
+                            <p>O reset do envio XML impactará no reenvio do e-mail para os <strong>destinatários</strong>, deseja confirmar esta operação?</p>
+                            <button id="confirmReset">SIM, CONFIRMAR</button>
+                            <button id="cancelReset">CANCELAR</button>
+                        </div>
+                    </div>
                     <br>
                     <br>
                     <span class="aviso">Em desenvolvimento</span> 

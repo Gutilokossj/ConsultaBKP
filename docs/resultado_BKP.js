@@ -136,3 +136,42 @@ function updateBackupStatus(backupDateStr) {
         backupStatusDiv.classList.remove("hidden");
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('resetaXML').addEventListener('click', function() {
+        // Mostrar o pop-up
+        document.getElementById('customPopup').style.display = 'flex';
+    });
+
+    document.getElementById('confirmReset').addEventListener('click', function() {
+        // Lógica para resetar o envio XML
+        console.log("Envio XML resetado.");
+        document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
+        
+        // Exibir mensagem de sucesso
+        const responseMessage = document.getElementById('responseMessage');
+        responseMessage.textContent = "Reset XML enviado.";
+        responseMessage.className = "response-message success show"; // Adiciona a classe de sucesso e a classe show
+        responseMessage.style.display = 'block'; // Mostra a mensagem
+        
+        // Remover a mensagem após 5 segundos
+        setTimeout(function() {
+            responseMessage.classList.remove('show'); // Remove a classe show para esconder
+            // Esconde a mensagem após a animação
+            setTimeout(function() {
+                responseMessage.style.display = 'none'; // Esconde a mensagem completamente
+            }, 500); // Tempo da animação
+        }, 5000);
+    });
+
+    document.getElementById('cancelReset').addEventListener('click', function() {
+        // Fechar o pop-up sem mostrar mensagem
+        document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
+        // Não exibir nenhuma mensagem ao cancelar
+    });
+});
+
+
+
+
+
