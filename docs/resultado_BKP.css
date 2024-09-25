@@ -134,6 +134,31 @@ footer .imagem_footer img {
     width: 100%; /* Garante que o contêiner ocupe a largura completa */
 }
 
+.resetar-button{
+    background-color: #2197f0;
+    color: white;
+    text-decoration: none;
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 50%; /* Define a largura do link e botão para serem iguais */
+    text-align: center; /* Centraliza o texto */
+    margin-top: 10px;
+
+}
+
+.resetar-button:hover {
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
+.resetar-button:active, #exibeModulos:active {
+    transform: scale(0.98);
+}
+
 /* Estilo para o botão de voltar */
 .back-button {
     background-color: #2197f0;
