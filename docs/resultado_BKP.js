@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função para fazer o reset via DELETE
     async function resetarEnvio(cnpj) {
         try {
-            const response = await fetch(`https://www.sistemaempresarialweb.com.br/backupsoften/limparEnvioContador/${cnpj}`, {
+            const response = await fetch(`http://localhost:3001/proxy/resetEnvio/${cnpj}`, {
                 method: 'DELETE',
             });
             
