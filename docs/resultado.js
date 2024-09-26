@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const cnpj = urlParams.get('cnpj');
 
     if (cnpj) {
-
          // Recupera o estado do botão de alternância
          const toggleState = localStorage.getItem('toggleState');
          const isActive = toggleState === 'active';
