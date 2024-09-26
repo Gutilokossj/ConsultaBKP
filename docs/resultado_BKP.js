@@ -138,40 +138,67 @@ function updateBackupStatus(backupDateStr) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Função para obter o CNPJ da URL
+    function obterCNPJ() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('cnpj');
+    }
+
+    // Função para fazer o reset via DELETE
+    async function resetarEnvio(cnpj) {
+        try {
+            const response = await fetch(`https://www.sistemaempresarialweb.com.br/backupsoften/limparEnvioContador/${cnpj}`, {
+                method: 'DELETE',
+            });
+            
+            if (response.ok) {
+                exibirMensagemSucesso("Reset XML enviado com sucesso.");
+            } else {
+                exibirMensagemSucesso("Erro ao resetar envio XML.");
+            }
+        } catch (error) {
+            exibirMensagemSucesso("Erro na requisição: " + error.message);
+        }
+    }
+
+    // Função para exibir mensagem de sucesso
+    function exibirMensagemSucesso(mensagem) {
+        const responseMessage = document.getElementById('responseMessage');
+        responseMessage.textContent = mensagem;
+        responseMessage.className = "response-message success show";
+        responseMessage.style.display = 'block';
+
+        // Remover a mensagem após 5 segundos
+        setTimeout(function() {
+            responseMessage.classList.remove('show');
+            setTimeout(function() {
+                responseMessage.style.display = 'none';
+            }, 500); // Tempo da animação
+        }, 5000);
+    }
+
+    // Abrir o pop-up
     document.getElementById('resetaXML').addEventListener('click', function() {
-        // Mostrar o pop-up
         document.getElementById('customPopup').style.display = 'flex';
     });
 
+    // Confirmar e resetar envio
     document.getElementById('confirmReset').addEventListener('click', function() {
-        // Lógica para resetar o envio XML
-        console.log("Envio XML resetado.");
+        const cnpj = obterCNPJ(); // Obter CNPJ da URL
+
+        if (cnpj) {
+            resetarEnvio(cnpj); // Chamar a função de reset com o CNPJ
+        } else {
+            exibirMensagemSucesso("CNPJ não encontrado na URL.");
+        }
+
         document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
-        
-        // Exibir mensagem de sucesso
-        const responseMessage = document.getElementById('responseMessage');
-        responseMessage.textContent = "Reset XML enviado.";
-        responseMessage.className = "response-message success show"; // Adiciona a classe de sucesso e a classe show
-        responseMessage.style.display = 'block'; // Mostra a mensagem
-        
-        // Remover a mensagem após 5 segundos
-        setTimeout(function() {
-            responseMessage.classList.remove('show'); // Remove a classe show para esconder
-            // Esconde a mensagem após a animação
-            setTimeout(function() {
-                responseMessage.style.display = 'none'; // Esconde a mensagem completamente
-            }, 500); // Tempo da animação
-        }, 5000);
     });
 
+    // Cancelar e fechar o pop-up
     document.getElementById('cancelReset').addEventListener('click', function() {
-        // Fechar o pop-up sem mostrar mensagem
         document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
-        // Não exibir nenhuma mensagem ao cancelar
     });
 });
-
-
-
 
 
