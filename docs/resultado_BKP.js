@@ -147,12 +147,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função para fazer o reset via DELETE
     async function resetarEnvio(cnpj) {
         try {
-            const response = await fetch(`http://localhost:3001/proxy/resetEnvio/${cnpj}`, {
-                method: 'DELETE',
+            const response = await fetch(`https://servidor-proxy.vercel.app/proxy/resetEnvio/${cnpj}`, {
+                method: 'DELETE',  // Usando DELETE corretamente
             });
             
             if (response.ok) {
-                exibirMensagemSucesso("Reset XML enviado com sucesso.");
+                const message = await response.text();  // Obtém a mensagem retornada como texto
+                exibirMensagemSucesso(message);  // Exibe a mensagem retornada
             } else {
                 exibirMensagemSucesso("Erro ao resetar envio XML.");
             }
@@ -200,5 +201,3 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
     });
 });
-
-
