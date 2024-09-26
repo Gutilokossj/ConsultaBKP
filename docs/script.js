@@ -2,32 +2,32 @@
 document.getElementById('consultForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const cnpjInput = document.getElementById('cnpj').value;
-    const cleanedCNPJ = cnpjInput.replace(/\D/g, ''); // Remove tudo que não for número
+    const inputValue = document.getElementById('cnpj').value;
+    const cleanedInput = inputValue.replace(/\D/g, ''); // Remove tudo que não for número
 
-    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
-
-        // Oculta a mensagem de erro se o CNPJ for válido
+    // Verifica se é um CNPJ ou CPF
+    if (cleanedInput.length === 14 || cleanedInput.length === 11) {
+        // Oculta a mensagem de erro se o CNPJ/CPF for válido
         hideError();
 
-        // Salva o CNPJ no LocalStorage (ou SessionStorage)
-        localStorage.setItem('cnpjDigitado', cleanedCNPJ);
+        // Salva o CNPJ/CPF no LocalStorage (ou SessionStorage)
+        localStorage.setItem('cnpjDigitado', cleanedInput);
 
         // Redireciona para a página de resultados
-        window.location.href = `resultado.html?cnpj=${cleanedCNPJ}`;
+        window.location.href = `resultado.html?cnpj=${cleanedInput}`;
     } else {
-        // Exibe a mensagem de erro se o CNPJ for inválido
-        showError('CNPJ inválido. Verifique e tente novamente.');
+        // Exibe a mensagem de erro se o CNPJ/CPF for inválido
+        showError('CNPJ ou CPF inválido. Verifique e tente novamente.');
     }
 });
 
-// Adiciona um evento de input ao campo de CNPJ para ocultar a mensagem de erro quando o valor é alterado
+// Adiciona um evento de input ao campo de CNPJ/CPF para ocultar a mensagem de erro quando o valor é alterado
 document.getElementById('cnpj').addEventListener('input', function() {
-    // Verifica o valor do CNPJ e oculta a mensagem se for válido
-    const cnpjInput = this.value;
-    const cleanedCNPJ = cnpjInput.replace(/\D/g, '');
+    // Verifica o valor do CNPJ/CPF e oculta a mensagem se for válido
+    const inputValue = this.value;
+    const cleanedInput = inputValue.replace(/\D/g, '');
 
-    if (cleanedCNPJ.length === 14 || cleanedCNPJ.length === 18) {
+    if (cleanedInput.length === 14 || cleanedInput.length === 11) {
         hideError(); // Oculta a mensagem se o valor for válido
     } else {
         // Caso o valor ainda seja inválido, não faz nada
