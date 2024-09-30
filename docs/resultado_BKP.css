@@ -6,6 +6,11 @@ body {
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
     background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
 }
 
 h1 {
@@ -33,11 +38,14 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 60%;
-    margin: auto;
-    margin-top: 120px;
+    align-items: center;
+    width: 80%;
+    margin-top: 15px;
     padding: 20px;
     box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.9); /* Adiciona um fundo com transparência */
+    border-radius: 10px; /* Adiciona bordas arredondadas */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* Sombra para destaque */
 }
 
 /* Contêiner para as seções lado a lado */
@@ -83,7 +91,7 @@ p {
     background-color: #f9f9f9;
     border-radius: 6px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-    margin-top: 15px;
+    margin-top: 50px;
     text-align: center;
     position: relative;
     padding: 15px;
@@ -288,12 +296,14 @@ footer .imagem_footer img {
 
     .result-container {
         padding: 10px;
-        max-width: 100%; /* Permitir que o container ocupe toda a largura */
+        width: 90vw; /* Permitir que o container ocupe toda a largura */
     }
 
     .sections-container {
         flex-direction: column; /* Alinha as seções verticalmente */
         gap: 10px; /* Reduz o espaçamento entre as seções */
+        align-items: center;
+        text-align: center;
     }
 
     .detalhes{
@@ -333,28 +343,9 @@ footer .imagem_footer img {
         padding: 10px;
         font-size: 0.8em; /* Ajusta o texto do rodapé */
     }
-}
 
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5em; /* Reduz ainda mais o tamanho do título em telas muito pequenas */
-    }
-
-    h2 {
-        font-size: 1.2em;
-    }
-
-    .section {
-        padding: 8px;
-    }
-
-    .notification {
-        width: 50px;
-        height: 50px;
-        font-size: 8px; /* Reduz o texto para garantir melhor visualização em telas pequenas */
-    }
-
-    .back-button, #exibeModulos {
-        font-size: 0.8em; /* Ajusta o tamanho da fonte nos botões */
+    .resetar-button{
+        width: 80%; /* Define a largura do link e botão para serem iguais */
+        text-align: center; /* Centraliza o texto */
     }
 }

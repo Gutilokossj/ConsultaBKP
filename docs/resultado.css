@@ -157,7 +157,7 @@ footer .imagem_footer img {
     background-color: #2197f0;
     color: white; /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
-    padding: 5% 5% 5% 5%; /* Espaçamento interno do botão */
+    padding: 5%; /* Espaçamento interno do botão */
     border-radius: 12px; /* Bordas arredondadas */
     cursor: pointer;
     font-size: 1em; /* Tamanho da fonte do botão */
@@ -170,7 +170,7 @@ footer .imagem_footer img {
 }
 
 .button-container {
-    width: 90%
+    width: 100%
 }
 
 .back-button:active, #exibeDetalhes:active {
@@ -277,7 +277,7 @@ head{
     }
 
     #exibeDetalhes {
-        width: 45vw;
+        width: 50vw;
         text-align: center;
     }
 

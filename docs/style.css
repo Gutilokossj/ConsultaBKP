@@ -194,7 +194,7 @@ footer .imagem_footer img {
     .container {
         flex-direction: column; /* Empilha os elementos em vez de colocá-los lado a lado */
         padding: 10px;
-        width: 100%; /* Garante que o container ocupe 90% da largura da tela */
+        width: 80%; /* Garante que o container ocupe 90% da largura da tela */
         box-sizing: border-box; /* Impede que o padding aumente o tamanho do container */
         margin-top: 100px; /* Menos espaço em cima */
         box-shadow: 0 0 15px rgba(0, 0, 0, 0);
