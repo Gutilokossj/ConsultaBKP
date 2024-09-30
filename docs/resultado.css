@@ -23,11 +23,9 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
     width: 80vw; /* A largura será 80% da largura da tela */
-    height: 95vh; /* A altura será 60% da altura da tela */
     padding: 10px;
     gap: 1%; /* Espaçamento entre os grupos de módulos */
     max-width: 900px; /* Define um limite máximo para a largura */
-    max-height: 800px; /* Define um limite máximo para a altura */
     margin: 0;
 }
 
@@ -246,21 +244,41 @@ head{
 
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
+
+    h1 {
+        font-size: 1em; /* Tamanho fixo em pixels */
+        width: 50vw; /* A largura será 80% da largura da tela */
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        text-align: center;
+
+    }
+
     .result-content {
-        flex-direction: column-reverse; /* Empilha as seções verticalmente */
+        display: flex;
+        flex-direction: column-reverse;
         align-items: center; /* Centraliza os itens */
+        text-align: center;
         gap: 20px;
     }
 
     .sections-container {
-        width: 100%; /* As seções ocupam toda a largura */
+        width: 80vw; /* As seções ocupam toda a largura */
         margin: 0 0 20px 0; /* Espaço entre seções */
     }
 
     .modules-container {
         flex-direction: column; /* Organiza os módulos em coluna */
-        padding: 5%; /* Padding reduzido */
-        width: 100%; /* Largura total */
+        padding: 10%; /* Aumenta o padding para dar mais respiro */
+        width: 80vw; /* Aumenta a largura para ocupar mais espaço em telas menores */
+        min-height: auto; /* Deixe a altura seguir o conteúdo em telas menores */
+        background-color: #fff; /* Cor de fundo branca */
+        box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+    }
+
+    #exibeDetalhes {
+        width: 45vw;
+        text-align: center;
     }
 
     .modulosFiscais, .modulosGerenciais, .modulosEspeciais {
@@ -268,10 +286,6 @@ head{
         gap: 10px; /* Espaçamento entre os módulos */
     }
 
-    .module {
-        width: 100%; /* Módulos ocupam a largura total */
-        padding: 10px; /* Padding para cada módulo */
-    }
 
     .module-imagem {
         width: 70px; /* Ajusta o tamanho da imagem */
@@ -288,9 +302,15 @@ head{
         font-size: 12px; /* Tamanho da fonte da notificação */
     }
 
-    .back-button, #exibeDetalhes {
-        width: 100%; /* Botões ocupam a largura total */
+    .back-button{
+        width: 80%; /* Botões ocupam a largura total */
         padding: 10px; /* Aumenta o padding */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer{
+        position: relative;
     }
 }
 
