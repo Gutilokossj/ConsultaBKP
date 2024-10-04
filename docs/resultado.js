@@ -66,7 +66,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'pdv': 'moduloPDV',
                 'estoque': 'moduloEstoque',
                 'qtlicenca': 'moduloQtlicenca',
-                'backup' : 'moduloBackup'
+                'backup' : 'moduloBackup',
+                'integracaociot' : 'moduloCiot'
             };
 
             // Esconder todos os módulos inicialmente
