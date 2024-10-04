@@ -1,5 +1,5 @@
 // Event listener para o formulário
-document.getElementById('consultForm').addEventListener('submit', function(event) {
+document.getElementById('consultarModulosBtn').addEventListener('click', function(event) {
     event.preventDefault();
 
     const inputValue = document.getElementById('cnpj').value;
@@ -20,6 +20,29 @@ document.getElementById('consultForm').addEventListener('submit', function(event
         showError('CNPJ ou CPF inválido. Verifique e tente novamente.');
     }
 });
+
+document.getElementById('consultaBKP').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const inputValue = document.getElementById('cnpj').value;
+    const cleanedInput = inputValue.replace(/\D/g, ''); // Remove tudo que não for número
+
+    // Verifica se é um CNPJ ou CPF
+    if (cleanedInput.length === 14 || cleanedInput.length === 11) {
+        // Oculta a mensagem de erro se o CNPJ/CPF for válido
+        hideError();
+
+        // Salva o CNPJ/CPF no LocalStorage (ou SessionStorage)
+        localStorage.setItem('cnpjDigitado', cleanedInput);
+
+        // Redireciona para a página de BAACKUP
+        window.location.href = `resultado_BKP.html?cnpj=${cleanedInput}`;
+    } else {
+        // Exibe a mensagem de erro se o CNPJ/CPF for inválido
+        showError('CNPJ ou CPF inválido. Verifique e tente novamente.');
+    }
+});
+
 
 // Adiciona um evento de input ao campo de CNPJ/CPF para ocultar a mensagem de erro quando o valor é alterado
 document.getElementById('cnpj').addEventListener('input', function() {

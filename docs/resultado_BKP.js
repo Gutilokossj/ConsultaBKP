@@ -4,6 +4,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     console.log('CNPJ da URL:', cnpj);
 
     if (cnpj) {
+        
+        // Recupera o estado do botão de alternância
+        const toggleState = localStorage.getItem('toggleState');
+        const isActive = toggleState === 'active';
+
+        // Define a origem com base no estado do botão
+        const origin = isActive ? 'GerencieAqui' : 'SIEM';
+
         try {
             const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
             console.log('Consultando API:', apiUrl);

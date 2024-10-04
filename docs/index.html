@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consulta de Módulos</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="footer.css">
     <link rel="icon" type="image/png" href="assets/iconeSite/iconSite.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -18,9 +19,12 @@
         
         <!-- Formulário de Consulta -->
         <form id="consultForm">
-            <h2>Consultar módulos</h2>
+            <h2>Consultar</h2>
             <input type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ/CPF">
-            <button type="submit" id="consultarModulosBtn">Consultar</button>
+            <div class="consultButtons">
+                <button type="submit" id="consultarModulosBtn">Módulos</button>
+                <button type="submit" id="consultaBKP">Backup</button>
+            </div>
             
             <p id="errorMessage" class="error-message"></p>
 
@@ -33,7 +37,6 @@
     </div>
 
     <footer>
-        <div class="imagem_footer"> <img src="assets/iconeSite/iconSoften.png" alt="Logo SIEM colorida"/> </div>
         <div id="footer-placeholder"></div>
     </footer>
     

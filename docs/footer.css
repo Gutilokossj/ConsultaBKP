@@ -1,0 +1,37 @@
+.footer-link {
+    color: blue;
+    text-decoration: none;
+    margin-left: 10px;
+    font-size: 1.1em;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer centralizado no fim da página */
+footer {
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* Alinha os elementos verticalmente */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+/* Estilo para o container que contém a imagem e o texto */
+.container_footer {
+    display: flex; /* Habilita flexbox para alinhar a imagem e o texto horizontalmente */
+    align-items: center; /* Centraliza a imagem e o texto verticalmente */
+    justify-content: center;
+}
+
+/* Estilo para a imagem */
+footer .imagem_footer img {
+    height: 20px;
+    margin-right: 10px;
+}

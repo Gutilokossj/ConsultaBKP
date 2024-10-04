@@ -68,13 +68,19 @@ input[type="text"] {
     margin-bottom: 15px;
 }
 
+.consultButtons{
+    display: flex;
+    gap: 10px;
+}
+
 /* Botão de consultar */
 button#consultarModulosBtn {
     width: 100%; /* Botão ocupa a largura disponível */
-    max-width: 150px; /* Limita o tamanho do botão em telas maiores */
+    max-width: 110px; /* Limita o tamanho do botão em telas maiores */
     background-color: #2197f0;
     font-family: 'Comfortaa', sans-serif;
     font-weight: 500; /* Comfortaa-Medium */
+    text-align: center;
     color: white;
     border: none;
     padding: 10px;
@@ -88,11 +94,30 @@ button#consultarModulosBtn:hover {
     transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
+button#consultaBKP {
+    width: 100%; /* Botão ocupa a largura disponível */
+    max-width: 100px; /* Limita o tamanho do botão em telas maiores */
+    background-color: #2197f0;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 500; /* Comfortaa-Medium */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#consultaBKP:hover {
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
 /* Estilo do botão de alternância */
 .toggle-container {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .botão_trocar_sistema {
@@ -168,26 +193,6 @@ button#consultarModulosBtn:hover {
     visibility: visible; /* Exibe o elemento */
 }
 
-
-
-/* Footer centralizado no fim da página */
-footer {
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
-    font-size: 0.8em;
-}
-
-/* Estilo para a imagem */
-footer .imagem_footer img {
-    height: 20px; /* Ajusta o tamanho da imagem */
-    margin-right: 10px; /* Espaço entre a imagem e o texto */
-    user-select: none;
-}
 
 /* Media Queries para telas menores */
 @media (max-width: 768px) {

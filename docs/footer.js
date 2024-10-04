@@ -1,5 +1,7 @@
 document.getElementById('footer-placeholder').innerHTML = `
     <div class="container_footer">
-        <h3>Soften Sistemas LTDA - ver. 1.4.7 - by Gustavo Fernandes & Rafael Romera</h3>
+        <div class="imagem_footer"> <img src="assets/iconeSite/iconSoften.png" alt="Logo SIEM colorida"/></div>
+        <h3>Soften Sistemas LTDA - ver. 1.4.9</h3>
+        <a href="creditos.html" class="footer-link">Créditos</a>
     </div>
 `;
