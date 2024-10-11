@@ -1,3 +1,5 @@
+@import url('reset.css');
+
 /* Estilos gerais para o resultado.html */
 body {
     font-family: 'Comfortaa', sans-serif;
@@ -22,11 +24,10 @@ body {
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    width: 80vw; /* A largura será 80% da largura da tela */
     padding: 10px;
     gap: 1%; /* Espaçamento entre os grupos de módulos */
-    max-width: 900px; /* Define um limite máximo para a largura */
     margin: 0;
+    width: 60%;
 }
 
 
@@ -95,6 +96,9 @@ p {
 
 /* Container principal para o conteúdo */
 .result-container {
+    max-width: 1280px !important;
+    margin: 0 auto;
+    margin-top: 40px;
     display: flex;           /* Define como Flexbox */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center;     /* Centraliza verticalmente */
@@ -108,7 +112,7 @@ p {
 /* Seções para dados do cliente e verificar envio */
 .sections-container {
     margin-right: 2%; /* Espaço entre as seções e os módulos */
-    width: 30%;
+    width: 40%;
 }
 
 /* Footer centralizado no fim da página */
@@ -157,7 +161,7 @@ footer .imagem_footer img {
     background-color: #2197f0;
     color: white; /* Cor do texto do botão */
     border: none; /* Remove a borda padrão */
-    padding: 5%; /* Espaçamento interno do botão */
+    padding: 10px; /* Espaçamento interno do botão */
     border-radius: 12px; /* Bordas arredondadas */
     cursor: pointer;
     font-size: 1em; /* Tamanho da fonte do botão */
@@ -270,14 +274,13 @@ head{
     .modules-container {
         flex-direction: column; /* Organiza os módulos em coluna */
         padding: 10%; /* Aumenta o padding para dar mais respiro */
-        width: 80vw; /* Aumenta a largura para ocupar mais espaço em telas menores */
         min-height: auto; /* Deixe a altura seguir o conteúdo em telas menores */
         background-color: #fff; /* Cor de fundo branca */
         box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
     }
 
     #exibeDetalhes {
-        width: 50vw;
+        width: 50px;
         text-align: center;
     }
 
