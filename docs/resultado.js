@@ -31,6 +31,12 @@ window.addEventListener('DOMContentLoaded', async () => {
             const modulesData = await responseModules.json();
             console.log('Dados dos módulos recebidos da API:', modulesData);
 
+            // Exibir a data de expiração na tela
+            const expirationDate = modulesData.expirationDate;
+            document.getElementById('expirationDate').textContent = expirationDate 
+                ? `${new Date (expirationDate + 'T00:00:00').toLocaleDateString('pt-BR')}` 
+                : 'Não disponível';
+
             // Verifica se o CNPJ está ativo ou devendo
             if (!modulesData.active) {
                 // Se não estiver ativo, mas houver benefícios, o cliente está devendo
@@ -67,7 +73,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'estoque': 'moduloEstoque',
                 'qtlicenca': 'moduloQtlicenca',
                 'backup' : 'moduloBackup',
-                'integracaociot' : 'moduloCiot'
+                'integracaociot' : 'moduloCiot',
+                'qtlicenca' : 'qtlicencas'
             };
 
             // Esconder todos os módulos inicialmente
@@ -78,14 +85,20 @@ window.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
-            // Exibir apenas os módulos retornados pela API
-            modulesData.benefits.forEach(benefit => {
+             // Exibir apenas os módulos retornados pela API
+             modulesData.benefits.forEach(benefit => {
                 const moduleId = moduleElements[benefit.name];
                 if (moduleId) {
                     const moduleElement = document.getElementById(moduleId);
                     if (moduleElement) {
                         moduleElement.style.display = 'block'; // Exibe os módulos contratados
                     }
+                }
+
+                // Puxar a quantidade de licenças
+                if (benefit.name === 'qtlicenca') {
+                    const qtlicencaValue = benefit.value;
+                    document.getElementById('licencaValue').textContent = `${qtlicencaValue}`;
                 }
             });
 
@@ -151,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
 
 // Função para obter o parâmetro 'cnpj' da URL
 function getQueryParam(param) {

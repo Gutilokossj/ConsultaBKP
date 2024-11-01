@@ -18,14 +18,29 @@ body {
     margin-bottom: 10px;
 }
 
+.LicencaUser {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    gap: 12px;
+}
+
+.licencaValue {
+    width: 50px; /* Ajusta o tamanho da imagem */
+    height: auto;
+}
+
+.licencaValue {
+    font-size: 20px; /* Tamanho da fonte do valor de licenças */
+}
+
 .modules-container {
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
     border-radius: 10px;
-    width: 80vw; /* A largura será 80% da largura da tela */
+    width: 70%; /* A largura será 80% da largura da tela */
+    height: 50%;
     padding: 10px;
     gap: 1%; /* Espaçamento entre os grupos de módulos */
-    max-width: 900px; /* Define um limite máximo para a largura */
     margin: 0;
 }
 
@@ -41,12 +56,14 @@ body {
     display: flex;
     border-radius: 19px;
     box-sizing: border-box; /* Garante que padding e border sejam inclusos no tamanho total */
+    justify-content: center;
 }
 
 .module-imagem{
     width: 55px;
     user-select: none;
 }
+
 
 .module-text{
     display: flex;
@@ -69,7 +86,7 @@ body {
 
 h1 {
     font-size: 1.5em; /* Tamanho fixo em pixels */
-    text-align: left; /* Centraliza o texto dentro do h1 */
+    text-align: center; /* Centraliza o texto dentro do h1 */
     display: block; /* Garante que o elemento ocupe toda a largura disponível */
     margin-top: auto;
     margin-left: auto; /* Margens automáticas para centralização */
@@ -319,6 +336,10 @@ head{
 @media (min-width: 1160px) {
     .module-imagem {
         width: 90px; /* Tamanho maior para telas grandes */
+    }
+
+    #licencaValue{
+        width: 5px;
     }
 
     h1 {
