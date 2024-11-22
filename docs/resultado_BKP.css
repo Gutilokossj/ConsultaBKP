@@ -1,16 +1,18 @@
 /* Estilos gerais para o resultado.html */
 body {
     font-family: 'Comfortaa', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente os elementos */
+    align-items: center;
+    min-height: 100vh;
     background-image: url('assets/ImagemBackground/teste.jpg');
     background-size: cover; /* A imagem cobre toda a tela */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
     background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Garante que o body ocupe a altura total da tela */
 }
 
 h1 {
