@@ -71,10 +71,12 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'sped': 'moduloSPED',
                 'pdv': 'moduloPDV',
                 'estoque': 'moduloEstoque',
-                'qtlicenca': 'moduloQtlicenca',
                 'backup' : 'moduloBackup',
                 'integracaociot' : 'moduloCiot',
-                'qtlicenca' : 'qtlicencas'
+                'qtlicenca' : 'qtlicencas',
+                'android' : 'moduloAndroid',
+                'cloud' : 'siemCloud',
+                'integracaoapi' : 'integracaoBB'
             };
 
             // Esconder todos os módulos inicialmente

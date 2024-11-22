@@ -69,6 +69,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    font-weight: 600;
 }
 
 /* Adicional para garantir que os módulos sejam ajustáveis */
@@ -305,13 +306,14 @@ head{
 
 
     .module-imagem {
-        width: 70px; /* Ajusta o tamanho da imagem */
+        width: 100px; /* Ajusta o tamanho da imagem */
     }
 
     .module-text{
         display: flex;
         flex-direction: column;
         text-align: left;
+        font-weight: 600;
     }
 
     .notification {
@@ -336,6 +338,10 @@ head{
 @media (min-width: 1160px) {
     .module-imagem {
         width: 90px; /* Tamanho maior para telas grandes */
+    }
+
+    .module-text {
+        font-weight: 600;
     }
 
     #licencaValue{

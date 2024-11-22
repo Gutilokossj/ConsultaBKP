@@ -52,14 +52,13 @@ form {
     align-items: center;
     width: 100%;
     max-width: 600px; /* Limita o tamanho em telas grandes */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     padding: 4%;
     border-radius: 20px;
 }
 
 /* Campo de entrada de CNPJ */
 input[type="text"] {
-    width: 70%; /* 100% da largura disponível */
+    width: 90%; /* 100% da largura disponível */
     max-width: 300px; /* Limita o tamanho máximo */
     padding: 10px;
     font-size: 1em;
