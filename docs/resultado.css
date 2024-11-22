@@ -34,7 +34,7 @@ body {
 }
 
 /* Esconde o conteúdo enquanto o loading está ativo */
-#main-content {
+.result-container {
     display: none;
 }
 
