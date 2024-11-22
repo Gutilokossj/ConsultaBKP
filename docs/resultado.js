@@ -48,11 +48,12 @@ window.addEventListener('DOMContentLoaded', async () => {
                     const formattedExpirationDate = expirationDate ? formatDate(expirationDate) : 'Não disponível';
             
                     // Redireciona para erroDevendo.html com a data formatada
-                    window.location.href = `erroDevendo.html?expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
+                    console.error('CNPJ devendo, redirecionando para erroDevendo.html');
+                    window.location.href = `erroDevendo.html?cnpj=${encodeURIComponent(cnpj)}&expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
                     return; // Para a execução caso o cliente esteja devendo
                 } else {
                     console.error('CNPJ cancelado, redirecionando para erroCancelado.html');
-                    window.location.href = 'erroCancelado.html';
+                    window.location.href = `erroCancelado.html?cnpj=${encodeURIComponent(cnpj)}`;
                     return; // Para a execução caso o CNPJ esteja cancelado
                 }
             }
@@ -161,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = backupUrl;
             } else {
                 console.error('CNPJ não encontrado na URL.');
-                window.location.href = 'erro.html';
+                window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
             }
         });
     }
