@@ -45,6 +45,22 @@ body {
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
+    margin-right: 15px; /* Espaço à direita do spinner, para afastar da mensagem */
+}
+
+
+/* Estilo da mensagem */
+.loading p {
+    font-size: 1.5em; /* Tamanho da fonte maior */
+    font-weight: bold;
+    margin: 0; /* Remove margem padrão */
+    display: flex;
+    align-items: center; /* Alinha o texto com o spinner */
+}
+
+/* Alinha o spinner e a mensagem */
+.loading .spinner + p {
+    margin-left: 20px; /* Espaço entre o spinner e a mensagem */
 }
 
 @keyframes spin {

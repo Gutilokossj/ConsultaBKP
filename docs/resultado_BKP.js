@@ -248,3 +248,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    carregarDados();
+
+    function carregarDados() {
+        // Exemplo de simulação de carregamento
+        setTimeout(() => {
+            // Quando os dados estiverem prontos, esconda o loading e mostre o conteúdo
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("main-content").style.display = "block";
+        }, 2000);
+    }
+});
