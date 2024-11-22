@@ -25,6 +25,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
     background-image: url('assets/ImagemBackground/teste.jpg');
     background-size: cover; /* A imagem cobre toda a tela */
     background-position: center; /* Centraliza a imagem */
@@ -416,4 +417,3 @@ head{
         font-size: 1.8em; /* Mantém o tamanho grande para telas grandes */
     }
 }
-
