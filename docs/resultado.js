@@ -3,38 +3,39 @@ window.addEventListener('DOMContentLoaded', async () => {
     const cnpj = urlParams.get('cnpj');
 
     if (cnpj) {
-         // Recupera o estado do botão de alternância
-         const toggleState = localStorage.getItem('toggleState');
-         const isActive = toggleState === 'active';
-         
+
          // Define a origem com base no estado do botão
-         const origin = isActive ? 'GerencieAqui' : 'SIEM';
+         let origin = 'SIEM';
 
         try {
-            // Consulta à API de módulos primeiro para verificar se o CNPJ está ativo
             const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;
-            const responseModules = await fetch(apiModulesUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    document: cnpj,
-                    origin: origin,
-                }),
-            });
+            
+            // Função para realizar a consulta de módulos
+            const fetchModules = async (origin) => {
+                const response = await fetch(apiModulesUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        document: cnpj,
+                        origin: origin,
+                    }),
+                });
 
-            if (!responseModules.ok) {
-                throw new Error('Erro ao consultar a API de módulos');
+                if (!response.ok) {
+                    throw new Error(`Erro ao consultar a API de módulos com origem ${origin}`);
+                }
+                return await response.json();
             }
 
-            const modulesData = await responseModules.json();
-            console.log('Dados dos módulos recebidos da API:', modulesData);
+            // Primeira tentativa com origem 'SIEM'
+            let modulesData = await fetchModules(origin);
 
             // Exibir a data de expiração na tela
             const expirationDate = modulesData.expirationDate;
             document.getElementById('expirationDate').textContent = expirationDate 
-                ? `${new Date (expirationDate + 'T00:00:00').toLocaleDateString('pt-BR')}` 
+                ? `${new Date(expirationDate + 'T00:00:00').toLocaleDateString('pt-BR')}` 
                 : 'Não disponível';
 
             // Verifica se o CNPJ está ativo ou devendo
@@ -44,7 +45,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                     console.warn('CNPJ está devendo, redirecionando para erroDevendo.html');
             
                     // Converte a data de expiração da API para o formato desejado
-                    const expirationDate = modulesData.expirationDate;
                     const formattedExpirationDate = expirationDate ? formatDate(expirationDate) : 'Não disponível';
             
                     // Redireciona para erroDevendo.html com a data formatada
@@ -52,9 +52,19 @@ window.addEventListener('DOMContentLoaded', async () => {
                     window.location.href = `erroDevendo.html?cnpj=${encodeURIComponent(cnpj)}&expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
                     return; // Para a execução caso o cliente esteja devendo
                 } else {
-                    console.error('CNPJ cancelado, redirecionando para erroCancelado.html');
-                    window.location.href = `erroCancelado.html?cnpj=${encodeURIComponent(cnpj)}`;
-                    return; // Para a execução caso o CNPJ esteja cancelado
+                    // Se não está devendo, tenta novamente com o origin 'GerencieAqui'
+                    console.warn('CNPJ inativo, tentando com origem "GerencieAqui".');
+                    origin = 'GerencieAqui';
+
+                    // Realiza nova consulta com o origin alterado
+                    modulesData = await fetchModules(origin);
+
+                    // Verifica novamente a resposta com o origin GerencieAqui
+                    if (!modulesData.active) {
+                        console.error('CNPJ cancelado, redirecionando para erroCancelado.html');
+                        window.location.href = `erroCancelado.html?cnpj=${encodeURIComponent(cnpj)}`;
+                        return; // Para a execução caso o CNPJ esteja cancelado
+                    }
                 }
             }
 
@@ -68,16 +78,16 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'mdfe': 'moduloMDFe',
                 'financeiro': 'moduloFinanceiro',
                 'comercial': 'moduloComercial',
-                'farmacia' :'moduloFarmacia',
+                'farmacia': 'moduloFarmacia',
                 'sped': 'moduloSPED',
                 'pdv': 'moduloPDV',
                 'estoque': 'moduloEstoque',
-                'backup' : 'moduloBackup',
-                'integracaociot' : 'moduloCiot',
-                'qtlicenca' : 'qtlicencas',
-                'android' : 'moduloAndroid',
-                'cloud' : 'siemCloud',
-                'integracaoapi' : 'integracaoBB'
+                'backup': 'moduloBackup',
+                'integracaociot': 'moduloCiot',
+                'qtlicenca': 'qtlicencas',
+                'android': 'moduloAndroid',
+                'cloud': 'siemCloud',
+                'integracaoapi': 'integracaoBB'
             };
 
             // Esconder todos os módulos inicialmente
