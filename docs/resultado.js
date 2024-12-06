@@ -142,8 +142,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                     document.getElementById('diasSemBKP').textContent = 'Não disponível';
                 }
 
-            } catch (error) {
-                console.error('Cliente não possuí BKP em Nuvem', error);
+            } catch (warn) {
+                console.warn('Cliente não possuí BKP em Nuvem');
             } 
         } 
     });
@@ -176,12 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             // Quando os dados estiverem prontos, esconda o loading e mostre o conteúdo
             document.getElementById("loading").style.display = "none";
-            document.getElementById("main-content").style.display = "block";
         }, 2000);
     }
 });
-
-
 
 // Função para obter o parâmetro 'cnpj' da URL
 function getQueryParam(param) {
