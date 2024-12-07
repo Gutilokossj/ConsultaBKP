@@ -15,6 +15,24 @@ body {
     background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
 }
 
+/* Estilo para a mensagem de reconhecimento automático */
+.info-message {
+    background-color: #e8f4fc; /* Fundo azul claro */
+    color: #0066cc; /* Texto azul escuro */
+    border: 1px solid #b3d8ff; /* Borda azul */
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.1em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+}
+
+.info-message p {
+    margin: 0; /* Remove o espaço padrão do parágrafo */
+    font-weight: 600; /* Deixa o texto um pouco mais forte */
+}
+
 /* Container centralizado */
 .container {
     display: flex;
@@ -110,6 +128,30 @@ button#consultaBKP {
 button#consultaBKP:hover {
     background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
     transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
+/* Estilo para a dica de ferramenta (tooltip) */
+button#consultaBKP .tooltip {
+    visibility: hidden; /* Inicialmente escondido */
+    width: 180px; /* Largura da dica */
+    background-color: #555; /* Cor de fundo da dica */
+    color: #fff; /* Cor do texto */
+    text-align: center; /* Alinha o texto no centro */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 0; /* Padding dentro da dica */
+    position: absolute; /* Para posicioná-la em relação ao botão */
+    z-index: 1; /* Garante que a dica fique acima do botão */
+    bottom: 125%; /* Coloca a dica acima do botão */
+    left: 50%; /* Centraliza a dica horizontalmente */
+    margin-left: -90px; /* Ajusta a posição para que a dica fique centralizada */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s; /* Animação suave para transição de visibilidade */
+}
+
+/* Mostrar a dica ao passar o mouse sobre o botão */
+button#consultaBKP:hover .tooltip {
+    visibility: visible; /* Torna a dica visível */
+    opacity: 1; /* Torna a dica totalmente opaca */
 }
 
 /* Estilo do botão de alternância */

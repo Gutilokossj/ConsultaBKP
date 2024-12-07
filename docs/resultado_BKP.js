@@ -1,62 +1,14 @@
 window.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const cnpj = urlParams.get('cnpj');
-    console.log('CNPJ da URL:', cnpj);
 
     if (cnpj) {
-        // Recupera o estado do botão de alternância
-        const toggleState = localStorage.getItem('toggleState');
-        const isActive = toggleState === 'active';
-        
-        // Define a origem com base no estado do botão
-        const origin = isActive ? 'GerencieAqui' : 'SIEM';
 
-       try {
-           // Consulta à API de módulos primeiro para verificar se o CNPJ está ativo
-           const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;
-           const responseModules = await fetch(apiModulesUrl, {
-               method: 'POST',
-               headers: {
-                   'Content-Type': 'application/json',
-               },
-               body: JSON.stringify({
-                   document: cnpj,
-                   origin: origin,
-               }),
-           });
+         try {
 
-           if (!responseModules.ok) {
-            throw new Error('Erro ao consultar a API de módulos');
-        }
-
-        const modulesData = await responseModules.json();
-        console.log('Dados dos módulos recebidos da API:', modulesData);
-
-        // Verifica se o CNPJ está ativo ou devendo
-        if (!modulesData.active) {
-            // Se não estiver ativo, mas houver benefícios, o cliente está devendo
-            if (modulesData.benefits && modulesData.benefits.length > 0) {
-                console.warn('CNPJ está devendo, redirecionando para erroDevendo.html');
-        
-                // Converte a data de expiração da API para o formato desejado
-                const expirationDate = modulesData.expirationDate;
-                const formattedExpirationDate = expirationDate ? formatDate(expirationDate) : 'Não disponível';
-        
-                // Redireciona para erroDevendo.html com a data formatada
-                window.location.href = `erroDevendo.html?expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
-                return; // Para a execução caso o cliente esteja devendo
-            } else {
-                console.error('CNPJ cancelado, redirecionando para erroCancelado.html');
-                window.location.href = 'erroCancelado.html';
-                return; // Para a execução caso o CNPJ esteja cancelado
-            }
-        }
-
-            const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;
-            console.log('Consultando API:', apiUrl);
+            const apiUrl = `https://servidor-proxy.vercel.app/proxy/consulta/${cnpj}`;;
 
             const response = await fetch(apiUrl);
-            console.log('Resposta da API:', response);
 
             if (!response.ok) {
                 throw new Error('Erro ao consultar a API');
@@ -152,7 +104,6 @@ function calcularDiasSemBackup(backupDateStr) {
 
 // Função que atualiza o status do backup com base na data
 function updateBackupStatus(backupDateStr) {
-    console.log('Data do Backup:', backupDateStr);
 
     const backupDate = new Date(backupDateStr);
     const currentDate = new Date();

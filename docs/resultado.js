@@ -61,6 +61,12 @@ window.addEventListener('DOMContentLoaded', async () => {
                     // Realiza nova consulta com o origin alterado
                     modulesData = await fetchModules(origin);
 
+                        // Exibir a data de expiração na tela
+                        const expirationDate = modulesData.expirationDate;
+                        document.getElementById('expirationDate').textContent = expirationDate 
+                        ? `${new Date(expirationDate + 'T00:00:00').toLocaleDateString('pt-BR')}` 
+                        : 'Não disponível';
+
                     // Verifica novamente a resposta com o origin GerencieAqui
                     if (!modulesData.active) {
                         console.error('CNPJ cancelado, redirecionando para erroCancelado.html');

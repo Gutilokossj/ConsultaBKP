@@ -104,3 +104,11 @@ function hideError() {
     errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const message = document.getElementById("autoDetectMessage");
+    setTimeout(() => {
+        if (message) {
+            message.style.display = "none"; // Esconde a mensagem após 5 segundos
+        }
+    }, 3000);
+});
