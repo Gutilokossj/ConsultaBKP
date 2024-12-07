@@ -104,24 +104,3 @@ function hideError() {
     errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
 }
 
-
-// Carrega o estado do botão do localStorage quando a página é carregada
-window.addEventListener('DOMContentLoaded', () => {
-    const savedState = localStorage.getItem('toggleState');
-    const isActive = savedState === 'active'; // Estado ativo se o valor for 'active'
-    updateButtonState(isActive);
-    if (isActive) {
-        toggleButton.classList.add('active'); // Aplica a classe 'active'
-    }
-});
-
-// Adiciona o evento de clique para alternar o estado 'ativo'
-toggleButton.addEventListener('click', function() {
-    const isActive = this.classList.toggle('active'); // Alterna a classe 'active'
-    
-    // Atualiza a UI com base no estado atual
-    updateButtonState(isActive);
-
-    // Salva o estado atual no localStorage
-    localStorage.setItem('toggleState', isActive ? 'active' : 'inactive');
-});

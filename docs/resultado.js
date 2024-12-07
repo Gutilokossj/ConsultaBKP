@@ -26,7 +26,9 @@ window.addEventListener('DOMContentLoaded', async () => {
                 if (!response.ok) {
                     throw new Error(`Erro ao consultar a API de módulos com origem ${origin}`);
                 }
-                return await response.json();
+                const data = await response.json();
+                console.log(`Dados recebidos da API (origem: ${origin}):`, data); // Log dos dados recebidos
+                return data;        
             }
 
             // Primeira tentativa com origem 'SIEM'
@@ -53,7 +55,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                     return; // Para a execução caso o cliente esteja devendo
                 } else {
                     // Se não está devendo, tenta novamente com o origin 'GerencieAqui'
-                    console.warn('CNPJ inativo, tentando com origem "GerencieAqui".');
+                    console.warn('CNPJ inativo no SIEM, tentando com origem "GerencieAqui".');
                     origin = 'GerencieAqui';
 
                     // Realiza nova consulta com o origin alterado
@@ -165,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (exibeDetalhesButton) {
         exibeDetalhesButton.addEventListener('click', () => {
             const cnpj = getQueryParam('cnpj');
-            console.log('CNPJ obtido:', cnpj); // Adicione este log para verificar o valor do CNPJ
+            console.log('CNPJ obtido:', cnpj);
             if (cnpj) {
                 const backupUrl = `resultado_BKP.html?cnpj=${encodeURIComponent(cnpj)}`;
                 console.log('Redirecionando para:', backupUrl); // Adicione este log para verificar a URL

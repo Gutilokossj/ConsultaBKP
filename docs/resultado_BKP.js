@@ -257,7 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             // Quando os dados estiverem prontos, esconda o loading e mostre o conteúdo
             document.getElementById("loading").style.display = "none";
-            document.getElementById("main-content").style.display = "block";
         }, 2000);
     }
 });
