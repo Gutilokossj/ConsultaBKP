@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Consulta SIEM</title>
+    <link rel="stylesheet" href="resultado.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="icon" type="image/png" href="assets/iconeSite/iconSite.png">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    
+    <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Carregando... Calma 🕊️</p>
+    </div>
+
+    <div class="result-container">
+        <div class="result-content">
+            <div class="sections-container">
+                <div class="verificar-cliente">
+                        <h3>CLIENTE <br> <span id="cnpj">Não disponível</span></h3>
+                        <div class="LicencaUser">
+                            <img src="assets/iconeUsuarios/grupo de usuarios.png" alt="Imagem dos Usuários" title="Usuários" class="licencaValue">
+                            <p>Licenças: <span id="licencaValue">0</span></p>
+                        </div>
+                    <p><strong>Razão social: <br></strong> <span id="razaoSocial">Não disponível</span></p>
+                    <p><strong>Data expiração: </strong> <span id="expirationDate" class="expiration-date"></span></p>
+                </div>
+
+                <div class="verificar-backup">
+                        <h3>BACKUP</h3>
+                    <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
+                    <p><strong>Último envio XML:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+                    <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
+                    <div class="button-container">
+                        <button type="button" id="exibeDetalhes">Detalhes</button>
+                    </div>
+                </div>
+
+                <a href="index.html" class="back-button">Página inicial</a>
+
+            </div>
+                
+            <div class="modules-container">
+                <h1>MÓDULOS CONTRATADOS</h1>
+                <div>
+                    <h3 class="module-group-title">FISCAL</h3>
+                    <div class="modulosFiscais">
+                        <div class="module" id="moduloNFe">
+                            <img src="assets/iconesModulos/nfe.png" alt="NFe" class="module-imagem">
+                            <span class="module-text">NFe</span>
+                        </div>
+                        <div class="module" id="moduloNFSe">
+                            <img src="assets/iconesModulos/nfse.png" alt="NFSe" class="module-imagem">
+                            <span class="module-text">NFSe</span>
+                        </div>
+                        <div class="module" id="moduloNFce">
+                            <img src="assets/iconesModulos/nfce.png" alt="NFCe" class="module-imagem">
+                            <span class="module-text">NFCe</span>
+                        </div>
+                        <div class="module" id="moduloSAT">
+                            <img src="assets/iconesModulos/sat.png" alt="SAT" class="module-imagem">
+                            <span class="module-text">SAT</span>
+                        </div>
+                        <div class="module" id="moduloCTe">
+                            <img src="assets/iconesModulos/cte.png" alt="CTe" class="module-imagem">
+                            <span class="module-text">CTe</span> 
+                        </div>
+                        <div class="module" id="moduloMDFe">
+                            <img src="assets/iconesModulos/mdfe.png" alt="MDFe" class="module-imagem"> 
+                            <span class="module-text">MDFe</span>
+                        </div>
+                        <div class="module" id="moduloSPED">
+                            <img src="assets/iconesModulos/sped.png" alt="SPED" class="module-imagem">
+                            <span class="module-text">SPED</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="module-group-title">GERENCIAL</h3>
+
+                    <div class="modulosGerenciais">
+                        <div class="module" id="moduloComercial">
+                            <img src="assets/iconesModulos/comercial.png" alt="Comercial" class="module-imagem">
+                            <span class="module-text">Comercial</span>
+                        </div>
+                        <div class="module" id="moduloFinanceiro">
+                            <img src="assets/iconesModulos/financeiro.png" alt="Financeiro" class="module-imagem">
+                            <span class="module-text">Financeiro</span>
+                        </div>
+                        <div class="module" id="moduloEstoque">
+                            <img src="assets/iconesModulos/estoque.png" alt="Estoque" class="module-imagem">
+                            <span class="module-text">Estoque</span>
+                        </div>
+                        <div class="module" id="moduloFarmacia"> 
+                            <img src="assets/iconesModulos/farmacia.png" alt="Farmácia" class="module-imagem">
+                            <span class="module-text">Farmácia</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="module-group-title">ESPECIAL</h3>
+                    
+                    <div class="modulosEspeciais">
+                        <div class="module" id="moduloBackup"> 
+                            <img src="assets/iconesModulos/backup.png" alt="Backup" class="module-imagem">
+                            <span class="module-text">Backup</span>
+                        </div>
+                        <div class="module" id="moduloCiot"> 
+                            <img src="assets/iconesModulos/ciot.png" alt="Ciot" class="module-imagem">
+                            <span class="module-text">Ciot</span> 
+                        </div>
+                        <div class="module" id="moduloAndroid"> 
+                            <img src="assets/iconesModulos/android.png" alt="Android" class="module-imagem">
+                            <span class="module-text">Android</span> 
+                        </div>
+
+                        <div class="module" id="siemCloud"> 
+                            <img src="assets/iconesModulos/siemcloud.png" alt="SiemCloud" class="module-imagem">
+                            <span class="module-text">Siem Cloud</span> 
+                        </div>
+
+                        <div class="module" id="integracaoBB"> 
+                            <img src="assets/iconesModulos/integracaoBB.png" alt="IntegracaoBB" class="module-imagem">
+                            <span class="module-text">API BB</span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+</div>
+
+
+    <footer> 
+            <div id="footer-placeholder"></div>
+    </footer>
+
+</body>
+
+<script src="resultadoSIEM.js"></script>
+<script src="footer.js"></script>
+</html>
