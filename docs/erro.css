@@ -25,6 +25,28 @@ body {
     margin: 20px;
 }
 
+/* Botão de consultar */
+button#consultarModulosBtn {
+    width: 100%; /* Botão ocupa a largura disponível */
+    max-width: 200px; /* Limita o tamanho do botão em telas maiores */
+    background-color: #2197f0;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 500; /* Comfortaa-Medium */
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
+}
+
+button#consultarModulosBtn:hover {
+    background-color: #1879d3;
+    transform: scale(1.1); /* Crescimento do botão */
+}
+
 .error-icon {
     margin-bottom: 20px;
 }
