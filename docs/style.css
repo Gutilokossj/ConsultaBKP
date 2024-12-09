@@ -104,6 +104,7 @@ button#consultarModulosBtn {
     font-size: 1.2em;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
 }
 
 button#consultarModulosBtn:hover {
@@ -123,6 +124,7 @@ button#consultaBKP {
     font-size: 1.2em;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
 }
 
 button#consultaBKP:hover {
