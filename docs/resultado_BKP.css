@@ -399,9 +399,8 @@ footer .imagem_footer img {
         margin-bottom: 10px;
     }
 
-    footer {
-        padding: 10px;
-        font-size: 0.8em; /* Ajusta o texto do rodapé */
+    .footer{
+        position: relative;
     }
 
     .resetar-button{

@@ -235,6 +235,10 @@ button#consultaBKP:hover .tooltip {
 }
 
 
+.footer{
+    user-select: none;
+}
+
 /* Media Queries para telas menores */
 @media (max-width: 768px) {
     .container {
@@ -247,26 +251,34 @@ button#consultaBKP:hover .tooltip {
         min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
     }
 
+    /* Estilo para a mensagem de reconhecimento automático */
+.info-message {
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.5em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
     footer{
         bottom: 0;
     }
 
     form {
-        width: 90%; /* Aumenta a largura do formulário para ocupar mais espaço */
+        width: 90%;
         max-width: none; /* Remove o limite de largura máxima */
-        padding: 10px; /* Ajusta o padding */
+        padding: 10px;
     }
 
     input[type="text"] {
-        width: 90%; /* O campo de texto ocupa 90% da largura disponível */
+        width: 90%;
     }
 
     button#consultarModulosBtn {
-        width: 90%; /* O botão também ocupa 90% da largura disponível */
+        width: 90%;
     }
 
     .image {
-        width: 100%; /* A imagem vai ocupar 100% da largura da tela em telas menores */
+        width: 100%;
     }
 
     footer .imagem_footer img {

@@ -1,0 +1,476 @@
+/* Estilos gerais para o resultado.html */
+body {
+    font-family: 'Comfortaa', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente os elementos */
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('assets/ImagemBackground/teste.jpg');
+    background-size: cover; /* A imagem cobre toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
+}
+
+.verificar-cliente {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    margin-bottom: 10%;
+    max-width: 500px;
+    margin: 0 auto; /* Centraliza o bloco */
+}
+
+.cliente-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Alinha verticalmente no meio */
+}
+
+
+.icon-siem {
+    height: 70px; /* Ajuste o tamanho do ícone conforme necessário */
+}
+
+
+ /* Estilo para o loading */
+ .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    background-image: url('assets/ImagemBackground/teste.jpg');
+    background-size: cover; /* A imagem cobre toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
+    z-index: 9999;
+}
+
+/* Esconde o conteúdo enquanto o loading está ativo */
+.result-container {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-right: 15px; /* Espaço à direita do spinner, para afastar da mensagem */
+}
+
+
+/* Estilo da mensagem */
+.loading p {
+    font-size: 1.5em; /* Tamanho da fonte maior */
+    font-weight: bold;
+    margin: 0; /* Remove margem padrão */
+    display: flex;
+    align-items: center; /* Alinha o texto com o spinner */
+}
+
+/* Alinha o spinner e a mensagem */
+.loading .spinner + p {
+    margin-left: 20px; /* Espaço entre o spinner e a mensagem */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#mensagemSemBackup {
+    font-size: 1.2rem;
+    color: #d61a13; /* Vermelho ou qualquer cor que destaque a mensagem */
+    text-align: center;
+    margin-top: 10px;
+    background: #d4c4c3;
+}
+
+
+.aviso {
+    background-color: #f5bc87; /* Cor de fundo do aviso */
+    color: #72120b; /* Cor do texto do aviso */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center; 
+    margin-bottom: 10px;
+}
+
+.LicencaUser {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    gap: 12px;
+}
+
+.licencaValue {
+    width: 40px; /* Ajusta o tamanho da imagem */
+    height: auto;
+}
+
+.licencaValue {
+    font-size: 20px; /* Tamanho da fonte do valor de licenças */
+}
+
+.modules-container {
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+    width: 70%; /* A largura será 80% da largura da tela */
+    height: 50%;
+    padding: 10px;
+    gap: 1%; /* Espaçamento entre os grupos de módulos */
+    margin: 0;
+}
+
+
+.module-group-title {
+    font-size: 1.2em;
+    text-align: center;
+   
+}
+
+.modulosFiscais, .modulosGerenciais, .modulosEspeciais{
+    border: 3px solid #ccc;
+    display: flex;
+    border-radius: 19px;
+    box-sizing: border-box; /* Garante que padding e border sejam inclusos no tamanho total */
+    justify-content: center;
+}
+
+.module-imagem{
+    width: 55px;
+    user-select: none;
+}
+
+
+.module-text{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Adicional para garantir que os módulos sejam ajustáveis */
+.module {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha verticalmente o conteúdo dos módulos */
+    padding: 10px;
+}
+
+
+.status {   
+    font-weight: bold; /* Estiliza o texto de status */
+}
+
+h1 {
+    font-size: 1.5em; /* Tamanho fixo em pixels */
+    text-align: center; /* Centraliza o texto dentro do h1 */
+    display: block; /* Garante que o elemento ocupe toda a largura disponível */
+    margin-top: auto;
+    margin-left: auto; /* Margens automáticas para centralização */
+    margin-right: auto; /* Margens automáticas para centralização */
+    width: 50%; /* A largura será 80% da largura da tela */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    padding: 15px;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Container principal para o conteúdo */
+.result-container {
+    display: flex;           /* Define como Flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;     /* Centraliza verticalmente */
+}
+
+/* Flexbox para organizar as seções lado a lado */
+.result-content {
+ display: flex;
+}
+
+/* Seções para dados do cliente e verificar envio */
+.sections-container {
+    margin-right: 2%; /* Espaço entre as seções e os módulos */
+    width: 30%;
+}
+
+/* Footer centralizado no fim da página */
+footer {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Isso centraliza o conteúdo horizontalmente */
+    font-size: 0.8em;
+}
+
+/* Estilo para a imagem */
+footer .imagem_footer img {
+    height: 20px; /* Ajusta o tamanho da imagem */
+    margin-right: 10px; /* Espaço entre a imagem e o texto */
+    user-select: none;
+}
+
+
+
+/* Estilo para o botão de voltar */
+.back-button {
+    background-color: #2197f0;
+    color: white;
+    text-decoration: none;
+    padding: 4%;
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    margin: 15% auto; /* Centraliza o botão horizontalmente */
+    width: 50%; /* Largura do botão */
+    font-size: 1.3em;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-button:hover {
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
+#exibeDetalhes {
+    background-color: #2197f0;
+    color: white; /* Cor do texto do botão */
+    border: none; /* Remove a borda padrão */
+    padding: 5%; /* Espaçamento interno do botão */
+    border-radius: 12px; /* Bordas arredondadas */
+    cursor: pointer;
+    font-size: 1em; /* Tamanho da fonte do botão */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#exibeDetalhes:hover {
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
+.button-container {
+    width: 100%
+}
+
+.back-button:active, #exibeDetalhes:active {
+    transform: scale(0.98);
+}
+
+/* Estilo para a seção "VERIFICAR BACKUP" */
+.verificar-backup {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.verificar-cliente {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    margin-bottom: 3%;
+}
+
+head{
+    position: fixed;
+    top: 0;
+}
+
+.notification {
+    width: 30%;
+    height: 10%;
+    border-radius: 25%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    margin-left: auto; /* Alinha à direita */
+}
+
+
+.hidden {
+    display: none;
+}
+
+.blinking {
+    animation: blinkingText 1.5s infinite;
+}
+
+.avisoTempo {
+    color: red; /* Cor do texto em vermelho */
+    font-weight: bold; /* Deixa o texto em negrito */
+    font-size: 14px; /* Tamanho da fonte */
+    text-align: left; /* Centraliza o texto */
+    animation: blink 2s infinite; /* Define a animação blink */
+}
+
+
+
+@keyframes blink {
+    0%, 100% { opacity: 1; } /* O texto aparece */
+    50% { opacity: 0; } /* O texto some */
+}
+
+@keyframes blinkingText {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+
+    .cliente-header {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center; /* Alinha verticalmente no meio */
+    }
+
+    .icon-siem {
+        height: 120px; /* Ajuste o tamanho do ícone conforme necessário */
+    }
+
+    .LicencaUser {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Alinha verticalmente */
+        gap: 1px;
+    }
+
+    .licencaValue {
+        width: 70px; /* Ajusta o tamanho da imagem */
+    }
+
+    h1 {
+        font-size: 1.6em; /* Tamanho fixo em pixels */
+        width: 60vw; /* A largura será 80% da largura da tela */
+        padding: 10px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        text-align: center;
+
+    }
+
+    .result-content {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center; /* Centraliza os itens */
+        text-align: center;
+        gap: 20px;
+    }
+
+    .sections-container {
+        width: 80vw; /* As seções ocupam toda a largura */
+        margin: 0 0 20px 0; /* Espaço entre seções */
+    }
+
+    .modules-container {
+        flex-direction: column; /* Organiza os módulos em coluna */
+        padding: 10%; /* Aumenta o padding para dar mais respiro */
+        width: 80vw; /* Aumenta a largura para ocupar mais espaço em telas menores */
+        min-height: auto; /* Deixe a altura seguir o conteúdo em telas menores */
+        background-color: #fff; /* Cor de fundo branca */
+        box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+    }
+
+    #exibeDetalhes {
+        width: 50vw;
+        text-align: center;
+    }
+
+    .modulosFiscais, .modulosGerenciais, .modulosEspeciais {
+        flex-direction: column; /* Módulos em coluna */
+        gap: 10px; /* Espaçamento entre os módulos */
+    }
+
+
+    .module-imagem {
+        width: 100px; /* Ajusta o tamanho da imagem */
+    }
+
+    .module-text{
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    .notification {
+        width: 90%; /* Ajusta a largura da notificação */
+        font-size: 12px; /* Tamanho da fonte da notificação */
+    }
+
+    .back-button{
+        width: 80%; /* Botões ocupam a largura total */
+        padding: 10px; /* Aumenta o padding */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer{
+        position: relative;
+    }
+}
+
+
+/* Estilos para telas a partir de 1024px de largura */
+@media (min-width: 1160px) {
+    .module-imagem {
+        width: 90px; /* Tamanho maior para telas grandes */
+    }
+
+    .module-text {
+        font-weight: 600;
+    }
+
+    #licencaValue{
+        width: 5px;
+    }
+
+    .icon-siem {
+        height: 80px; /* Ajuste o tamanho do ícone conforme necessário */
+    }
+
+    h1 {
+        font-size: 1.8em; /* Mantém o tamanho grande para telas grandes */
+    }
+}

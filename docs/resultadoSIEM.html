@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resultado da Consulta SIEM</title>
-    <link rel="stylesheet" href="resultado.css">
+    <link rel="stylesheet" href="resultadoSIEM.css">
     <link rel="stylesheet" href="footer.css">
     <link rel="icon" type="image/png" href="assets/iconeSite/iconSite.png">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,14 @@
         <div class="result-content">
             <div class="sections-container">
                 <div class="verificar-cliente">
-                        <h3>CLIENTE <br> <span id="cnpj">Não disponível</span></h3>
+                    <div class="cliente-header">
+                        <h3>SISTEMA</h3>
+                        <img src="assets/IconeSistema/SIEM.png" alt="Ícone SIEM" title="SIEM" class="icon-siem">
+                    </div>
+                    <h3>
+                        CLIENTE <br>
+                        <span id="cnpj">Não disponível</span>
+                    </h3>
                         <div class="LicencaUser">
                             <img src="assets/iconeUsuarios/grupo de usuarios.png" alt="Imagem dos Usuários" title="Usuários" class="licencaValue">
                             <p>Licenças: <span id="licencaValue">0</span></p>
@@ -32,12 +39,15 @@
                 </div>
 
                 <div class="verificar-backup">
-                        <h3>BACKUP</h3>
-                    <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
-                    <p><strong>Último envio XML:</strong> <span id="ultimoEnvio">Não disponível</span></p>
-                    <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
-                    <div class="button-container">
-                        <button type="button" id="exibeDetalhes">Detalhes</button>
+                    <h3>BACKUP</h3>
+                    <p id="mensagemSemBackup" style="display: none;">Cliente não possui módulo de Backup em nuvem!</p>
+                    <div id="detalhesBackup" style="display: none;">
+                        <p><strong>Último Backup:</strong> <span id="ultimoBackup">Não disponível</span></p>
+                        <p><strong>Último envio XML:</strong> <span id="ultimoEnvio">Não disponível</span></p>
+                        <p><strong>Dias sem BKP:</strong> <span id="diasSemBKP">Não disponível</span></p>
+                        <div class="button-container">
+                            <button type="button" id="exibeDetalhes">Detalhes</button>
+                        </div>
                     </div>
                 </div>
 

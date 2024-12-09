@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (cnpj) {
 
          // Define a origem com base no estado do botão
-         let origin = 'SIEM';
+         let origin = 'GerencieAqui';
 
         try {
             const apiModulesUrl = `https://servidor-proxy.vercel.app/proxy/release/`;

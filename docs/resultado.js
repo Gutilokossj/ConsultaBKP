@@ -57,29 +57,36 @@ window.addEventListener('DOMContentLoaded', async () => {
                     console.error('CNPJ devendo, redirecionando para erroDevendo.html');
                     window.location.href = `erroDevendo.html?cnpj=${encodeURIComponent(cnpj)}&expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
                     return; // Para a execução caso o cliente esteja devendo
-                } 
+                } else {
 
-                // Cliente inativo e sem benefícios: tenta com "GerencieAqui".
-                console.warn('CNPJ inativo no SIEM, tentando com origem "GerencieAqui".');
-                origin = 'GerencieAqui';
+                    // Cliente inativo e sem benefícios: tenta com "GerencieAqui".
+                    console.warn('CNPJ inativo no SIEM, tentando com origem "GerencieAqui".');
+                    origin = 'GerencieAqui';
 
-                try {
-                    modulesData = await fetchModules(origin);
+                    try {
+                        modulesData = await fetchModules(origin);
 
-                    // Redireciona para a página específica para 'GerencieAqui'.
-                    window.location.href = `resultadoGA.html?cnpj=${encodeURIComponent(cnpj)}`;
-                    return; // Finaliza a execução
-                } catch (error) {
-                    console.error('Erro ao consultar a API com "GerencieAqui":', error);
-                    window.location.href = `erroCancelado.html?cnpj=${encodeURIComponent(cnpj)}`;
-                    return; // Finaliza a execução
+                        if (modulesData.active) {
+                            // Cliente está ativo: redireciona para a página específica de GA.
+                            window.location.href = `resultadoGA.html?cnpj=${encodeURIComponent(cnpj)}`;
+                            return; // Finaliza a execução
+                        } 
+
+                    } catch (error) {
+                        console.error('Erro ao consultar a API com "GerencieAqui":', error);
+                    }
                 }
-            }
-                       
+             }
+
         } catch (error) {
-            console.error('Erro ao consultar a API:', error);
+                    console.error('Erro ao consultar a API:', error);
         }
-    }
+        
+        // Redireciona para erroCancelado.html caso nenhuma condição anterior seja atendida
+        window.location.href = `erroCancelado.html?cnpj=${encodeURIComponent(cnpj)}`;
+    
+    }    
+
 });
 
 

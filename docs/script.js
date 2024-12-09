@@ -110,5 +110,5 @@ document.addEventListener("DOMContentLoaded", () => {
         if (message) {
             message.style.display = "none"; // Esconde a mensagem após 5 segundos
         }
-    }, 3000);
+    }, 5000);
 });
