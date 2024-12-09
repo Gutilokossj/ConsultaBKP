@@ -106,14 +106,14 @@ window.addEventListener('DOMContentLoaded', async () => {
                 }
 
                 const data = await responseBackup.json();
-                console.log('Dados de backup recebidos da API:', data);
+                console.log('Dados de envio XML recebidos da API:', data);
 
                 // Elementos do DOM
                 const mensagemSemBackup = document.getElementById('mensagemSemBackup');
                 const detalhesBackup = document.getElementById('detalhesBackup');
 
                         // Verifica se o cliente possui informações de backup
-                        if (data.ultimoBackupBd || data.ultimoEnvioContador) {
+                        if (!data.bloqueado) {
                             // Cliente possui backup
                             mensagemSemBackup.style.display = 'none';
                             detalhesBackup.style.display = 'block';
@@ -126,24 +126,17 @@ window.addEventListener('DOMContentLoaded', async () => {
                             document.getElementById('ultimoEnvio').textContent = data.ultimoEnvioContador
                                 ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR')
                                 : 'Não configurado';
-                            document.getElementById('ultimoBackup').textContent = data.ultimoBackupBd
-                                ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR')
-                                : 'Não disponível';
 
-                            // Calcula e exibe os dias sem backup
-                            if (data.ultimoBackupBd) {
-                                const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
-                                document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
-                            } else {
-                                document.getElementById('diasSemBKP').textContent = 'Não disponível';
-                            }
-                        } else {
-                            // Cliente não possui backup
-                            mensagemSemBackup.style.display = 'block';
-                            detalhesBackup.style.display = 'none';
-                        }
-                    } catch (warn) {
-                        console.warn('Cliente não possui BKP em Nuvem:', warn);
+                                // Calcula e exibe os dias sem envio XML
+                                    const diasSemBKP = calcularDiasSemBackup(data.ultimoEnvioContador);
+                                    document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
+                                } else {
+                                    // Cliente não possui envio XML
+                                    mensagemSemBackup.style.display = 'block';
+                                    detalhesBackup.style.display = 'none';
+                                }
+                            } catch (warn) {
+                                console.warn('Erro ao consultar API ou cliente sem envio XML:', warn);
 
                         // Caso de erro na API, mostrar mensagem de ausência de backup
                         const mensagemSemBackup = document.getElementById('mensagemSemBackup');
@@ -200,45 +193,24 @@ function formatCNPJ(cnpj) {
     return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5");
 }
 
-// Função para calcular a diferença de dias desde o último backup
-function calcularDiasSemBackup(backupDateStr) {
-    const backupDate = new Date(backupDateStr);
-    const currentDate = new Date();
-
-    const differenceInTime = currentDate.getTime() - backupDate.getTime();
-    const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
-
-    return differenceInDays >= 0 ? differenceInDays : 0;
-}
-
-// Função que atualiza o status do backup
-function updateBackupStatus(backupDateStr) {
-    console.log('Data do Backup:', backupDateStr); // Verifica a data do backup recebida
-
-    const backupDate = new Date(backupDateStr);
-    const currentDate = new Date();
-
-    const differenceInTime = currentDate.getTime() - backupDate.getTime();
-    const differenceInDays = Math.floor(differenceInTime / (1000 * 3600 * 24));
-
-    const backupStatusDiv = document.getElementById("backupStatus");
-    const backupMessage = document.getElementById("backupMessage");
-
-    backupStatusDiv.className = 'notification';
-
-    if (differenceInDays === 0) {
-        backupMessage.textContent = "EM DIA";
-        backupStatusDiv.classList.add("on-time", "blinking");
-    } else if (differenceInDays === 1 || differenceInDays === 2) {
-        backupMessage.textContent = "ATRASADO";
-        backupStatusDiv.classList.add("late", "blinking");
-    } else {
-        backupMessage.textContent = "MUITO ATRASADO";
-        backupStatusDiv.classList.add("very-late", "blinking");
+function calcularDiasSemBackup(dataUltimoEnvio) {
+    if (!dataUltimoEnvio) {
+        // Se não houver último envio, retorna uma mensagem ou valor padrão
+        return 'Não disponível';
     }
 
-    backupStatusDiv.classList.remove("hidden");
+    const ultimoEnvio = new Date(dataUltimoEnvio); // Converte a string para um objeto Date
+    if (isNaN(ultimoEnvio)) {
+        // Verifica se a data é válida
+        return 'Data inválida';
+    }
+
+    const hoje = new Date(); // Data atual
+    const diferenca = hoje - ultimoEnvio; // Diferença em milissegundos
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24)); // Converte para dias
+    return dias;
 }
+
 
 // Função para formatar a data no formato dd/MM/yyyy
 function formatDate(dateString) {
