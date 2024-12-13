@@ -20,29 +20,40 @@ window.addEventListener('DOMContentLoaded', async () => {
             if (data.mensagem === 'Empresa não localizada') {
                 window.location.href = 'erro.html';
             } else {
+
+                 // Verifica se o dado de último backup existe
+                 const ultimoBackupBd = data.ultimoBackupBd;
+
                 // Atualize os dados no HTML com a resposta da API
                 document.getElementById('razaoSocial').textContent = data.razaoSocial || ' Não disponível';
                 document.getElementById('cnpj').textContent = formatCNPJ(data.cnpjCpfString) || ' Não disponível';
                 document.getElementById('dataCriacao').textContent = `${data.dataCriacao ? new Date(data.dataCriacao).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('tamanhoBKP').textContent = data.tamanhoMb || ' Não disponível'; // Verifique se esse campo existe na API
                 document.getElementById('emailCopia').innerHTML = (data.copiasemail ? data.copiasemail.replace(/;/g, '<br>') : ' Não configurado');
-                document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Não configurado'}`;
-                document.getElementById('emailContador').textContent = data.emailContador ? data.emailContador.replace(/;/g, '<br>') : ' Não configurado'; // Verifique se esse campo existe na API
-                document.getElementById('ultimoBackup').textContent = `${data.ultimoBackupBd ? new Date(data.ultimoBackupBd).toLocaleString('pt-BR') : 'Não disponível'}`;
-                document.getElementById('ultimaValidacao').textContent = `${data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível'}`;
+                document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Resetado ou não configurado'}`;
+                document.getElementById('emailContador').textContent = data.emailContador ? data.emailContador.replace(/;/g, '<br>') : 'Resetado ou não configurado'; // Verifique se esse campo existe na API
 
-                // Atualize o campo de dias sem backup
-                const diasSemBKPElement = document.getElementById('diasSemBKP');
-                if (diasSemBKPElement && data.ultimoBackupBd) {
-                    const diasSemBKP = calcularDiasSemBackup(data.ultimoBackupBd);
-                    diasSemBKPElement.textContent = `${diasSemBKP} dias`;
-                } else if (diasSemBKPElement) {
-                    diasSemBKPElement.textContent = 'Não disponível';
-                }
-
-                // Verifique se a data de backup está disponível e atualize o status
-                if (data.ultimoBackupBd) {
-                    updateBackupStatus(data.ultimoBackupBd);
+                // Manipulação da div verificar-backup
+                if (ultimoBackupBd && ultimoBackupBd !== null) {
+                    // Exibe a div verificar-backup se o último backup estiver disponível
+                    document.querySelector('.verificar-backup').style.display = 'block';
+                    
+                    // Atualiza os dados de backup com os valores da API
+                    document.getElementById('ultimoBackup').textContent = new Date(ultimoBackupBd).toLocaleString('pt-BR');
+                    document.getElementById('ultimaValidacao').textContent = data.ultimaValidacaoApi ? new Date(data.ultimaValidacaoApi).toLocaleString('pt-BR') : 'Não disponível';
+                    
+                    // Atualiza o campo de dias sem backup
+                    const diasSemBKPElement = document.getElementById('diasSemBKP');
+                    if (diasSemBKPElement) {
+                        const diasSemBKP = calcularDiasSemBackup(ultimoBackupBd);
+                        diasSemBKPElement.textContent = `${diasSemBKP} dias`;
+                    }
+                    
+                    // Atualiza o status de backup
+                    updateBackupStatus(ultimoBackupBd);
+                } else {
+                    // Se não houver dados para o último backup, oculta a div verificar-backup
+                    document.querySelector('.verificar-backup').style.display = 'none';
                 }
             }
         } catch (error) {
@@ -51,25 +62,6 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     } else {
         window.location.href = 'erro.html';
-    }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const exibeModulosButton = document.getElementById('exibeModulos');
-
-    if (exibeModulosButton) {
-        exibeModulosButton.addEventListener('click', () => {
-            const cnpj = getQueryParam('cnpj');
-            console.log('CNPJ obtido:', cnpj);
-            if (cnpj) {
-                const backupUrl = `resultado.html?cnpj=${encodeURIComponent(cnpj)}`;
-                console.log('Redirecionando para:', backupUrl);
-                window.location.href = backupUrl;
-            } else {
-                console.error('CNPJ não encontrado na URL.');
-                window.location.href = 'erro.html';
-            }
-        });
     }
 });
 

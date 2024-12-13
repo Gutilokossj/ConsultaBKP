@@ -125,7 +125,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                             }
                             document.getElementById('ultimoEnvio').textContent = data.ultimoEnvioContador
                                 ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR')
-                                : 'Não configurado';
+                                : 'Resetado ou não configurado';
 
                                 // Calcula e exibe os dias sem envio XML
                                     const diasSemBKP = calcularDiasSemBackup(data.ultimoEnvioContador);
