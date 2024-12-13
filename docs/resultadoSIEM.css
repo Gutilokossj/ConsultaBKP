@@ -56,6 +56,38 @@ body {
     z-index: 9999;
 }
 
+/* Estilo para o lembrete */
+.alert-box {
+    background: #fef5e5; /* Fundo suave em tom de bege claro */
+    color: #333; /* Cor do texto em um tom suave */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fonte moderna */
+    font-size: 12px; /* Tamanho da fonte confortável */
+    padding: 12px 20px; /* Padding suave */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra suave para dar um efeito de profundidade */
+    margin-top: 15px;
+    text-align: left;
+}
+
+/* Estilo do título "AVISO" em vermelho */
+.alert-box strong {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.alert-box p {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Ajuste do texto restante para ser mais suave */
+.alert-box p {
+    margin-top: 5px; /* Espaçamento entre o título e o texto */
+    color: #555; /* Cor mais suave para o restante do texto */
+    line-height: 1.6; /* Maior espaçamento entre as linhas para melhorar a legibilidade */
+}
+
+
 /* Esconde o conteúdo enquanto o loading está ativo */
 .result-container {
     display: none;
@@ -360,6 +392,10 @@ head{
 /* Ajustes para telas menores */
 @media (max-width: 768px) {
 
+    .alert-box p {
+        font-size: 15px;
+    }
+
     .cliente-header {
         display: flex;
         flex-direction: column-reverse;
@@ -454,6 +490,11 @@ head{
 
 /* Estilos para telas a partir de 1024px de largura */
 @media (min-width: 1160px) {
+
+    .alert-box p {
+        font-size: 14px;
+    }
+
     .module-imagem {
         width: 90px; /* Tamanho maior para telas grandes */
     }

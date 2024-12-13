@@ -20,7 +20,7 @@ body {
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
     margin: 20px;
 }
@@ -121,7 +121,7 @@ footer .imagem_footer img {
 
     .container {
 
-        width: 40%
+        width: 75%
     }
 
 }

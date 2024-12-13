@@ -42,8 +42,8 @@
                     <h3>ENVIO XML</h3>
                     <p id="mensagemSemBackup" style="display: none;">Cliente não utiliza envio xml automático!</p>
                     <div id="detalhesBackup" style="display: none;">
-                        <p><strong>Último envio XML:</strong> <span id="ultimoEnvio">Resetado ou não configurado</span></p>
-                        <p><strong>Dias sem Envio:</strong> <span id="diasSemBKP">Resteado ou não configurado</span></p>
+                        <p><strong>Último envio XML:</strong> <span id="ultimoEnvio">Resetado</span></p>
+                        <p><strong>Dias sem Envio:</strong> <span id="diasSemBKP">Sem info</span></p>
                         <div class="button-container">
                             <button type="button" id="exibeDetalhes">Detalhes</button>
                         </div>
@@ -55,6 +55,10 @@
             </div>
                 
             <div class="modules-container">
+                <div class="alert-box">
+                    <p><strong>AVISO:</strong> Verifique com financeiro e confirme os módulos, caso haja intenção de vender algo para o cliente.</p>
+                </div>
+                <br>
                 <h1>MÓDULOS CONTRATADOS</h1>
                 <div>
                     <h3 class="module-group-title">FISCAL</h3>
@@ -115,7 +119,7 @@
                     <div class="modulosEspeciais">
                         <div class="module" id="moduloBackup"> 
                             <img src="assets/iconesModulos/backup.png" alt="Backup" class="module-imagem">
-                            <span class="module-text">Backup</span>
+                            <span class="module-text">Envio XML</span>
                         </div>
                         <div class="module" id="moduloCiot"> 
                             <img src="assets/iconesModulos/ciot.png" alt="Ciot" class="module-imagem">

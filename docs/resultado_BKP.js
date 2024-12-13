@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 document.getElementById('dataCriacao').textContent = `${data.dataCriacao ? new Date(data.dataCriacao).toLocaleString('pt-BR') : 'Não disponível'}`;
                 document.getElementById('tamanhoBKP').textContent = data.tamanhoMb || ' Não disponível'; // Verifique se esse campo existe na API
                 document.getElementById('emailCopia').innerHTML = (data.copiasemail ? data.copiasemail.replace(/;/g, '<br>') : ' Não configurado');
-                document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Resetado ou não configurado'}`;
+                document.getElementById('ultimoEnvio').textContent = `${data.ultimoEnvioContador ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR') : 'Resetado (Aguarde)'}`;
                 document.getElementById('emailContador').textContent = data.emailContador ? data.emailContador.replace(/;/g, '<br>') : 'Resetado ou não configurado'; // Verifique se esse campo existe na API
 
                 // Manipulação da div verificar-backup
@@ -62,6 +62,26 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     } else {
         window.location.href = 'erro.html';
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const exibeModulosButton = document.getElementById('exibeModulos');
+
+    if (exibeModulosButton) {
+        exibeModulosButton.addEventListener('click', () => {
+            const cnpj = getQueryParam('cnpj');
+            console.log('CNPJ obtido:', cnpj);
+            if (cnpj) {
+                const backupUrl = `resultado.html?cnpj=${encodeURIComponent(cnpj)}`;
+                console.log('Redirecionando para:', backupUrl);
+                window.location.href = backupUrl;
+            } else {
+                console.error('CNPJ não encontrado na URL.');
+                window.location.href = 'erro.html';
+            }
+        });
     }
 });
 

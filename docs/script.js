@@ -101,14 +101,6 @@ function showError(message) {
 // Função para ocultar a mensagem de erro
 function hideError() {
     var errorElement = document.getElementById('errorMessage');
+    errorElement.textContent = ""; // Limpa a mensagem de erro
     errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    const message = document.getElementById("autoDetectMessage");
-    setTimeout(() => {
-        if (message) {
-            message.style.display = "none"; // Esconde a mensagem após 5 segundos
-        }
-    }, 5000);
-});

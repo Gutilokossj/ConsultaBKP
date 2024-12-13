@@ -125,11 +125,11 @@ window.addEventListener('DOMContentLoaded', async () => {
                             }
                             document.getElementById('ultimoEnvio').textContent = data.ultimoEnvioContador
                                 ? new Date(data.ultimoEnvioContador).toLocaleString('pt-BR')
-                                : 'Resetado ou não configurado';
+                                : 'Resetado (Aguarde)';
 
                                 // Calcula e exibe os dias sem envio XML
                                     const diasSemBKP = calcularDiasSemBackup(data.ultimoEnvioContador);
-                                    document.getElementById('diasSemBKP').textContent = `${diasSemBKP} dias`;
+                                    document.getElementById('diasSemBKP').textContent = `${diasSemBKP}`;
                                 } else {
                                     // Cliente não possui envio XML
                                     mensagemSemBackup.style.display = 'block';
@@ -196,7 +196,7 @@ function formatCNPJ(cnpj) {
 function calcularDiasSemBackup(dataUltimoEnvio) {
     if (!dataUltimoEnvio) {
         // Se não houver último envio, retorna uma mensagem ou valor padrão
-        return 'Não disponível';
+        return 'Sem info';
     }
 
     const ultimoEnvio = new Date(dataUltimoEnvio); // Converte a string para um objeto Date
