@@ -70,7 +70,21 @@ window.addEventListener('DOMContentLoaded', async () => {
                             // Cliente está ativo: redireciona para a página específica de GA.
                             window.location.href = `resultadoGA.html?cnpj=${encodeURIComponent(cnpj)}`;
                             return; // Finaliza a execução
-                        } 
+                        }
+                        
+                        if (!modulesData.active) {
+                            
+                            if (modulesData.benefits && modulesData.benefits.length > 0) {
+                                console.warn('CNPJ está devendo, redirecionando para erroDevendo.html');
+                        
+                                const expirationDate = modulesData.expirationDate;
+                                const formattedExpirationDate = expirationDate ? formatDate(expirationDate) : 'Não disponível';
+                        
+                                console.error('CNPJ devendo, redirecionando para erroDevendo.html');
+                                window.location.href = `erroDevendo.html?cnpj=${encodeURIComponent(cnpj)}&expirationDate=${encodeURIComponent(formattedExpirationDate)}`;
+                                return;
+                            }  
+                        }
 
                     } catch (error) {
                         console.error('Erro ao consultar a API com "GerencieAqui":', error);
