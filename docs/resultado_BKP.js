@@ -15,7 +15,7 @@
                 }
 
                 const data = await response.json();
-                console.log('Dados recebidos da API BACKUP:', data);
+                console.log('Dados recebidos da API:', data);
 
                 if (data.mensagem === 'Empresa não localizada') {
                     window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
