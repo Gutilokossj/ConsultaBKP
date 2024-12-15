@@ -248,10 +248,15 @@ button#consultaBKP:hover .tooltip {
         padding: 10px;
         width: 80%; /* Garante que o container ocupe 90% da largura da tela */
         box-sizing: border-box; /* Impede que o padding aumente o tamanho do container */
-        margin-top: 100px; /* Menos espaço em cima */
+        margin-top: 0; /* Menos espaço em cima */
         box-shadow: 0 0 15px rgba(0, 0, 0, 0);
         min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
     }
+
+    h2{
+        font-size: 2.5em;
+    }
+
 
     /* Estilo para a mensagem de reconhecimento automático */
 .info-message {
@@ -272,11 +277,20 @@ button#consultaBKP:hover .tooltip {
     }
 
     input[type="text"] {
-        width: 90%;
+        width: 100%;
+        font-size: 1.5em;
     }
 
     button#consultarModulosBtn {
-        width: 90%;
+        width: 100%;
+        font-size: 1.5em;
+        max-width: 200px;
+    }
+
+    button#consultaBKP {
+        width: 100%;
+        font-size: 1.5em;
+        max-width: 200px;
     }
 
     .image {
