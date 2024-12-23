@@ -15,23 +15,28 @@ body {
     background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
 }
 
-/* Estilo para a mensagem de reconhecimento automático */
-.info-message {
-    background-color: #e8f4fc; /* Fundo azul claro */
-    color: #0066cc; /* Texto azul escuro */
-    border: 1px solid #b3d8ff; /* Borda azul */
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
+.suggestions-button {
     text-align: center;
-    font-size: 1.1em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+    margin-top: 20px;
 }
 
-.info-message p {
-    margin: 0; /* Remove o espaço padrão do parágrafo */
-    font-weight: 600; /* Deixa o texto um pouco mais forte */
+.suggestions-button button {
+    background-color: #25d366; /* Cor típica do WhatsApp */
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Comfortaa', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.suggestions-button button:hover {
+    background-color: #1da851; /* Tom mais escuro para hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
 
 /* Container centralizado */
 .container {
@@ -257,14 +262,13 @@ button#consultaBKP:hover .tooltip {
         font-size: 2.5em;
     }
 
+    .suggestions-button button {
 
-    /* Estilo para a mensagem de reconhecimento automático */
-.info-message {
-    border-radius: 5px;
-    text-align: center;
-    font-size: 1.5em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-}
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 20px;
+        width: 80%;
+    }
 
     footer{
         bottom: 0;
