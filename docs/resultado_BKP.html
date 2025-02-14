@@ -33,13 +33,13 @@
                     <h3>ENVIO XML</h3>
                     <p><strong>Último Envio:</strong> <span id="ultimoEnvio">Não disponível</span></p>
                     <p><strong>E-mail contador:</strong> <br> <span id="emailContador">Não disponível</span></p>
-                    <button type="button" id="resetaXML" class="resetar-button">Resetar envio XML</button>
+                    <button data-testid="resetEnvio" type="button" id="resetaXML" class="resetar-button">Resetar envio XML</button>
                     <div id="customPopup" class="popup">
                         <div class="popup-content">
                             <h3>ATENÇÃO!</h3>
                             <p>O reset do envio XML impactará no reenvio do e-mail para os <strong>destinatários</strong>, deseja confirmar esta operação?</p>
-                            <button id="confirmReset" class="back-button">SIM, CONFIRMAR</button>
-                            <button id="cancelReset" class="back-button">CANCELAR</button>
+                            <button data-testid="confirmarReset" id="confirmReset" class="back-button">SIM, CONFIRMAR</button>
+                            <button data-testid="cancelaReset" id="cancelReset" class="back-button">CANCELAR</button>
                         </div>
                     </div>
                     <br>
@@ -60,8 +60,8 @@
         </div>
         
             <div class="button-container">
-                <a href="index.html" class="back-button" >Página inicial</a>
-                <button type="button" id="exibeModulos" class="back-button">Consulta módulos</button> 
+                <a data-testid="voltarPagina" href="index.html" class="back-button" >Página inicial</a>
+                <button data-testid="consultaModulos" type="button" id="exibeModulos" class="back-button">Consulta módulos</button> 
             </div>   
 
     </div>
