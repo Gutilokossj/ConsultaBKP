@@ -36,6 +36,25 @@ body {
     height: 70px; /* Ajuste o tamanho do ícone conforme necessário */
 }
 
+.tooltip-text {
+    visibility: hidden; /* Esconde o tooltip */
+    position: absolute;
+    bottom: 100%; /* Coloca o tooltip acima da imagem */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+}
+
+.module:hover .tooltip-text {
+    visibility: visible; /* Exibe o tooltip ao passar o mouse */
+}
+
 
  /* Estilo para o loading */
  .loading {

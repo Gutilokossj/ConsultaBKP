@@ -71,6 +71,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 }
             });
 
+
              // Exibir apenas os módulos retornados pela API
              modulesData.benefits.forEach(benefit => {
                 const moduleId = moduleElements[benefit.name];
@@ -86,6 +87,13 @@ window.addEventListener('DOMContentLoaded', async () => {
                     const qtlicencaValue = benefit.value;
                     document.getElementById('licencaValue').textContent = `${qtlicencaValue}`;
                 }
+
+                 // Puxar a quantidade de envio sms
+                if (benefit.name === 'apisms') {
+                    const qtapismsValue = benefit.value;
+                    document.getElementById('apismsValue').textContent = `Até: ${qtapismsValue} Envios`;
+                }
+
             });
 
                 // Recupera o CNPJ do LocalStorage

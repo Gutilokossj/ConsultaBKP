@@ -85,6 +85,13 @@ window.addEventListener('DOMContentLoaded', async () => {
                     const qtlicencaValue = benefit.value;
                     document.getElementById('licencaValue').textContent = `${qtlicencaValue}`;
                 }
+
+                // Puxar a quantidade de usuários cloud
+                if (benefit.name === 'cloud') {
+                    const qtcloud= benefit.value;
+                    document.getElementById('cloudValue').textContent = `Até ${qtcloud} Usuário(s)`;
+                }
+
             });
 
                 // Recupera o CNPJ do LocalStorage
