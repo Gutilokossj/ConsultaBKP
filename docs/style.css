@@ -21,7 +21,7 @@ body {
 }
 
 .suggestions-button button {
-    background-color: #25d366; /* Cor típica do WhatsApp */
+    background-color: #5662f6; /* Cor típica do WhatsApp */
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -33,7 +33,7 @@ body {
 }
 
 .suggestions-button button:hover {
-    background-color: #1da851; /* Tom mais escuro para hover */
+    background-color: #3f4598; /* Tom mais escuro para hover */
     transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
