@@ -59,7 +59,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                 'qtlicenca': 'qtlicencas',
                 'android': 'moduloAndroid',
                 'cloud': 'siemCloud',
-                'integracaoapi': 'integracaoBB'
+                'integracaoapi': 'integracaoBB',
+                'apisms' : 'smsEnvioFinanceiro'
             };
 
             // Esconder todos os módulos inicialmente
