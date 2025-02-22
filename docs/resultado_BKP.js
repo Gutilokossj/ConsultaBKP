@@ -218,8 +218,11 @@
                     if (data.valid) {  // Se a resposta for válida
                         // Exibir o botão "SIM, CONFIRMAR"
                         document.getElementById('confirmReset').classList.add('show');
+                        document.getElementById('cancelReset').classList.add('show');
+
                         // Esconder o botão "INSERIR SENHA"
                         document.getElementById('inserirSenha').style.display = 'none';
+                        document.getElementById('cancelResetSenha').style.display = 'none';
                     } else {
                         alert("Senha incorreta. Tente novamente.");
                     }
@@ -243,10 +246,13 @@
             document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
         });
 
-            // Cancelar e fechar o pop-up
             document.getElementById('cancelReset').addEventListener('click', function() {
                 document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
             });
+        });
+
+            document.getElementById('cancelResetSenha').addEventListener('click', function() {
+            document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
         });
 
     document.addEventListener("DOMContentLoaded", () => {

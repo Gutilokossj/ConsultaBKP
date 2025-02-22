@@ -294,6 +294,15 @@ input[type="text"] {
     visibility: visible;
 }
 
+#cancelReset {
+    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+}
+
+/* Quando a senha for validada, o botão se tornará visível */
+#cancelReset.show {
+    visibility: visible;
+}
+
 
 /* Estilo para o botão de voltar */
 .back-button {
