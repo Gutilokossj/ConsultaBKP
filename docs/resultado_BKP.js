@@ -172,6 +172,7 @@
             }
         }
 
+
         // Função para exibir mensagem de sucesso
         function exibirMensagemSucesso(mensagem) {
             const responseMessage = document.getElementById('responseMessage');
@@ -193,6 +194,42 @@
             document.getElementById('customPopup').style.display = 'flex';
         });
 
+            // Inserir senha e validar
+            document.getElementById('inserirSenha').addEventListener('click', function() {
+                // Pega o valor do input de senha e remove espaços extras
+                const senha = document.getElementById('senhaReset').value.trim();
+
+                // Verifica se o campo está vazio
+                if (!senha) {
+                    alert("Por favor, preencha a senha.");
+                    return;
+                }
+
+                // Verificação da senha
+                fetch(`https://servidor-proxy.vercel.app/proxy/validarSenha`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ senha }) // Envia a senha para o backend
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.valid) {  // Se a resposta for válida
+                        // Exibir o botão "SIM, CONFIRMAR"
+                        document.getElementById('confirmReset').classList.add('show');
+                        // Esconder o botão "INSERIR SENHA"
+                        document.getElementById('inserirSenha').style.display = 'none';
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao validar a senha:', error);
+                    alert("Erro na validação da senha.");
+                });
+            });
+
         // Confirmar e resetar envio
         document.getElementById('confirmReset').addEventListener('click', function() {
             const cnpj = obterCNPJ(); // Obter CNPJ da URL
@@ -206,11 +243,11 @@
             document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
         });
 
-        // Cancelar e fechar o pop-up
-        document.getElementById('cancelReset').addEventListener('click', function() {
-            document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
+            // Cancelar e fechar o pop-up
+            document.getElementById('cancelReset').addEventListener('click', function() {
+                document.getElementById('customPopup').style.display = 'none'; // Fechar o pop-up
+            });
         });
-    });
 
     document.addEventListener("DOMContentLoaded", () => {
         carregarDados();

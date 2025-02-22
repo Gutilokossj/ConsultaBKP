@@ -202,6 +202,17 @@ footer .imagem_footer img {
     width: 100%; /* Garante que o contêiner ocupe a largura completa */
 }
 
+/* Campo de entrada de senha */
+input[type="text"] {
+    width: 90%; /* 100% da largura disponível */
+    max-width: 300px; /* Limita o tamanho máximo */
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
 .resetar-button{
     background-color: #2197f0;
     color: white;
@@ -272,6 +283,15 @@ footer .imagem_footer img {
 .success {
     background-color: lightgreen; /* Cor verde clara */
     color: darkgreen; /* Texto em verde escuro */
+}
+
+#confirmReset {
+    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+}
+
+/* Quando a senha for validada, o botão se tornará visível */
+#confirmReset.show {
+    visibility: visible;
 }
 
 
