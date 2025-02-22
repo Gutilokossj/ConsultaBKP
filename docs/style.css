@@ -161,52 +161,6 @@ button#consultaBKP:hover .tooltip {
     opacity: 1; /* Torna a dica totalmente opaca */
 }
 
-/* Estilo do botão de alternância */
-.toggle-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.botão_trocar_sistema {
-    width: 50px;
-    height: 25px;
-    background-color: #2197f0;
-    border-radius: 12px;
-    margin-bottom: 3%;
-    border:none;
-    position: relative;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-
-.botão_trocar_sistema:hover{
-    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
-    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
-}
-
-.botão_trocar_sistema::before {
-    content: '';
-    width: 25px;
-    height: 25px;
-    background-color: rgb(231, 227, 227);
-    border-color: #333;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: transform 0.3s ease;
-}
-
-.botão_trocar_sistema.active {
-    background-color: #135588;
-}
-
-.botão_trocar_sistema.active::before {
-    transform: translateX(25px);
-}
-
 /* Texto ao lado do botão de alternância */
 #toggleText {
     margin-left: 10px;

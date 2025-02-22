@@ -58,24 +58,6 @@ document.getElementById('cnpj').addEventListener('input', function() {
     }
 });
 
-// Seleciona o botão, a imagem e o texto
-const toggleButton = document.getElementById('toggleButton');
-const toggleText = document.getElementById('toggleText');
-const toggleImage = document.getElementById('toggleImage');
-
-// Função para atualizar a UI com base no estado do botão
-function updateButtonState(isActive) {
-    if (isActive) {
-        // Altera a imagem para 'gerencieaqui.png' e o texto quando ligado
-        toggleImage.src = 'assets/IconeSistema/GA.png'; // Caminho da nova imagem
-        toggleText.textContent = 'Alternar sistema';
-    } else {
-        // Retorna a imagem original 'SIEM Colorido.png' e o texto quando desligado
-        toggleImage.src = 'assets/IconeSistema/SIEM.png'; // Caminho da imagem original
-        toggleText.textContent = 'Alternar sistema';
-    }
-}
-
 // Função para redirecionar para a página e exibir mensagens de erro
 function redirectToPage(cnpj, targetPage) {
     const cleanedCNPJ = cnpj.replace(/\D/g, ''); // Remove tudo que não for número
