@@ -15,10 +15,6 @@ body {
     background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
 }
 
-h2 {
-    color: #d8000c;
-}
-
 .suggestions-button {
     text-align: center;
     margin-top: 20px;
@@ -97,6 +93,57 @@ input[type="text"] {
 .consultButtons{
     display: flex;
     gap: 10px;
+}
+
+
+/* Botão de consultar */
+button#confirmToken {
+    width: 100%; /* Botão ocupa a largura disponível */
+    max-width: 300px; /* Limita o tamanho do botão em telas maiores */
+    background-color: #2197f0;
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 500; /* Comfortaa-Medium */
+    text-align: center;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Suaviza a transição */
+}
+
+button#confirmToken:hover {
+    background-color: #1879d3; /* Cor do fundo quando o botão está em hover */
+    transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
+}
+
+
+#consultarModulosBtn {
+    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+}
+
+/* Quando a senha for validada, o botão se tornará visível */
+#consultarModulosBtn.show {
+    visibility: visible;
+}
+
+#consultaBKP {
+    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+}
+
+/* Quando a senha for validada, o botão se tornará visível */
+#consultaBKP.show {
+    visibility: visible;
+}
+
+#cnpj {
+    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+}
+
+/* Quando a senha for validada, o botão se tornará visível */
+#cnpj.show {
+    visibility: visible;
 }
 
 /* Botão de consultar */

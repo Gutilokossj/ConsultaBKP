@@ -104,3 +104,44 @@ function hideError() {
     errorElement.textContent = ""; // Limpa a mensagem de erro
     errorElement.classList.remove('visible'); // Remove a classe para esconder a mensagem
 }
+
+
+
+// Inserir senha e validar
+document.getElementById('confirmToken').addEventListener('click', function() {
+// Pega o valor do input de TOKEN e remove espaços extras
+const senha = document.getElementById('tokenValue').value.trim();
+
+// Verifica se o campo está vazio
+    if (!senha) {
+    alert("Por favor, preencha o token de segurança!");
+    return;
+}
+
+                // Verificação da senha
+                fetch(`https://servidor-proxy.vercel.app/proxy/validarToken`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ token }) // Envia a senha para o backend
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.valid) {  // Se a resposta for válida
+                        // Exibir o botão
+                        document.getElementById('confirmReset').classList.add('show');
+                        document.getElementById('cancelReset').classList.add('show');
+
+                        // Esconder o botão
+                        document.getElementById('inserirSenha').style.display = 'none';
+                        document.getElementById('cancelResetSenha').style.display = 'none';
+                    } else {
+                        alert("Senha incorreta. Tente novamente.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao validar a senha:', error);
+                    alert("Erro na validação da senha.");
+                });
+            });

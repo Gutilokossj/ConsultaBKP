@@ -22,6 +22,8 @@
         <form id="consultForm">
             <h2>Consultar</h2>
             <input data-testid="inputDigiteCNPJ" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ/CPF">
+            <input data-testid="inputToken" type="text" id="token" name="token" placeholder="Digite Token Segurança">
+            <button data-testid="confirmarToken" type="submit" id="confirmToken" >INSERIR TOKEN</button>
             <div class="consultButtons">
                 <button data-testid="submitConsultaModulos" type="submit" id="consultarModulosBtn">Módulos</button>
                 <button data-testid="submitConsultaBackupEnvio" type="submit" id="consultaBKP">Backup<span class="tooltip">Consulta Envio XML também!</span></button>
@@ -32,11 +34,6 @@
 
     <footer>
         <div id="footer-placeholder"></div>
-        <div class="suggestions-button">
-            <a href="https://discord.gg/6BQ8ZUcd" target="_blank" rel="noopener noreferrer">
-                <button> <strong>SERVIDOR DISCORD</strong></button>
-            </a>
-        </div>
     </footer>
     
 </body>
