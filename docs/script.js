@@ -107,41 +107,43 @@ function hideError() {
 
 
 
-// Inserir senha e validar
-document.getElementById('confirmToken').addEventListener('click', function() {
-// Pega o valor do input de TOKEN e remove espaços extras
-const senha = document.getElementById('tokenValue').value.trim();
+                // Inserir token e validar
+                document.getElementById('confirmToken').addEventListener('click', function() {
+                event.preventDefault(); // Prevê o envio do formulário
+                // Pega o valor do input de TOKEN e remove espaços extras
+                const token = document.getElementById('token').value.trim();
 
-// Verifica se o campo está vazio
-    if (!senha) {
-    alert("Por favor, preencha o token de segurança!");
-    return;
-}
+                // Verifica se o campo está vazio
+                    if (!token) {
+                    alert("Por favor, preencha o token de segurança!");
+                    return;
+                }
 
-                // Verificação da senha
+                // Verificação do token
                 fetch(`https://servidor-proxy.vercel.app/proxy/validarToken`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ token }) // Envia a senha para o backend
+                    body: JSON.stringify({ token }) // Envia o token para o backend
                 })
                 .then(response => response.json())
                 .then(data => {
                     if (data.valid) {  // Se a resposta for válida
-                        // Exibir o botão
-                        document.getElementById('confirmReset').classList.add('show');
-                        document.getElementById('cancelReset').classList.add('show');
+                        // Exibir o botões consulta módulos e BKP
+                        document.getElementById('cnpj').classList.add('show');
+                        document.getElementById('consultarModulosBtn').classList.add('show');
+                        document.getElementById('consultaBKP').classList.add('show');
 
-                        // Esconder o botão
-                        document.getElementById('inserirSenha').style.display = 'none';
-                        document.getElementById('cancelResetSenha').style.display = 'none';
+                        // Esconder o botões de token
+                        document.getElementById('token').style.display = 'none';
+                        document.getElementById('confirmToken').style.display = 'none';
                     } else {
-                        alert("Senha incorreta. Tente novamente.");
+                        alert("Token incorreto. Tente novamente.");
                     }
                 })
                 .catch(error => {
-                    console.error('Erro ao validar a senha:', error);
-                    alert("Erro na validação da senha.");
+                    console.error('Erro ao validar o token:', error);
+                    alert("Erro na validação do token.");
                 });
             });
