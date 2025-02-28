@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const cnpj = localStorage.getItem('cnpjDigitado');
 
     // Recupera o token armazenado no LocalStorage
-    const token = localStorage.getItem('authToken');
+    const token = localStorage.getItem('token');
         
     if (!token) {
         console.error("Token não encontrado. Redirecionando...");
