@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const cnpj = urlParams.get('cnpj');
+        // Recupera o CNPJ armazenado no LocalStorage
+        const cnpj = localStorage.getItem('cnpjDigitado');
     
     if (cnpj) {
         document.getElementById('cnpjInfo').textContent = `${formatCNPJ(cnpj)}`;

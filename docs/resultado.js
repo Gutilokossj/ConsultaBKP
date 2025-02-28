@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const cnpj = urlParams.get('cnpj');
+    // Recupera o CNPJ armazenado no LocalStorage
+    const cnpj = localStorage.getItem('cnpjDigitado');
 
     if (cnpj) {
         // Define a origem com base no estado do botão
@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
             if (modulesData.active) {
                 // Cliente está ativo: redireciona para a página específica de SIEM.
-                window.location.href = `resultadoSIEM.html?cnpj=${encodeURIComponent(cnpj)}`;
+                window.location.href = `resultadoSIEM.html`;
                 return; // Finaliza a execução
             } 
 
@@ -68,7 +68,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
                         if (modulesData.active) {
                             // Cliente está ativo: redireciona para a página específica de GA.
-                            window.location.href = `resultadoGA.html?cnpj=${encodeURIComponent(cnpj)}`;
+                            window.location.href = `resultadoGA.html`;
                             return; // Finaliza a execução
                         }
                         
@@ -97,7 +97,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
         
         // Redireciona para erroCancelado.html caso nenhuma condição anterior seja atendida
-        window.location.href = `erroCancelado.html?cnpj=${encodeURIComponent(cnpj)}`;
+        window.location.href = `erroCancelado.html`;
     
     }    
 

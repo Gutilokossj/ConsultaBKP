@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', async () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const cnpj = urlParams.get('cnpj');
+    // Recupera o CNPJ armazenado no LocalStorage
+    const cnpj = localStorage.getItem('cnpjDigitado');
 
     if (cnpj) {
 
@@ -168,15 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (exibeDetalhesButton) {
         exibeDetalhesButton.addEventListener('click', () => {
-            const cnpj = getQueryParam('cnpj');
-            console.log('CNPJ obtido:', cnpj);
+            const cnpj = localStorage.getItem('cnpjDigitado')
+            console.log('CNPJ obtido do LocalStorage:', cnpj);
             if (cnpj) {
-                const backupUrl = `resultado_BKP.html?cnpj=${encodeURIComponent(cnpj)}`;
+                const backupUrl = `resultado_BKP.html`;
                 console.log('Redirecionando para:', backupUrl); // Adicione este log para verificar a URL
                 window.location.href = backupUrl;
             } else {
                 console.error('CNPJ não encontrado na URL.');
-                window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
+                window.location.href = `erro.html`;
             }
         });
     }

@@ -1,6 +1,6 @@
     window.addEventListener('DOMContentLoaded', async () => {
-        const urlParams = new URLSearchParams(window.location.search);
-        const cnpj = urlParams.get('cnpj');
+        // Recupera o CNPJ armazenado no LocalStorage
+        const cnpj = localStorage.getItem('cnpjDigitado');
 
         if (cnpj) {
 
@@ -18,7 +18,7 @@
                 console.log('Dados recebidos da API:', data);
 
                 if (data.mensagem === 'Empresa não localizada') {
-                    window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
+                    window.location.href = `erro.html`;
                 } else {
 
                     // Verifica se o dado de último backup existe
@@ -58,10 +58,10 @@
                 }
             } catch (error) {
                 console.error('Erro ao consultar a API:', error);
-                window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
+                window.location.href = `erro.html`;
             }
         } else {
-            window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
+            window.location.href = `erro.html`;
         }
     });
 
@@ -71,15 +71,16 @@
 
         if (exibeModulosButton) {
             exibeModulosButton.addEventListener('click', () => {
-                const cnpj = getQueryParam('cnpj');
-                console.log('CNPJ obtido:', cnpj);
+                
+                const cnpj = localStorage.getItem('cnpjDigitado')
+                console.log('CNPJ obtido do LocalStorage:', cnpj);
                 if (cnpj) {
-                    const backupUrl = `resultado.html?cnpj=${encodeURIComponent(cnpj)}`;
+                    const backupUrl = `resultado.html`;
                     console.log('Redirecionando para:', backupUrl);
                     window.location.href = backupUrl;
                 } else {
-                    console.error('CNPJ não encontrado na URL.');
-                    window.location.href = `erro.html?cnpj=${encodeURIComponent(cnpj)}`;
+                    console.error('CNPJ não encontrado no LocalStorage.');
+                    window.location.href = `erro.html`;
                 }
             });
         }

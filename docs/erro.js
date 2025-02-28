@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    
-    // Obtém o CNPJ e a data de expiração da URL
-    const cnpj = urlParams.get('cnpj');
+    // Recupera o CNPJ armazenado no LocalStorage
+    const cnpj = localStorage.getItem('cnpjDigitado');
 
     // Exibe o CNPJ formatado
     if (cnpj) {
@@ -22,12 +20,14 @@ function formatCNPJ(cnpj) {
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const cnpj = urlParams.get('cnpj');
+    const cnpj = localStorage.getItem('cnpjDigitado');
 
-    // Seleciona o botão e adiciona o evento de clique
-    const button = document.getElementById('exibeModulos');
-    button.addEventListener('click', () => verificarModulos(cnpj)); // Chama a função ao clicar no botão
+    if (cnpj) {
+        const button = document.getElementById('exibeModulos');
+        button.addEventListener('click', () => verificarModulos(cnpj)); // Passa o CNPJ ao clicar no botão
+    } else {
+        console.error('CNPJ não encontrado no localStorage');
+    }
 });
 
 // Função para verificar os módulos
@@ -65,7 +65,7 @@ async function verificarModulos(cnpj) {
 
         if (modulesData.active) {
             // Redireciona para a página de resultado SIEM se o cliente estiver ativo
-            window.location.href = `resultadoSIEM.html?cnpj=${encodeURIComponent(cnpj)}`;
+            window.location.href = `resultadoSIEM.html`;
             return;
         }
 
@@ -78,7 +78,7 @@ async function verificarModulos(cnpj) {
 
             if (modulesData.active) {
                 // Redireciona para a página de resultado GA se o cliente estiver ativo
-                window.location.href = `resultadoGA.html?cnpj=${encodeURIComponent(cnpj)}`;
+                window.location.href = `resultadoGA.html`;
                 return;
             }
         } catch (error) {

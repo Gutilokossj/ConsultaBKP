@@ -15,13 +15,38 @@ body {
     background-attachment: fixed; /* A imagem de fundo fica fixa ao rolar a página */
 }
 
+#successMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #4CAF50; /* Cor verde de sucesso */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    display: none; /* Inicialmente escondido */
+    z-index: 9999; /* Para garantir que fique acima dos outros elementos */
+}
+
+#successMessage.show {
+    display: block; /* Exibe quando a classe 'show' for adicionada */
+}
+
+
 .suggestions-button {
     text-align: center;
     margin-top: 20px;
 }
 
+#inserirToken{
+    color: #4157b8;
+    font-size:xx-large;
+}
+
 .suggestions-button button {
-    background-color: #5662f6; /* Cor típica do WhatsApp */
+    background-color: #5662f6;
     color: #fff;
     border: none;
     border-radius: 12px;
@@ -90,6 +115,10 @@ input[type="text"] {
     margin-bottom: 15px;
 }
 
+#token{
+    width: 100%;
+}
+
 .consultButtons{
     display: flex;
     gap: 10px;
@@ -118,32 +147,38 @@ button#confirmToken:hover {
     transform: scale(1.05); /* Aumenta um pouco o tamanho do botão para um efeito de zoom */
 }
 
-
+/* Inicialmente invisível, mas o espaço ainda é ocupado */
 #consultarModulosBtn {
-    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+    display: none
 }
 
 /* Quando a senha for validada, o botão se tornará visível */
 #consultarModulosBtn.show {
-    visibility: visible;
+    display: block;
 }
 
 #consultaBKP {
-    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+    display: none
 }
 
-/* Quando a senha for validada, o botão se tornará visível */
 #consultaBKP.show {
-    visibility: visible;
+    display: block;
 }
 
 #cnpj {
-    visibility: hidden;  /* Inicialmente invisível, mas o espaço ainda é ocupado */
+    display: none;  
 }
 
-/* Quando a senha for validada, o botão se tornará visível */
 #cnpj.show {
-    visibility: visible;
+    display: block;
+}
+
+#consulte {
+    display: none; 
+}
+
+#consulte.show {
+    display: block;
 }
 
 /* Botão de consultar */
@@ -268,28 +303,27 @@ button#consultaBKP:hover .tooltip {
 }
 
 #errorMessage {
-    display: block;
+    display: none; /* Inicialmente não ocupa espaço */
     padding: 10px;
     margin: 10px 0;
-    background-color: #fddede; /* Cor de fundo suave para erros */
-    color: #d8000c; /* Cor do texto para destacar a mensagem de erro */
-    border: 1px solid #d8000c; /* Borda para reforçar a mensagem */
-    border-radius: 4px; /* Bordas arredondadas para um visual mais suave */
-    font-family: 'Arial', sans-serif; /* Fonte padrão e legível */
-    font-size: 1em; /* Tamanho da fonte */
-    line-height: 1.4; /* Espaçamento entre linhas */
-    text-align: center; /* Centraliza o texto */
-    opacity: 0; /* Inicialmente invisível */
-    transform: translateY(-10px); /* Ajuste na posição inicial para suavizar a animação */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Ajuste na transição */
-    visibility: hidden; /* Tornar o elemento não interativo enquanto oculto */
+    background-color: #fddede;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 4px;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Animação de aparecer com deslizar para cima */
+/* Quando a classe 'visible' for adicionada, o erro aparecerá */
 #errorMessage.visible {
-    opacity: 1; /* Torna visível */
-    transform: translateY(0); /* Move para a posição original */
-    visibility: visible; /* Exibe o elemento */
+    display: block; /* Agora ocupa espaço */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 
