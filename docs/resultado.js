@@ -2,6 +2,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     // Recupera o CNPJ armazenado no LocalStorage
     const cnpj = localStorage.getItem('cnpjDigitado');
 
+    // Recupera o token armazenado no LocalStorage
+    const token = localStorage.getItem('authToken');
+        
+    if (!token) {
+        console.error("Token não encontrado. Redirecionando...");
+        window.location.href = "erroSemToken.html"; // Redireciona para erro se não houver token
+        return; // Para a execução do código
+    }
+
     if (cnpj) {
         // Define a origem com base no estado do botão
         let origin = 'SIEM';

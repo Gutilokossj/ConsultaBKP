@@ -196,7 +196,7 @@ document.getElementById('confirmToken').addEventListener('click', function(event
             const currentDate = new Date();
             localStorage.setItem('lastTokenValidation', formatDate(currentDate)); // Armazena data (sem hora)
             localStorage.setItem('lastTokenValidationTime', currentDate.toISOString()); // Armazena a data e hora
-
+            localStorage.setItem('token', token); // Armazena o token validado
    
             enableFields();
 
