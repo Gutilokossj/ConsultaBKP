@@ -127,6 +127,15 @@ function checkTokenExpiration() {
         const eightHoursInMilliseconds = 5 * 1000; // 8 horas em milissegundos
 
         if (timeDifference >= eightHoursInMilliseconds) {
+
+            // Mostrar mensagem de sucesso
+            const tokenExpiratedMessage = document.getElementById('tokenExpiratedMessage');
+            tokenExpiratedMessage.classList.add('show');
+            
+            // Ocultar a mensagem após alguns segundos
+            setTimeout(() => {
+                tokenExpiratedMessage.classList.remove('show');
+            }, 3000); // 3 segundos
             requestToken(); // Solicita o token
         } else {
             // Libera os campos

@@ -34,6 +34,25 @@ body {
     display: block; /* Exibe quando a classe 'show' for adicionada */
 }
 
+#tokenExpiratedMessage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #d81c35; /* Cor verde de sucesso */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    display: none; /* Inicialmente escondido */
+    z-index: 9999; /* Para garantir que fique acima dos outros elementos */
+}
+
+#tokenExpiratedMessage.show {
+    display: block; /* Exibe quando a classe 'show' for adicionada */
+}
+
 
 .suggestions-button {
     text-align: center;
