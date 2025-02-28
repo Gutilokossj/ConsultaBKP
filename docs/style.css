@@ -200,6 +200,14 @@ button#confirmToken:hover {
     display: block;
 }
 
+#discordServer {
+    display: none; 
+}
+
+#discordServer.show {
+    display: block;
+}
+
 /* Botão de consultar */
 button#consultarModulosBtn {
     width: 100%; /* Botão ocupa a largura disponível */

@@ -44,7 +44,6 @@ document.getElementById('consultaBKP').addEventListener('click', function(event)
 });
 
 
-// Adiciona um evento de input ao campo de CNPJ/CPF para ocultar a mensagem de erro quando o valor é alterado
 document.getElementById('cnpj').addEventListener('input', function() {
     // Verifica o valor do CNPJ/CPF e oculta a mensagem se for válido
     const inputValue = this.value;
@@ -54,7 +53,6 @@ document.getElementById('cnpj').addEventListener('input', function() {
         hideError(); // Oculta a mensagem se o valor for válido
     } else {
         // Caso o valor ainda seja inválido, não faz nada
-        // A mensagem de erro será exibida novamente quando o formulário for submetido
     }
 });
 
@@ -123,8 +121,8 @@ function checkTokenExpiration() {
         // Caso a data de validação seja hoje, checa se se passaram mais de 8 horas
         const lastValidationTime = new Date(localStorage.getItem('lastTokenValidationTime'));
         const timeDifference = currentDate - lastValidationTime; // Em milissegundos
-        //const eightHoursInMilliseconds = 8 * 60 * 60 * 1000; // 8 horas em milissegundos
-        const eightHoursInMilliseconds = 5 * 1000; // 8 horas em milissegundos
+        const eightHoursInMilliseconds = 8 * 60 * 60 * 1000; // 8 horas em milissegundos
+        //const eightHoursInMilliseconds = 5 * 1000; // 8 horas em milissegundos
 
         if (timeDifference >= eightHoursInMilliseconds) {
 
@@ -132,10 +130,10 @@ function checkTokenExpiration() {
             const tokenExpiratedMessage = document.getElementById('tokenExpiratedMessage');
             tokenExpiratedMessage.classList.add('show');
             
-            // Ocultar a mensagem após alguns segundos
+   
             setTimeout(() => {
                 tokenExpiratedMessage.classList.remove('show');
-            }, 3000); // 3 segundos
+            }, 3000);
             requestToken(); // Solicita o token
         } else {
             // Libera os campos
@@ -156,6 +154,7 @@ function requestToken() {
     document.getElementById('cnpj').style.display = 'none';
     document.getElementById('consultarModulosBtn').style.display = 'none';
     document.getElementById('consultaBKP').style.display = 'none';
+    document.getElementById('discordServer').style.display = 'none';
 }
 
 // Função para liberar os campos
@@ -165,6 +164,7 @@ function enableFields() {
     document.getElementById('cnpj').style.display = 'block';
     document.getElementById('consultarModulosBtn').style.display = 'block';
     document.getElementById('consultaBKP').style.display = 'block';
+    document.getElementById('discordServer').style.display = 'block';
 
     // Esconde os campos de token
     document.getElementById('inserirToken').style.display = 'none';
@@ -197,7 +197,7 @@ document.getElementById('confirmToken').addEventListener('click', function(event
             localStorage.setItem('lastTokenValidation', formatDate(currentDate)); // Armazena data (sem hora)
             localStorage.setItem('lastTokenValidationTime', currentDate.toISOString()); // Armazena a data e hora
 
-            // Libera os campos
+   
             enableFields();
 
             // Mostrar mensagem de sucesso
